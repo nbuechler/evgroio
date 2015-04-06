@@ -1,7 +1,7 @@
 <section data-ng-controller="LogsController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1 data-ng-bind="log.name"></h1>
-	</div>
+        <h1 data-ng-bind="log.name"></h1>
+    </div>
 	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == log.user._id))">
 		<a class="btn btn-primary" href="/#!/logs/{{log._id}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>
@@ -18,4 +18,9 @@
 			<span data-ng-bind="log.user.displayName"></span>
 		</em>
 	</small>
+    
+    <footer style="position:fixed; height:50px; background-color: lightGray; bottom:0px;  margin-bottom:0px;">
+        <a class="btn btn-inverse btn-lg" href="#!/logs" >Back to logs</a></div>
+		<div></div>
+	</footer>
 </section>
