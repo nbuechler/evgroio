@@ -1,0 +1,35 @@
+.box {
+    border-radius: 5px;
+    padding: 30px;
+    margin-top: 30px;
+    background: lightgray;
+}
+
+.logJumbotron {
+    background: darkGray;
+}
+
+#physicContent {
+    border: solid 2px #56222E;
+    color: white;
+}
+#emotionContent {
+    border: solid 2px #262561;
+    background: solid 2px #262561;
+    color: white;
+}
+#academicContent {
+    border: solid 2px #632F5F;
+    background: solid 2px #632F5F;
+    color: white;
+}
+#communeContent {
+    border: solid 2px #296A52;
+    background: solid 2px #296A52;
+    color: white;
+}
+#etherContent {
+    border: solid 2px #775923;
+    background: solid 2px #775923;
+    color: white;
+}

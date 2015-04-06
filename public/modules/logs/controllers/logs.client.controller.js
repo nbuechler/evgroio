@@ -9,7 +9,12 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
 		$scope.create = function() {
 			// Create new Log object
 			var log = new Logs ({
-				name: this.name
+				name: this.name,
+                physicContent: this.physicContent,
+                emotionContent: this.emotionContent,
+                academicContent: this.academicContent,
+                communeContent: this.communeContent,
+                etherContent: this.etherContent
 			});
 
 			// Redirect after save
