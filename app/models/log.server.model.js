@@ -16,6 +16,31 @@ var LogSchema = new Schema({
 		required: 'Please fill Log name',
 		trim: true
 	},
+    physicContent: {
+        type: String,
+        default: '',
+        trim: true,
+    },
+    emotionContent: {
+        type: String,
+        default: '',
+        trim: true,
+    },
+    academicContent: {
+        type: String,
+        default: '',
+        trim: true,
+    },
+    communeContent: {
+        type: String,
+        default: '',
+        trim: true,
+    },
+    etherContent: {
+        type: String,
+        default: '',
+        trim: true,
+    },
 	created: {
 		type: Date,
 		default: Date.now

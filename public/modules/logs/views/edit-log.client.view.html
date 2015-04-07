@@ -1,19 +1,64 @@
 <section data-ng-controller="LogsController" data-ng-init="findOne()">
+    <link rel="stylesheet" type="text/css" href="../css/box.css"></link>
     <div class="page-header">
-        <h1>Edit Log</h1>
+        <h3 style="text-align: center;">Daily Reflection Exercise!</h3>
+        <label class="pull-right" data-ng-bind="log.created | date:'MMMM dd, yyyy - h:mm:ss a'"></label>
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="update()" novalidate>
             <fieldset>
                 <div class="form-group">
-                    <label class="control-label" for="name">Name</label>
+                    <label class="control-label" for="name">Reflection Title</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="log.name" id="name" class="form-control" placeholder="Name" required>
+                        <input type="text" data-ng-model="log.name" id="name" class="form-control" placeholder="Reflection Title" required>
                     </div>
                 </div>
-                <div class="form-group">
-                    <input type="submit" value="Update" class="btn btn-default">
+                
+                <div class="logJumbotron jumbotron">
+                    
+                    <div class="row">
+                        <div class="col-lg-3"></div>
+                            <div class="col-lg-6 box marginPaddingBox" id="physicContent">
+                                <input type="text" data-ng-model="log.physicContent" id="physicContentINPUT" class="form-control" placeholder="What was your physical activity today?">
+                            </div>
+                        <div class="col-lg-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3"></div>
+                            <div class="col-lg-6 box marginPaddingBox" id="emotionContent">
+                                <input type="text" data-ng-model="log.emotionContent" id="emotionContentINPUT" class="form-control" placeholder="What was your emotional activity today?">
+                            </div>
+                        <div class="col-lg-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3"></div>
+                            <div class="col-lg-6 box marginPaddingBox" id="academicContent">
+                                <input type="text" data-ng-model="log.academicContent" id="academicContentINPUT" class="form-control" placeholder="What was your academic activity today?">
+                            </div>
+                        <div class="col-lg-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3"></div>
+                            <div class="col-lg-6 box marginPaddingBox" id="communeContent">
+                                <input type="text" data-ng-model="log.communeContent" id="communeContentINPUT" class="form-control" placeholder="What was your communal activity today?">
+                            </div>
+                        <div class="col-lg-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3"></div>
+                            <div class="col-lg-6 box marginPaddingBox" id="etherContent">
+                                <input type="text" data-ng-model="log.etherContent" id="etherContentINPUT" class="form-control" placeholder="What was your etheral activity today?">
+                            </div>
+                        <div class="col-lg-3"></div>
+                    </div>
+                    
                 </div>
+                
+                <div class="form-group">
+                    <input class="btn btn-default btn-lg pull-right" type="submit" class="btn btn-default" value="Update Reflection">
+                </div>
+                
+                
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>
 				</div>

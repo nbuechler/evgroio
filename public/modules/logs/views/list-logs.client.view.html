@@ -11,6 +11,13 @@
 				<span data-ng-bind="log.user.displayName"></span>
 			</small>
 			<h4 class="list-group-item-heading" data-ng-bind="log.name"></h4>
+            <div class="">
+                <span id="physicBox" class="doesItExistBox"></span>
+                <span id="emotionBox" class="doesItExistBox"></span>
+                <span id="academicBox" class="doesItExistBox"></span>
+                <span id="communeBox" class="doesItExistBox"></span>
+                <span id="etherBox" class="doesItExistBox"></span>
+            </div>
         </a>
     </div>
     <div class="alert alert-warning text-center" data-ng-hide="!logs.$resolved || logs.length">
