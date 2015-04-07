@@ -1,7 +1,7 @@
 .box {
     border-radius: 5px;
-    padding: 30px;
-    margin-top: 30px;
+    
+
     background: lightgray;
 }
 
@@ -15,21 +15,91 @@
 }
 #emotionContent {
     border: solid 2px #262561;
-    background: solid 2px #262561;
     color: white;
 }
 #academicContent {
     border: solid 2px #632F5F;
-    background: solid 2px #632F5F;
     color: white;
 }
 #communeContent {
     border: solid 2px #296A52;
-    background: solid 2px #296A52;
     color: white;
 }
 #etherContent {
     border: solid 2px #775923;
-    background: solid 2px #775923;
     color: white;
+}
+
+#physicBox {
+    border: solid 2px #56222E;
+    background: #56222E;
+    
+    text-align: center;
+    
+    color: white;
+    
+    border-radius: 5px;
+    
+
+    
+}
+#emotionBox {
+    border: solid 2px #262561;
+    background: #262561;
+    
+    text-align: center;
+    
+    color: white;
+    
+    border-radius: 5px;
+    
+
+    
+}
+#academicBox {
+    border: solid 2px #632F5F;
+    background: #632F5F;
+    
+    text-align: center;
+    
+    color: white;
+    
+    border-radius: 5px;
+    
+
+    
+}
+#communeBox {
+    border: solid 2px #296A52;
+    background: #296A52;
+    
+    text-align: center;
+    
+    color: white;
+    
+    border-radius: 5px;
+    
+
+    
+}
+#etherBox {
+    border: solid 2px #775923;
+    background: #775923;
+    
+    text-align: center;
+    
+    color: white;
+    
+    border-radius: 5px;
+    
+    
+}
+
+.marginPaddingBox {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.doesItExistBox {
+    margin: 10px;
 }

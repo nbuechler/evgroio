@@ -1,6 +1,7 @@
 <section data-ng-controller="LogsController">
     <div class="page-header">
-        <h1 style="text-align: center;">Daily Reflection Exercise!</h1>
+        <h3 style="text-align: center;">Daily Reflection Exercise!</h3>
+        <label class="pull-right" data-ng-bind="log.created | date:'MMMM dd, yyyy'"></label>
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="create()" novalidate>
@@ -15,35 +16,35 @@
                     
                     <div class="row">
                         <div class="col-lg-3"></div>
-                            <div class="col-lg-6 box" id="physicContent">
+                            <div class="col-lg-6 box marginPaddingBox" id="physicContent">
                                 <input type="text" data-ng-model="physicContent" id="physicContentINPUT" class="form-control" placeholder="What was your physical activity today?">
                             </div>
                         <div class="col-lg-3"></div>
                     </div>
                     <div class="row">
                         <div class="col-lg-3"></div>
-                            <div class="col-lg-6 box" id="emotionContent">
+                            <div class="col-lg-6 box marginPaddingBox" id="emotionContent">
                                 <input type="text" data-ng-model="emotionContent" id="emotionContentINPUT" class="form-control" placeholder="What was your emotional activity today?">
                             </div>
                         <div class="col-lg-3"></div>
                     </div>
                     <div class="row">
                         <div class="col-lg-3"></div>
-                            <div class="col-lg-6 box" id="academicContent">
+                            <div class="col-lg-6 box marginPaddingBox" id="academicContent">
                                 <input type="text" data-ng-model="academicContent" id="academicContentINPUT" class="form-control" placeholder="What was your academic activity today?">
                             </div>
                         <div class="col-lg-3"></div>
                     </div>
                     <div class="row">
                         <div class="col-lg-3"></div>
-                            <div class="col-lg-6 box" id="communeContent">
+                            <div class="col-lg-6 box marginPaddingBox"  id="communeContent">
                                 <input type="text" data-ng-model="communeContent" id="communeContentINPUT" class="form-control" placeholder="What was your communal activity today?">
                             </div>
                         <div class="col-lg-3"></div>
                     </div>
                     <div class="row">
                         <div class="col-lg-3"></div>
-                            <div class="col-lg-6 box" id="etherContent">
+                            <div class="col-lg-6 box marginPaddingBox" id="etherContent">
                                 <input type="text" data-ng-model="etherContent" id="etherContentINPUT" class="form-control" placeholder="What was your etheral activity today?">
                             </div>
                         <div class="col-lg-3"></div>
@@ -74,7 +75,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <input class="pull-right" type="submit" class="btn btn-default">
+                    <input class="btn btn-success btn-lg pull-right" type="submit" class="btn btn-default" value="Save Reflection">
                 </div>
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>
