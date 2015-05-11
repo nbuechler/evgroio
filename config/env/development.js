@@ -2,7 +2,7 @@
 
 module.exports = {
 //	db: 'mongodb://localhost/evgroio-dev',
-	db: 'https://api.mongolab.com/api/1/databases?apiKey=J48vQRRuQ63Puz9jC6qgl-LIUHiak6iw',
+	db: 'mongodb://evgroio01:admin@ds041238.mongolab.com:41238/heroku_app36697506',
 	app: {
 		title: 'evgroio - Development Environment'
 	},
