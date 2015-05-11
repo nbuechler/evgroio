@@ -1,7 +1,8 @@
 'use strict';
 
 module.exports = {
-	db: 'mongodb://localhost/evgroio-dev',
+//	db: 'mongodb://localhost/evgroio-dev',
+	db: 'https://api.mongolab.com/api/1/databases?apiKey=J48vQRRuQ63Puz9jC6qgl-LIUHiak6iw',
 	app: {
 		title: 'evgroio - Development Environment'
 	},
