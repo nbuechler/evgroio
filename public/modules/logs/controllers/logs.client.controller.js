@@ -56,11 +56,20 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
 			});
 		};
 
+        // Set marker for creating new log... for first time users
+        $scope.displayFirstTime = true;
+        
 		// Find a list of Logs
 		$scope.find = function() {
 			$scope.logs = Logs.query();
 		};
 
+        for(var i in $scope.find) {
+            if(i._id === $scope.authentication.user._id) {
+                $scope.displayFirstTime = false;
+            }
+        }
+        
 		// Find existing Log
 		$scope.findOne = function() {
 			$scope.log = Logs.get({ 

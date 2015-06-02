@@ -35,6 +35,9 @@
 				by
 				<span data-ng-bind="log.user.displayName"></span>
 			</small>
+            <div class="pull-right" style="color: gray;" ng-show="{{(log.user._id === authentication.user._id)}}">
+                My Log
+            </div>
 			<h4 class="list-group-item-heading" data-ng-bind="log.name"></h4>
             <div class="" style="text-align: center;">
                 <span ng-if="log.physicContent.length > 0" id="physicBox" class="globalPadding">{{log.physicContent.length}}</span>
@@ -45,7 +48,12 @@
             </div>
         </a>
     </div>
+<!--
     <div class="alert alert-warning text-center" data-ng-hide="!logs.$resolved || logs.length">
     	No Logs yet, why don't you <a href="/#!/logs/create">create one</a>?
+    </div>
+-->
+    <div class="alert alert-success text-center">
+    	Remember to reflect every day! Why don't you <a href="/#!/logs/create">create a new log entry now</a>?
     </div>
 </section>
