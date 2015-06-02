@@ -1,7 +1,7 @@
 language: node_js
 sudo: required
 node_js:
-- '0.10'
+- '0.10.32'
 env:
 - NODE_ENV=travis
 services:
