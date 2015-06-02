@@ -19,11 +19,11 @@
 		</em>
 	</small>
         <div class="row" style="margin-top: 30px; margin-bottom: 100px;">
-            <div id="physicBox" class="marginPaddingBox" data-ng-bind="log.physicContent"></div>
-            <div id="emotionBox" class="marginPaddingBox" data-ng-bind="log.emotionContent"></div>
-            <div id="academicBox" class="marginPaddingBox" data-ng-bind="log.academicContent"></div>
-            <div id="communeBox" class="marginPaddingBox" data-ng-bind="log.communeContent"></div>
-            <div id="etherBox" class="marginPaddingBox" data-ng-bind="log.etherContent"></div>
+            <div ng-if="log.physicContent.length > 0" id="physicBox" class="marginPaddingBox" data-ng-bind="log.physicContent"></div>
+            <div ng-if="log.emotionContent.length > 0" id="emotionBox" class="marginPaddingBox" data-ng-bind="log.emotionContent"></div>
+            <div ng-if="log.academicContent.length > 0" id="academicBox" class="marginPaddingBox" data-ng-bind="log.academicContent"></div>
+            <div ng-if="log.communeContent.length > 0" id="communeBox" class="marginPaddingBox" data-ng-bind="log.communeContent"></div>
+            <div ng-if="log.etherContent.length > 0" id="etherBox" class="marginPaddingBox" data-ng-bind="log.etherContent"></div>
         </div>
     <footer style="position:fixed; height:50px; background-color: lightGray; bottom:0px;  margin-bottom:0px;">
         <a class="btn btn-inverse btn-lg" href="#!/logs" >Back to logs</a></div>

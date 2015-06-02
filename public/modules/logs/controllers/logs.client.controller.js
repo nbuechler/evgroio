@@ -67,5 +67,18 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
 				logId: $stateParams.logId
 			});
 		};
+        
+        // Show Public Log defaults to false
+        $scope.hidePublic = true;
+        
+        // Toggle Public Log
+        $scope.togglePublic = function() {
+            if($scope.hidePublic){
+                $scope.hidePublic = false;
+            } else {
+                $scope.hidePublic = true;
+            }
+        }
+        
 	}
 ]);
