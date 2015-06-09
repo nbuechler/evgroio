@@ -57,6 +57,7 @@
 	</script>
 
 	<!--Application JavaScript Files-->
+    <!--Find jsFiles here: config/env/*.js file(s)-->
 	{% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>{% endfor %} 
 
 	{% if process.env.NODE_ENV === 'development' %}
