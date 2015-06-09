@@ -1,59 +1,62 @@
 <section data-ng-controller="LogsController" data-ng-init="find()">
-    <div class="page-header">
-        <h1>Logs</h1>
-        <div class="pull-right">
-            See what your fellow humans write about! <div class="btn btn-default" ng-click="togglePublic()">Click me!</div>
+    <div class="listWrapper">
+        <div class="page-header">
+            <h1>Logs</h1>
+            <div class="pull-right">
+                See what your fellow humans write about! <div class="btn btn-default" ng-click="togglePublic()">Click me!</div>
+            </div>
+            <br>
         </div>
         <br>
-    </div>
+
+        <div class="list-group" ng-show="hidePublic">
+            <a data-ng-repeat="log in logs" data-ng-href="#!/logs/{{log._id}}" class="list-group-item col-lg-4" ng-show="{{(log.user._id === authentication.user._id)}}">
+                <small class="list-group-item-text">
+                    Posted on
+                    <span data-ng-bind="log.created | date:'medium'"></span>
+                    by
+                    <span data-ng-bind="log.user.displayName"></span>
+                </small>
+                <h4 class="list-group-item-heading" data-ng-bind="log.name"></h4>
+                <div class="" style="text-align: center;">
+                    <span ng-if="log.physicContent.length > 0" id="physicBox" class="globalPadding">{{log.physicContent.length}}</span>
+                    <span ng-if="log.emotionContent.length > 0" id="emotionBox" class="globalPadding">{{log.emotionContent.length}}</span>
+                    <span ng-if="log.academicContent.length > 0" id="academicBox" class="globalPadding">{{log.academicContent.length}}</span>
+                    <span ng-if="log.communeContent.length > 0" id="communeBox" class="globalPadding">{{log.communeContent.length}}</span>
+                    <span ng-if="log.etherContent.length > 0" id="etherBox" class="globalPadding">{{log.etherContent.length}}</span>
+                </div>
+            </a>
+        </div>
+        <div class="list-group" ng-hide="hidePublic">
+            <a data-ng-repeat="log in logs" data-ng-href="#!/logs/{{log._id}}" class="list-group-item col-lg-4">
+                <small class="list-group-item-text">
+                    Posted on
+                    <span data-ng-bind="log.created | date:'medium'"></span>
+                    by
+                    <span data-ng-bind="log.user.displayName"></span>
+                </small>
+                <div class="pull-right badge" ng-show="{{(log.user._id === authentication.user._id)}}">
+                    My Log
+                </div>
+                <h4 class="list-group-item-heading" data-ng-bind="log.name"></h4>
+                <div class="" style="text-align: center;">
+                    <span ng-if="log.physicContent.length > 0" id="physicBox" class="globalPadding">{{log.physicContent.length}}</span>
+                    <span ng-if="log.emotionContent.length > 0" id="emotionBox" class="globalPadding">{{log.emotionContent.length}}</span>
+                    <span ng-if="log.academicContent.length > 0" id="academicBox" class="globalPadding">{{log.academicContent.length}}</span>
+                    <span ng-if="log.communeContent.length > 0" id="communeBox" class="globalPadding">{{log.communeContent.length}}</span>
+                    <span ng-if="log.etherContent.length > 0" id="etherBox" class="globalPadding">{{log.etherContent.length}}</span>
+                </div>
+                <list-viz ng-hide="hidePublic"></list-viz>
+            </a>
+        </div>
+    <!--
+        <div class="alert alert-warning text-center" data-ng-hide="!logs.$resolved || logs.length">
+            No Logs yet, why don't you <a href="/#!/logs/create">create one</a>?
+        </div>
+    -->
     
-    <br>
-    
-    <div class="list-group" ng-show="hidePublic">
-        <a data-ng-repeat="log in logs" data-ng-href="#!/logs/{{log._id}}" class="list-group-item" ng-show="{{(log.user._id === authentication.user._id)}}">
-			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="log.created | date:'medium'"></span>
-				by
-				<span data-ng-bind="log.user.displayName"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="log.name"></h4>
-            <div class="" style="text-align: center;">
-                <span ng-if="log.physicContent.length > 0" id="physicBox" class="globalPadding">{{log.physicContent.length}}</span>
-                <span ng-if="log.emotionContent.length > 0" id="emotionBox" class="globalPadding">{{log.emotionContent.length}}</span>
-                <span ng-if="log.academicContent.length > 0" id="academicBox" class="globalPadding">{{log.academicContent.length}}</span>
-                <span ng-if="log.communeContent.length > 0" id="communeBox" class="globalPadding">{{log.communeContent.length}}</span>
-                <span ng-if="log.etherContent.length > 0" id="etherBox" class="globalPadding">{{log.etherContent.length}}</span>
-            </div>
-        </a>
     </div>
-    <div class="list-group" ng-hide="hidePublic">
-        <a data-ng-repeat="log in logs" data-ng-href="#!/logs/{{log._id}}" class="list-group-item">
-			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="log.created | date:'medium'"></span>
-				by
-				<span data-ng-bind="log.user.displayName"></span>
-			</small>
-            <div class="pull-right" style="color: gray;" ng-show="{{(log.user._id === authentication.user._id)}}">
-                My Log
-            </div>
-			<h4 class="list-group-item-heading" data-ng-bind="log.name"></h4>
-            <div class="" style="text-align: center;">
-                <span ng-if="log.physicContent.length > 0" id="physicBox" class="globalPadding">{{log.physicContent.length}}</span>
-                <span ng-if="log.emotionContent.length > 0" id="emotionBox" class="globalPadding">{{log.emotionContent.length}}</span>
-                <span ng-if="log.academicContent.length > 0" id="academicBox" class="globalPadding">{{log.academicContent.length}}</span>
-                <span ng-if="log.communeContent.length > 0" id="communeBox" class="globalPadding">{{log.communeContent.length}}</span>
-                <span ng-if="log.etherContent.length > 0" id="etherBox" class="globalPadding">{{log.etherContent.length}}</span>
-            </div>
-        </a>
-    </div>
-<!--
-    <div class="alert alert-warning text-center" data-ng-hide="!logs.$resolved || logs.length">
-    	No Logs yet, why don't you <a href="/#!/logs/create">create one</a>?
-    </div>
--->
-    <div class="alert alert-success text-center">
+    <div class="alert alert-success text-center footer">
     	Remember to reflect every day! Why don't you <a href="/#!/logs/create">create a new log entry now</a>?
     </div>
 </section>

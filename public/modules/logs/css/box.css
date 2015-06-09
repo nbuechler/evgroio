@@ -103,3 +103,23 @@
 .globalPadding {
     margin: 10px;
 }
+
+/*TODO: Refactor out footer later*/
+
+.listWrapper {
+    padding-bottom: 300px;
+}
+
+.footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    width:100%;
+    margin-bottom: 0px;
+}
+
+/*TODO: Refactor out D3 styles later*/
+
+text {
+  font: 10px sans-serif;
+}
