@@ -103,3 +103,15 @@
 .globalPadding {
     margin: 10px;
 }
+
+.listWrapper {
+    padding-bottom: 300px;
+}
+
+.footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    width:100%;
+    margin-bottom: 0px;
+}
