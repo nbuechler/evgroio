@@ -1,34 +1,90 @@
+.ng-invalid.ng-dirty {
+	border-color: none;
+}
+.ng-valid.ng-dirty {
+	border-color: none;
+}
+
+
 .box {
     border-radius: 5px;
-    
+    width: auto;
+    max-width: 225px;
+    max-height: 100px;
+    z-index: 10;
+}
 
-    background: lightgray;
+.echoedText {
+    font-size: 100px;
+    opacity: .2;
+    margin-top: -175px;
+    max-width: none;
+    position: relative;
+    z-index: 0;    
+}
+
+.editArea {
+    border-color: none; 
+    resize: none; 
+    height: 200px; 
+    width: 200px; 
+    text-align: center;
 }
 
 .logJumbotron {
     background: darkGray;
 }
 
-#physicContent {
+.physicContent {
     border: solid 2px #56222E;
+    background: #56222E;
     color: white;
 }
-#emotionContent {
+
+.physicFadedContent {
+    color: #56222E;
+}
+
+.emotionContent {
     border: solid 2px #262561;
+    background: #262561;
     color: white;
 }
-#academicContent {
+
+.emotionFadedContent {
+    color: #262561;
+}
+
+.academicContent {
     border: solid 2px #632F5F;
+    background: #632F5F;
     color: white;
 }
-#communeContent {
+
+.academicFadedContent {
+    color: #632F5F;
+}
+
+.communeContent {
     border: solid 2px #296A52;
+    background: #296A52;
     color: white;
 }
-#etherContent {
+
+.communeFadedContent {
+    color: #296A52;
+}
+
+.etherContent {
     border: solid 2px #775923;
+    background: #775923;
     color: white;
 }
+
+.etherFadedContent {
+    color: #775923;
+}
+
 
 #physicBox {
     border: solid 2px #56222E;
