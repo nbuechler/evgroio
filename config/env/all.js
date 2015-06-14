@@ -14,8 +14,7 @@ module.exports = {
 		lib: {
 			css: [
 				'public/customLib/bootstrapThemed/darkly/bootstrap.css',
-                'public/lib/fontawesome/css/font-awesome.css',
-                'public/lib/fontawesome/css/font-awesome.css.map'
+                'public/lib/fontawesome/css/font-awesome.css'
 			],
 			js: [
 				'public/lib/angular/angular.js',
