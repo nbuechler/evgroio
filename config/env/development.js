@@ -4,7 +4,7 @@ module.exports = {
 //	db: 'mongodb://localhost/evgroio-dev',
 	db: 'mongodb://evgroio01:admin@ds041238.mongolab.com:41238/heroku_app36697506',
 	app: {
-		title: 'evgroio - Development Environment'
+		title: 'evgroio - Dev Environment'
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',
