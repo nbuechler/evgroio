@@ -35,7 +35,7 @@ angular.module('logs').directive('listViz', [
                   content: [scope.log.physicContent.length, scope.log.emotionContent.length, scope.log.academicContent.length, scope.log.communeContent.length, scope.log.etherContent.length],
                 };
 
-                var width = 350,
+                var width = 300,
                     height = 400,
                     radius = Math.min(width, height) / 2;
 
