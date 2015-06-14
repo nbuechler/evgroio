@@ -9,7 +9,7 @@
                 <div class="form-group" style="position: relative; z-index: 10; text-align: center; width: 225px;">
                     <label class="control-label" for="name">Reflection Title</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="What is the theme of your day?" required>
+                        <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Pick a theme!" required>
                     </div>
                 </div>
                 
@@ -17,7 +17,7 @@
                 
                     <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6 box marginPaddingBox physicContent">
-                                <textarea type="text" data-ng-model="physicContent" id="physicContentINPUT" class="editArea form-control" placeholder="What was your physical activity today?"></textarea>
+                                <textarea type="text" data-ng-model="physicContent" id="physicContentINPUT" class="editArea form-control" placeholder="What did you do with your body?"></textarea>
                             </div>
                         <div class="physicFadedContent echoedText box col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right">
                             <div>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6 box marginPaddingBox emotionContent">
-                                <textarea type="text" data-ng-model="emotionContent" id="emotionContentINPUT" class="editArea form-control" placeholder="What was your emotional activity today?"></textarea>
+                                <textarea type="text" data-ng-model="emotionContent" id="emotionContentINPUT" class="editArea form-control" placeholder="What gave you feeling?"></textarea>
                             </div>
                         <div class="emotionFadedContent echoedText box col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right">
                             <div>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6 box marginPaddingBox academicContent">
-                                <textarea type="text" data-ng-model="academicContent" id="academicContentINPUT" class="editArea form-control" placeholder="What was your academic activity today?"></textarea>
+                                <textarea type="text" data-ng-model="academicContent" id="academicContentINPUT" class="editArea form-control" placeholder="What made you smarter?"></textarea>
                             </div>
                         <div class="academicFadedContent echoedText box col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right">
                             <div>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6 box marginPaddingBox communeContent">
-                                <textarea type="text" data-ng-model="communeContent" id="communeContentINPUT" class="editArea form-control" placeholder="What was your communal activity today?"></textarea>
+                                <textarea type="text" data-ng-model="communeContent" id="communeContentINPUT" class="editArea form-control" placeholder="What changed between you and humanity?"></textarea>
                             </div>
                         <div class="communeFadedContent echoedText box col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right">
                             <div>
@@ -57,7 +57,7 @@
                     </div>
                     <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6 box marginPaddingBox etherContent">
-                                <textarea type="text" data-ng-model="etherContent" id="etherContentINPUT" class="editArea form-control" placeholder="What was your etheral activity today?"></textarea>
+                                <textarea type="text" data-ng-model="etherContent" id="etherContentINPUT" class="editArea form-control" placeholder="What connected you to the cosmos?"></textarea>
                             </div>
                         <div class="etherFadedContent echoedText box col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right">
                             <div>
@@ -69,8 +69,7 @@
                 </div>
                 
                 <div class="form-group" style="position: relative; z-index: 10; margin-top: 15px; text-align: center; width: 225px;">
-                    <input class="btn btn-inverse btn-lg" style="background: #15211B;
-color: white;" type="submit" class="btn btn-default" value="Save Reflection">
+                    <input class="btn btn-default btn-lg" type="submit" class="btn btn-default" value="Save Reflection">
                 </div>
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>

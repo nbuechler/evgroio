@@ -13,8 +13,8 @@ module.exports = {
 	assets: {
 		lib: {
 			css: [
-				'public/lib/bootstrap/dist/css/bootstrap.css',
-				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+				'public/customLib/bootstrapThemed/darkly/bootstrap.css',
+                'public/lib/fontawesome/css/font-awesome.css'
 			],
 			js: [
 				'public/lib/angular/angular.js',

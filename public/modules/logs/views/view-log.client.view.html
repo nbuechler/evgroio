@@ -3,11 +3,11 @@
         <h1 data-ng-bind="log.name"></h1>
     </div>
 	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == log.user._id))">
-		<a class="btn btn-primary" href="/#!/logs/{{log._id}}/edit">
-			<i class="glyphicon glyphicon-edit"></i>
+		<a class="btn btn-info" href="/#!/logs/{{log._id}}/edit">
+			<i class="fa fa-pencil-square"></i> Change
 		</a>
-		<a class="btn btn-primary" data-ng-click="remove();">
-			<i class="glyphicon glyphicon-trash"></i>
+		<a class="btn btn-info" data-ng-click="remove();">
+			<i class="fa fa-trash"></i> Remove
 		</a>
 	</div>
 	<small>
@@ -19,11 +19,11 @@
 		</em>
 	</small>
         <div class="row" style="margin-top: 30px; margin-bottom: 100px;">
-            <div ng-if="log.physicContent.length > 0" id="physicBox" class="marginPaddingBox" data-ng-bind="log.physicContent"></div>
-            <div ng-if="log.emotionContent.length > 0" id="emotionBox" class="marginPaddingBox" data-ng-bind="log.emotionContent"></div>
-            <div ng-if="log.academicContent.length > 0" id="academicBox" class="marginPaddingBox" data-ng-bind="log.academicContent"></div>
-            <div ng-if="log.communeContent.length > 0" id="communeBox" class="marginPaddingBox" data-ng-bind="log.communeContent"></div>
-            <div ng-if="log.etherContent.length > 0" id="etherBox" class="marginPaddingBox" data-ng-bind="log.etherContent"></div>
+            <div style="border: solid 3px #464545;" ng-if="log.physicContent.length > 0" id="physicBox" class="marginPaddingBox" data-ng-bind="log.physicContent"></div>
+            <div style="border: solid 3px #464545;" ng-if="log.emotionContent.length > 0" id="emotionBox" class="marginPaddingBox" data-ng-bind="log.emotionContent"></div>
+            <div style="border: solid 3px #464545;" ng-if="log.academicContent.length > 0" id="academicBox" class="marginPaddingBox" data-ng-bind="log.academicContent"></div>
+            <div style="border: solid 3px #464545;" ng-if="log.communeContent.length > 0" id="communeBox" class="marginPaddingBox" data-ng-bind="log.communeContent"></div>
+            <div style="border: solid 3px #464545;" ng-if="log.etherContent.length > 0" id="etherBox" class="marginPaddingBox" data-ng-bind="log.etherContent"></div>
         </div>
     
     <div class="pull-right">
