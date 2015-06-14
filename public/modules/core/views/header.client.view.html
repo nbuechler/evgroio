@@ -25,6 +25,22 @@
 				<a ng-switch-default href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
 			</li>
 		</ul>
+        <ul class="nav navbar-nav" data-ng-show="authentication.user">
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					<span>Reflecting Place</span> <b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="/#!/">Home Base</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href="/#!/">Map</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
 		<ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
 			<li ui-route="/signup" ng-class="{active: $uiRoute}">
 				<a href="/#!/signup">Sign Up</a>
@@ -54,22 +70,6 @@
 					<li class="divider"></li>
 					<li>
 						<a href="/auth/signout">Signout</a>
-					</li>
-				</ul>
-			</li>
-		</ul>
-        <ul class="nav navbar-nav navbar-right" data-ng-show="authentication.user">
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					<span>Reflecting Place</span> <b class="caret"></b>
-				</a>
-				<ul class="dropdown-menu">
-					<li>
-						<a href="/#!/">Home Base</a>
-					</li>
-					<li class="divider"></li>
-					<li>
-						<a href="/#!/">Map</a>
 					</li>
 				</ul>
 			</li>
