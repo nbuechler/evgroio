@@ -46,7 +46,9 @@
                     <span ng-if="log.communeContent.length > 0" id="communeBox" class="globalPadding">{{log.communeContent.length}}</span>
                     <span ng-if="log.etherContent.length > 0" id="etherBox" class="globalPadding">{{log.etherContent.length}}</span>
                 </div>
-                <list-viz ng-hide="hidePublic"></list-viz>
+                <div style="text-align: center;">
+                    <list-viz ng-hide="hidePublic"></list-viz>
+                </div>
             </a>
         </div>
     <!--

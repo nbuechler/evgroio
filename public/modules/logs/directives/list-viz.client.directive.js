@@ -59,7 +59,16 @@ angular.module('logs').directive('listViz', [
                     .data(pie(dataset.content))
                   .enter().append("path")
                     .attr("fill", function(d, i) { return color[i]; })
-                    .attr("d", arc);
+                    .attr("stroke" , "black")
+                    .attr("stroke-width" , "3px")
+                    .attr("d", arc)
+                    .on('mouseenter', function(d) {
+                        console.log('in');
+                    })
+
+                    .on("mouseout", function(d) {
+                        console.log('out');
+                    });
 
 
 			}
