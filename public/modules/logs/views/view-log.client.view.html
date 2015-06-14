@@ -3,11 +3,11 @@
         <h1 data-ng-bind="log.name"></h1>
     </div>
 	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == log.user._id))">
-		<a class="btn btn-primary" href="/#!/logs/{{log._id}}/edit">
-			<i class=""></i>
+		<a class="btn btn-info" href="/#!/logs/{{log._id}}/edit">
+			<i class="fa fa-pencil-square"></i>
 		</a>
-		<a class="btn btn-primary" data-ng-click="remove();">
-			<i class="glyphicon glyphicon-trash"></i>
+		<a class="btn btn-info" data-ng-click="remove();">
+			<i class="fa fa-trash"></i>
 		</a>
 	</div>
 	<small>

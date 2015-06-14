@@ -13,7 +13,9 @@ module.exports = {
 	assets: {
 		lib: {
 			css: [
-				'public/customLib/bootstrapThemed/darkly/bootstrap.css'
+				'public/customLib/bootstrapThemed/darkly/bootstrap.css',
+                'public/lib/fontawesome/css/font-awesome.css',
+                'public/lib/fontawesome/css/font-awesome.css.map'
 			],
 			js: [
 				'public/lib/angular/angular.js',
