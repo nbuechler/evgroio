@@ -1,6 +1,59 @@
-<section data-ng-controller="HomebaseController">
+<section data-ng-controller="HomeBaseController" data-ng-init="find()">
 	<div class="page-header">
-        <h1><i class="fa fa-institution"></i> Home Base (Under Construction)</h1>
+        <h1><i class="fa fa-header"></i>ome - Base (Under Construction)</h1>
+    </div>
+    
+    <div class="row">
+    
+        <div id="tableOverview">
+
+            <table class="table table-hover table-bordered" style="text-align: center;">
+              <thead>
+                <tr style="background: #464545">
+                  <th style="text-align: center;">Log Title</th>
+                  <th style="text-align: center;">Date</th>
+                  <th style="text-align: center;"></th>
+                  <th style="text-align: center;">
+                      <i style="color: #56222E;" class="fa fa-female"></i>
+                      <i style="color: #56222E;" class="fa fa-male"></i>
+                  </th>
+                  <th style="text-align: center;">
+                      <i style="color: #262561;" class="fa fa-heart"></i>
+                      <i style="color: #262561;" class="fa fa-heart-o"></i>
+                  </th>
+                  <th style="text-align: center;">
+                      <i style="color: #632F5F;" class="fa fa-book"></i>
+                      <i style="color: #632F5F;" class="fa fa-picture-o"></i>
+                  </th>
+                  <th style="text-align: center;">
+                      <i style="color: #296A52;" class="fa fa-university"></i>
+                      <i style="color: #296A52;" class="fa fa-building-o"></i>
+                  </th>
+                  <th style="text-align: center;">
+                      <i style="color: #775923;" class="fa fa-sun-o"></i>
+                      <i style="color: #775923;" class="fa fa-globe"></i>
+                  </th>
+                  <th style="text-align: center;">Log Link</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-ng-repeat="log in logs" ng-show="{{(log.user._id === authentication.user._id)}}">
+                  <td class="" data-ng-bind="log.name"></td>
+                  <td class="" data-ng-bind="log.created | date:'mediumDate'"></td>
+                  <td class="" style="width: 1px; background: #464545"></td>
+                  <td>{{log.physicContent.length}}</td>
+                  <td>{{log.emotionContent.length}}</td>
+                  <td>{{log.academicContent.length}}</td>
+                  <td>{{log.communeContent.length}}</td>
+                  <td>{{log.etherContent.length}}</td>
+                  <td><a data-ng-href="#!/logs/{{log._id}}"><i class="fa fa-file-text"></i>
+</a></td>
+                </tr>
+              </tbody>
+            </table> 
+
+        </div>
+    
     </div>
     
 </section>
