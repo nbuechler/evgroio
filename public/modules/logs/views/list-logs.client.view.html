@@ -1,9 +1,16 @@
 <section data-ng-controller="LogsController" data-ng-init="find()">
     <div class="listWrapper">
-        <div class="page-header">
+        <div class="page-header" ng-show="hidePublic">
             <h1>Logs</h1>
             <div class="pull-right">
                 See what your fellow humans write about! <div class="btn btn-default" ng-click="togglePublic()"><i class="fa fa-users"></i> Public Ideas</div>
+            </div>
+            <br>
+        </div>
+        <div class="page-header" ng-hide="hidePublic">
+            <h1>Logs</h1>
+            <div class="pull-right">
+                See just your own thoughts! <div class="btn btn-default" ng-click="togglePublic()"><i class="fa fa-user"></i> Personal Ideas</div>
             </div>
             <br>
         </div>
