@@ -1,7 +1,17 @@
 <section data-ng-controller="LogsController" data-ng-init="findOne()">
-	<div class="page-header">
+	
+    <div class="pull-right">
+        <a href="/#!/logs">
+            <div class="btn btn-default">
+                View all logs
+            </div>
+        </a>    
+    </div>
+    
+    <div class="page-header">
         <h1 data-ng-bind="log.name"></h1>
     </div>
+    
 	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == log.user._id))">
 		<a class="btn btn-info" href="/#!/logs/{{log._id}}/edit">
 			<i class="fa fa-pencil-square"></i> Change
@@ -10,6 +20,7 @@
 			<i class="fa fa-trash"></i> Remove
 		</a>
 	</div>
+    
 	<small>
 		<em class="text-muted">
 			Posted on
@@ -18,6 +29,7 @@
 			<span data-ng-bind="log.user.displayName"></span>
 		</em>
 	</small>
+    
         <div class="row" style="margin-top: 30px; margin-bottom: 100px;">
             <div style="border: solid 3px #464545;" ng-if="log.physicContent.length > 0" id="physicBox" class="marginPaddingBox" data-ng-bind="log.physicContent"></div>
             <div style="border: solid 3px #464545;" ng-if="log.emotionContent.length > 0" id="emotionBox" class="marginPaddingBox" data-ng-bind="log.emotionContent"></div>
@@ -26,13 +38,12 @@
             <div style="border: solid 3px #464545;" ng-if="log.etherContent.length > 0" id="etherBox" class="marginPaddingBox" data-ng-bind="log.etherContent"></div>
         </div>
     
-    <div class="pull-right">
-        <a href="/#!/logs">
-            <div class="btn btn-default">
-                View all logs
-            </div>
-        </a>    
+        <new-log-quick></new-log-quick>
+
+    <div class="text-center footer">
+        <div class="text-muted" style="padding: 10px; background: #303030; border: 2px solid #464545; border-left: none; border-right: none;box-shadow: 0px 0px 10px black;">
+    	Just like a poem, these are the five sections of your idea!
+        </div>
     </div>
-<!--    <footer style="position:fixed; height:50px; background-color: lightGray; bottom:0px;  margin-bottom:0px;">-->
-	</footer>
+    
 </section>
