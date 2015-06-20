@@ -9,7 +9,13 @@ angular.module('logs').directive('newLogQuick', [
 				// New log quick directive logic
 				// ...
                 
-                console.log('here');
+                d3.select('#newLogQuickButton')
+                .on('mouseover', function() {
+                    d3.select('#newLogQuickButton').style('background-color', '#00A379');
+                })
+                .on('mouseout', function() {
+                    console.log('bye');
+                })
 
 			}
 		};
