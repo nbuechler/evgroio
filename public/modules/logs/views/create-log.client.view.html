@@ -19,8 +19,9 @@
                             <div class="col-xs-6 col-sm-6 col-md-6 box marginPaddingBox physicContent">
                                 <textarea type="text" data-ng-model="physicContent" id="physicContentINPUT" class="editArea form-control" placeholder="Which part(s) of your body did you use?"></textarea>
                             </div>
+                            <create-log-viz></create-log-viz>
                         <div class="physicFadedContent echoedText box col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right">
-                            <div>
+                            <div id="pText">
                                 {{physicContent}}
                             </div>
                         </div>
