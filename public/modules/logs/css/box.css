@@ -179,3 +179,11 @@
 text {
   font: 10px sans-serif;
 }
+
+.newLogQuick {
+    background: #0CE3AC;
+}
+
+.newLogQuick:hover {
+    background: #00A379;
+}

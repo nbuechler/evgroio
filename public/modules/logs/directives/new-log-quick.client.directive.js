@@ -6,11 +6,7 @@ angular.module('logs').directive('newLogQuick', [
 			templateUrl: 'modules/logs/templates/newLogQuickTemplate.html',
 			restrict: 'E',
 			link: function postLink(scope, element, attrs) {
-				// New log quick directive logic
-				// ...
                 
-                console.log('here');
-
 			}
 		};
 	}
