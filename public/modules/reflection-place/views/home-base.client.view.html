@@ -5,15 +5,14 @@
     
     <div class="row">
     
-        <div id="tableOverview">
+        <div class="col-12-lg" id="tableOverview" style="margin-bottom: 150px;">
 
             <table class="table table-hover table-bordered" style="text-align: center;">
               <thead>
                 <tr style="background: #464545">
                   <th style="text-align: center;">Log Title</th>
-                  <th style="text-align: center;">Date</th>
+<!--                  <th style="text-align: center;">Date</th>-->
                   <th style="text-align: center;"></th>
-<!--TODO: make the background the color, and the icon white-->
                   <th style="text-align: center; background: #56222E">
                       <i style="color: white;" class="fa fa-female"></i>
                       <i style="color: white;" class="fa fa-male"></i>
@@ -40,7 +39,7 @@
               <tbody>
                 <tr data-ng-repeat="log in logs" ng-show="{{(log.user._id === authentication.user._id)}}">
                   <td class="" data-ng-bind="log.name"></td>
-                  <td class="" data-ng-bind="log.created | date:'mediumDate'"></td>
+<!--                  <td class="" data-ng-bind="log.created | date:'mediumDate'"></td>-->
                   <td class="" style="width: 1px; background: #464545"></td>
                   <td>{{log.physicContent.length}}</td>
                   <td>{{log.emotionContent.length}}</td>
