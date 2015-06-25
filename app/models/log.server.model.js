@@ -36,7 +36,7 @@ var LogSchema = new Schema({
         default: '',
         trim: true,
     },
-    etherContentLength: {
+    etherContent: {
         type: String,
         default: '',
         trim: true,
@@ -57,7 +57,7 @@ var LogSchema = new Schema({
         type: Number,
         default: 0
     },
-    etherContent: {
+    etherContentLength: {
         type: Number,
         default: 0
     },
