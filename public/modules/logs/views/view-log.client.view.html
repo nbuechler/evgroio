@@ -31,18 +31,33 @@
 	</small>
     
         <div class="row" style="margin-top: 30px; margin-bottom: 100px;">
-            <div style="border: solid 3px #464545;" ng-if="log.physicContent.length > 0" id="physicBox" class="marginPaddingBox" data-ng-bind="log.physicContent"></div>
-            <div style="border: solid 3px #464545;" ng-if="log.emotionContent.length > 0" id="emotionBox" class="marginPaddingBox" data-ng-bind="log.emotionContent"></div>
-            <div style="border: solid 3px #464545;" ng-if="log.academicContent.length > 0" id="academicBox" class="marginPaddingBox" data-ng-bind="log.academicContent"></div>
-            <div style="border: solid 3px #464545;" ng-if="log.communeContent.length > 0" id="communeBox" class="marginPaddingBox" data-ng-bind="log.communeContent"></div>
-            <div style="border: solid 3px #464545;" ng-if="log.etherContent.length > 0" id="etherBox" class="marginPaddingBox" data-ng-bind="log.etherContent"></div>
+            <div style="border: solid 3px #464545;" ng-if="log.physicContentLength > 0" id="physicBox" class="marginPaddingBox">
+                <div data-ng-bind="log.physicContent"></div>
+                <div style="float: right; margin-top: -20px; color: white; text-shadow: 1px 1px black" data-ng-bind="log.physicContentLength"></div>
+            </div>
+            <div style="border: solid 3px #464545;" ng-if="log.emotionContentLength > 0" id="emotionBox" class="marginPaddingBox">
+                <div data-ng-bind="log.emotionContent"></div>
+                <div style="float: right; margin-top: -20px; color: white; text-shadow: 1px 1px black" data-ng-bind="log.emotionContentLength"></div>
+            </div>
+            <div style="border: solid 3px #464545;" ng-if="log.academicContentLength > 0" id="academicBox" class="marginPaddingBox">
+                <div data-ng-bind="log.academicContent"></div>
+                <div style="float: right; margin-top: -20px; color: white; text-shadow: 1px 1px black" data-ng-bind="log.academicContentLength"></div>
+            </div>
+            <div style="border: solid 3px #464545;" ng-if="log.communeContentLength > 0" id="communeBox" class="marginPaddingBox">
+                <div data-ng-bind="log.communeContent"></div>
+                <div style="float: right; margin-top: -20px; color: white; text-shadow: 1px 1px black" data-ng-bind="log.communeContentLength"></div>
+            </div>
+            <div style="border: solid 3px #464545;" ng-if="log.etherContentLength > 0" id="etherBox" class="marginPaddingBox">
+                <div data-ng-bind="log.etherContent"></div>
+                <div style="float: right; margin-top: -20px; color: white; text-shadow: 1px 1px black" data-ng-bind="log.etherContentLength"></div>
+            </div>
         </div>
     
         <new-log-quick></new-log-quick>
 
     <div class="text-center footer">
         <div class="text-muted" style="padding: 10px; background: #303030; border: 2px solid #464545; border-left: none; border-right: none;box-shadow: 0px 0px 10px black;">
-    	Just like a poem, these are the five sections of your idea!
+    	Just like a poem, these are the sections of your idea!
         </div>
     </div>
     

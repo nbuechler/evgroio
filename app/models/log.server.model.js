@@ -41,6 +41,26 @@ var LogSchema = new Schema({
         default: '',
         trim: true,
     },
+    physicContentLength: {
+        type: Number,
+        default: 0
+    },
+    emotionContentLength: {
+        type: Number,
+        default: 0
+    },
+    academicContentLength: {
+        type: Number,
+        default: 0
+    },
+    communeContentLength: {
+        type: Number,
+        default: 0
+    },
+    etherContentLength: {
+        type: Number,
+        default: 0
+    },
 	created: {
 		type: Date,
 		default: Date.now

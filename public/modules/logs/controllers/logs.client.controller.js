@@ -14,7 +14,12 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
                 emotionContent: this.emotionContent,
                 academicContent: this.academicContent,
                 communeContent: this.communeContent,
-                etherContent: this.etherContent
+                etherContent: this.etherContent,
+                physicContentLength: this.physicContent ? this.physicContent.length : 0,
+                emotionContentLength: this.emotionContent ? this.emotionContent.length : 0,
+                academicContentLength: this.academicContent ? this.academicContent.length : 0,
+                communeContentLength: this.communeContent ? this.communeContent.length : 0,
+                etherContentLength: this.etherContent ? this.etherContent.length : 0
 			});
 
 			// Redirect after save
@@ -47,9 +52,19 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
 
 		// Update existing Log
 		$scope.update = function() {
-			var log = $scope.log;
-
+			
+            
+            //Calculate log lengths for logs that don't have log lengths
+            $scope.log.physicContentLength = $scope.log.physicContent ? $scope.log.physicContent.length : 0,
+            $scope.log.emotionContentLength = $scope.log.emotionContent ? $scope.log.emotionContent.length : 0,
+            $scope.log.academicContentLength = $scope.log.academicContent ? $scope.log.academicContent.length : 0,
+            $scope.log.communeContentLength = $scope.log.communeContent ? $scope.log.communeContent.length : 0,
+            $scope.log.etherContentLength = $scope.log.etherContent ? $scope.log.etherContent.length : 0
+            
+            var log = $scope.log;
+            
 			log.$update(function() {
+                
 				$location.path('logs/' + log._id);
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
@@ -87,7 +102,7 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
             } else {
                 $scope.hidePublic = true;
             }
-        }
+        };
         
 	}
 ]);
