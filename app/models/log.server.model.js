@@ -36,10 +36,30 @@ var LogSchema = new Schema({
         default: '',
         trim: true,
     },
-    etherContent: {
+    etherContentLength: {
         type: String,
         default: '',
         trim: true,
+    },
+    physicContentLength: {
+        type: Number,
+        default: 0
+    },
+    emotionContentLength: {
+        type: Number,
+        default: 0
+    },
+    academicContentLength: {
+        type: Number,
+        default: 0
+    },
+    communeContentLength: {
+        type: Number,
+        default: 0
+    },
+    etherContent: {
+        type: Number,
+        default: 0
     },
 	created: {
 		type: Date,
