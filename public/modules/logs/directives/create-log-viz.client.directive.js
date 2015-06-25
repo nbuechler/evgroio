@@ -2,6 +2,9 @@
 
 angular.module('logs').directive('createLogViz', [
 	function() {
+        
+        
+        
 		return {
 			templateUrl: 'modules/logs/templates/createLogVizTemplate.html',
 			restrict: 'E',

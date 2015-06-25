@@ -20,7 +20,8 @@
 	"globals": { // Globals variables.
 		"jasmine": true,
 		"angular": true,
-		"ApplicationConfiguration": true
+		"ApplicationConfiguration": true,
+        "d3" : true
 	},
 	"predef": [ // Extra globals.
 		"define",

@@ -87,7 +87,7 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
             } else {
                 $scope.hidePublic = true;
             }
-        }
+        };
         
 	}
 ]);
