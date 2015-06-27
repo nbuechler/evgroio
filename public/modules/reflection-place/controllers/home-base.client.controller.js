@@ -49,6 +49,14 @@ angular.module('reflection-place').controller('HomeBaseController', ['$scope', '
             
 		};
         
+        //In this method...
+        /*
+         *
+         * I need to figure out how to pull back the following information:
+         * 1) Information regarding the totals of all logs
+         * 2) Information regarding the totals of all logs with regard to a user!
+         *
+         */
         $scope.getAllLogs = Logs.query(function(response) {
             console.log('here', response[0]);
         });
