@@ -55,11 +55,11 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
 			
             
             //Calculate log lengths for logs that don't have log lengths
-            $scope.log.physicContentLength = $scope.log.physicContent ? $scope.log.physicContent.length : 0,
-            $scope.log.emotionContentLength = $scope.log.emotionContent ? $scope.log.emotionContent.length : 0,
-            $scope.log.academicContentLength = $scope.log.academicContent ? $scope.log.academicContent.length : 0,
-            $scope.log.communeContentLength = $scope.log.communeContent ? $scope.log.communeContent.length : 0,
-            $scope.log.etherContentLength = $scope.log.etherContent ? $scope.log.etherContent.length : 0
+            $scope.log.physicContentLength = $scope.log.physicContent ? $scope.log.physicContent.length : 0;
+            $scope.log.emotionContentLength = $scope.log.emotionContent ? $scope.log.emotionContent.length : 0;
+            $scope.log.academicContentLength = $scope.log.academicContent ? $scope.log.academicContent.length : 0;
+            $scope.log.communeContentLength = $scope.log.communeContent ? $scope.log.communeContent.length : 0;
+            $scope.log.etherContentLength = $scope.log.etherContent ? $scope.log.etherContent.length : 0;
             
             var log = $scope.log;
             
