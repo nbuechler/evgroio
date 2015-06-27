@@ -18,10 +18,41 @@ angular.module('reflection-place').controller('HomeBaseController', ['$scope', '
             etherContentLength: this.etherContent ? this.etherContent.length : 0
         });
         
-        // Find a list of Logs
+        // Find a list of Logs with information
 		$scope.find = function() {
 			$scope.logs = Logs.query();
+            
+            //Counting all the totals //TODO: Store this in a database tied to user.
+            var physicTotal = 0;
+            var emotionTotal = 0;
+            var academicTotal = 0;
+            var communeTotal = 0;
+            var etherTotal = 0;
+            
+            for( var i in $scope.logs) {
+                
+                physicTotal += $scope.logs[i].physicContentLength;
+                emotionTotal += $scope.logs[i].emotionContentLength;
+                academicTotal += $scope.logs[i].academicContentLength;
+                communeTotal += $scope.logs[i].communeContentLength;
+                etherTotal += $scope.logs[i].etherContentLength;
+            } 
+            
+            
+            $scope.totals = {
+                physicTotal: physicTotal,
+                emotionTotal: emotionTotal,
+                academicTotal: academicTotal,
+                communeTotal: communeTotal,
+                etherTotal: etherTotal
+            };
+            
 		};
+        
+        $scope.getAllLogs = Logs.query(function(response) {
+            console.log('here', response[0]);
+        });
+        
         
         // Find existing Log
 		$scope.findOne = function() {
