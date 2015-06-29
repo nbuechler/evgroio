@@ -58,7 +58,8 @@ angular.module('reflection-place').controller('HomeBaseController', ['$scope', '
          *
          */
         $scope.getAllLogs = Logs.query(function(response) {
-            console.log('here', response[0]);
+            console.log('response', response);
+            console.log('here - repsonse[0]', response[0]);
         });
         
         
