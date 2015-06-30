@@ -1,4 +1,4 @@
-##evgroio - know how to grow in ever many ways
+##evgroio - introspective learning tool for educational use
 
 [![MEAN.JS Logo](http://meanjs.org/img/logo-small.png)](http://meanjs.org/)
 
