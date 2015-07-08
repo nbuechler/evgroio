@@ -86,7 +86,7 @@
 }
 
 
-#physicBox {
+.physicBox {
     border: solid 2px #56222E;
     background: #56222E;
     
@@ -99,7 +99,7 @@
 
     
 }
-#emotionBox {
+.emotionBox {
     border: solid 2px #262561;
     background: #262561;
     
@@ -112,7 +112,7 @@
 
     
 }
-#academicBox {
+.academicBox {
     border: solid 2px #632F5F;
     background: #632F5F;
     
@@ -125,7 +125,7 @@
 
     
 }
-#communeBox {
+.communeBox {
     border: solid 2px #296A52;
     background: #296A52;
     
@@ -138,7 +138,7 @@
 
     
 }
-#etherBox {
+.etherBox {
     border: solid 2px #775923;
     background: #775923;
     
@@ -168,10 +168,10 @@
 
 .footer {
     position:fixed;
-    left:0px;
-    bottom:0px;
     width:100%;
-    margin-bottom: 0px;
+    left:0;
+    bottom:0;
+    margin-bottom: 0;
 }
 
 /*TODO: Refactor out D3 styles later*/
