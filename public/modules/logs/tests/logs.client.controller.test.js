@@ -53,8 +53,13 @@
 		it('$scope.find() should create an array with at least one Log object fetched from XHR', inject(function(Logs) {
 			// Create sample Log using the Logs service
 			var sampleLog = new Logs({
-				name: 'New Log'
-			});
+                "name":"New Log",
+                "physicContentLength":0,
+                "emotionContentLength":0,
+                "academicContentLength":0,
+                "communeContentLength":0,
+                "etherContentLength":0
+             });
 
 			// Create a sample Logs array that includes the new Log
 			var sampleLogs = [sampleLog];
