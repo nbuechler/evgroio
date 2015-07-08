@@ -78,8 +78,14 @@
 		it('$scope.findOne() should create an array with one Log object fetched from XHR using a logId URL parameter', inject(function(Logs) {
 			// Define a sample Log object
 			var sampleLog = new Logs({
-				name: 'New Log'
-			});
+                "name":"New Log",
+                "physicContentLength":0,
+                "emotionContentLength":0,
+                "academicContentLength":0,
+                "communeContentLength":0,
+                "etherContentLength":0
+             });
+
 
 			// Set the URL parameter
 			$stateParams.logId = '525a8422f6d0f87f0e407a33';
@@ -98,8 +104,14 @@
 		it('$scope.create() with valid form data should send a POST request with the form input values and then locate to new object URL', inject(function(Logs) {
 			// Create a sample Log object
 			var sampleLogPostData = new Logs({
-				name: 'New Log'
-			});
+                "name":"New Log",
+                "physicContentLength":0,
+                "emotionContentLength":0,
+                "academicContentLength":0,
+                "communeContentLength":0,
+                "etherContentLength":0
+             });
+
 
 			// Create a sample Log response
 			var sampleLogResponse = new Logs({
@@ -128,7 +140,12 @@
 			// Define a sample Log put data
 			var sampleLogPutData = new Logs({
 				_id: '525cf20451979dea2c000001',
-				name: 'New Log'
+				name: 'New Log',
+                "physicContentLength":0,
+                "emotionContentLength":0,
+                "academicContentLength":0,
+                "communeContentLength":0,
+                "etherContentLength":0
 			});
 
 			// Mock Log in scope
