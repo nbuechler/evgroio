@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('reflection-place').controller('HomeBaseController', ['$scope', '$stateParams', '$location', 'Authentication', 'Logs',
-	function($scope, $stateParams, $location, Authentication, Logs) {
+angular.module('reflection-place').controller('HomeBaseController', ['$scope', '$modal', '$log', '$stateParams', '$location', 'Authentication', 'Logs',
+	function($scope, $modal, $log, $stateParams, $location, Authentication, Logs) {
 		$scope.authentication = Authentication;
 
         var log = new Logs ({
@@ -69,6 +69,60 @@ angular.module('reflection-place').controller('HomeBaseController', ['$scope', '
 				logId: $stateParams.logId
 			});
 		};
+        
+        
+        //Modal window code
+        $scope.animationsEnabled = true;
+
+        $scope.open = function (size, log) {
+        $scope.items = [];
+        
+            //Logic to improve UX for log understanding
+            if(log.physicContentLength > 0) {
+                $scope.items.push(log.physicContent);
+            }
+            if(log.academicContentLength > 0) {
+                $scope.items.push(log.academicContent);
+            }
+            if(log.emotionContentLength > 0) {
+                $scope.items.push(log.emotionContent);
+            }
+            if(log.communeContentLength > 0) {
+                $scope.items.push(log.communeContent);
+            }
+            if(log.etherContentLength > 0) {
+                $scope.items.push(log.etherContent);
+            }
+            
+            
+        $scope.logTitle = log.name;    
+            
+        var modalInstance = $modal.open({
+          animation: $scope.animationsEnabled,
+          templateUrl: 'modules/reflection-place/templates/myModalContent.html',
+          controller: 'ModalInstanceCtrl',
+          size: size,
+          resolve: {
+            logTitle: function () {
+                return $scope.logTitle;
+            },
+            items: function () {
+                return $scope.items;
+            }
+          }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+          $scope.selected = selectedItem;
+        }, function () {
+          $log.info('Modal dismissed at: ' + new Date());
+        });
+        };
+
+        $scope.toggleAnimation = function () {
+        $scope.animationsEnabled = !$scope.animationsEnabled;
+        };
+        
         
 	}
 ]);

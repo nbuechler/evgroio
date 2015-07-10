@@ -38,7 +38,11 @@
               </thead>
               <tbody>
                 <tr data-ng-repeat="log in logs" ng-show="{{(log.user._id === authentication.user._id)}}">
-                  <td class="" data-ng-bind="log.name"></td>
+                  <td class="">
+                      <!-- Button trigger modal -->
+                      <!-- Also comes in open('sm'), open(), & open('lg')-->
+                    <button class="btn btn-link btn-xs" ng-click="open('lg', log)">{{log.name}}</button>
+                  </td>
 <!--                  <td class="" data-ng-bind="log.created | date:'mediumDate'"></td>-->
                   <td class="" style="width: 1px; background: #464545"></td>
                   <td>{{log.physicContentLength}}</td>

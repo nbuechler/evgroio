@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{ logTitle }}</h3>
+</div>
+<div class="modal-body">
+    <hr>
+    <ul style="text-align: center;">
+        <li ng-repeat="item in items" style="list-style-type: none;">
+            <a ng-click="selected.item = item">{{ item }}</a>
+        </li>
+    </ul>
+    <hr>
+    <!--Selected: <b>{{ selected.item }}</b>-->
+</div>
+<div class="modal-footer">
+    <!--<button class="btn btn-warning pull-left" ng-click="cancel()">Cancel</button>-->
+    <button class="btn btn-primary pull-right" ng-click="ok()">OK</button>
+</div>
+
+<!--<div ng-show="selected">Selection from a modal: {{ selected }}</div>-->
