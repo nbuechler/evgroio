@@ -71,21 +71,43 @@ angular.module('reflection-place').controller('HomeBaseController', ['$scope', '
 		};
         
         
-        //Modal code
-        $scope.items = ['item1', 'item2', 'item3'];
-
+        //Modal window code
         $scope.animationsEnabled = true;
 
-        $scope.open = function (size) {
-
+        $scope.open = function (size, log) {
+        $scope.items = [];
+        
+            //Logic to improve UX for log understanding
+            if(log.physicContentLength > 0) {
+                $scope.items.push(log.physicContent);
+            }
+            if(log.academicContentLength > 0) {
+                $scope.items.push(log.academicContent);
+            }
+            if(log.emotionContentLength > 0) {
+                $scope.items.push(log.emotionContent);
+            }
+            if(log.communeContentLength > 0) {
+                $scope.items.push(log.communeContent);
+            }
+            if(log.etherContentLength > 0) {
+                $scope.items.push(log.etherContent);
+            }
+            
+            
+        $scope.logTitle = log.name;    
+            
         var modalInstance = $modal.open({
           animation: $scope.animationsEnabled,
           templateUrl: 'modules/reflection-place/templates/myModalContent.html',
           controller: 'ModalInstanceCtrl',
           size: size,
           resolve: {
+            logTitle: function () {
+                return $scope.logTitle;
+            },
             items: function () {
-              return $scope.items;
+                return $scope.items;
             }
           }
         });
