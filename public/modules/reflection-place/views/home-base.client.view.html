@@ -3,6 +3,12 @@
         <h1><i class="fa fa-home"></i> Home - Base (Under Construction)</h1>
     </div>
     
+       
+      <button class="btn btn-default" ng-click="open()">Open me!</button>
+<button class="btn btn-default" ng-click="open('lg')">Large modal</button>
+<button class="btn btn-default" ng-click="open('sm')">Small modal</button>
+<button class="btn btn-default" ng-click="toggleAnimation()">Toggle Animation ({{ animationsEnabled }})</button>  
+    
     <div class="row">
     
         <div class="col-12-lg" id="tableOverview" style="margin-bottom: 150px;">
@@ -38,7 +44,12 @@
               </thead>
               <tbody>
                 <tr data-ng-repeat="log in logs" ng-show="{{(log.user._id === authentication.user._id)}}">
-                  <td class="" data-ng-bind="log.name"></td>
+                  <td class="">
+                      <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                    Launch demo modal
+                    </button>
+                  </td>
 <!--                  <td class="" data-ng-bind="log.created | date:'mediumDate'"></td>-->
                   <td class="" style="width: 1px; background: #464545"></td>
                   <td>{{log.physicContentLength}}</td>

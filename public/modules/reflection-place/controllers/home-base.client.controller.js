@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('reflection-place').controller('HomeBaseController', ['$scope', '$stateParams', '$location', 'Authentication', 'Logs',
-	function($scope, $stateParams, $location, Authentication, Logs) {
+angular.module('reflection-place').controller('HomeBaseController', ['$scope', '$modal', '$log', '$stateParams', '$location', 'Authentication', 'Logs',
+	function($scope, $modal, $log, $stateParams, $location, Authentication, Logs) {
 		$scope.authentication = Authentication;
 
         var log = new Logs ({
@@ -69,6 +69,38 @@ angular.module('reflection-place').controller('HomeBaseController', ['$scope', '
 				logId: $stateParams.logId
 			});
 		};
+        
+        
+        //Modal code
+        $scope.items = ['item1', 'item2', 'item3'];
+
+        $scope.animationsEnabled = true;
+
+        $scope.open = function (size) {
+
+        var modalInstance = $modal.open({
+          animation: $scope.animationsEnabled,
+          templateUrl: 'modules/reflection-place/templates/myModalContent.html',
+          controller: 'ModalInstanceCtrl',
+          size: size,
+          resolve: {
+            items: function () {
+              return $scope.items;
+            }
+          }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+          $scope.selected = selectedItem;
+        }, function () {
+          $log.info('Modal dismissed at: ' + new Date());
+        });
+        };
+
+        $scope.toggleAnimation = function () {
+        $scope.animationsEnabled = !$scope.animationsEnabled;
+        };
+        
         
 	}
 ]);
