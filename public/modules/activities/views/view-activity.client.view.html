@@ -20,6 +20,15 @@
         visualize other analytics about activity?
         -->
         
+        <div>
+            <h4 class="pull-left" style="padding: 30px; margin: 30px; border: solid 2px white;">
+                {{activity.importance}}
+            </h4>
+            <p>
+                This is a splash page for <strong>{{activity.name}}.</strong> As more information gets collected, this page will get way more interesting!
+            </p>
+        </div>
+        
 		<em class="text-muted">
 			Posted on
 			<span data-ng-bind="activity.created | date:'mediumDate'"></span>
