@@ -1,5 +1,7 @@
 ##evgroio - introspective learning tool for educational use
-
+Please consider sharing this software as 'copylefted' as I would appreciate respecting this license:
+##
+GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 Copyright (C) 2007 Free Software Foundation, Inc. http://fsf.org/ Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
 
 ## evgroio on Heroku
 [http://evgroio.herokuapp.com](http://evgroio.herokuapp.com).
@@ -10,6 +12,10 @@ After looking at the application on Heroku, feel free to contact me:  natebuechl
 
 [![Build Status](https://travis-ci.org/nbuechler/evgroio.svg?branch=master)](https://travis-ci.org/nbuechler/evgroio)
 [![Dependencies Status](https://david-dm.org/meanjs/mean.svg)](https://david-dm.org/meanjs/mean)
+
+##--
+##Below are instructions that the MEAN.JS organization provided for getting the boilerplate up and running 
+##--
 
 MEAN.JS is a full-stack JavaScript open-source solution, which provides a solid starting point for [MongoDB](http://www.mongodb.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), and [AngularJS](http://angularjs.org/) based applications. The idea is to solve the common issues with connecting those frameworks, build a robust framework to support daily development needs, and help developers use better practices while working with popular JavaScript components. 
 
