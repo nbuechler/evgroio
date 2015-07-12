@@ -1,5 +1,10 @@
 ##evgroio - introspective learning tool for educational use
 
+
+## evgroio on Heroku
+[http://evgroio.herokuapp.com](http://evgroio.herokuapp.com).
+After looking at the application on Heroku, feel free to contact me [natebuechler@gmail.com](natebuechler@gmail.com)
+
 [![MEAN.JS Logo](http://meanjs.org/img/logo-small.png)](http://meanjs.org/)
 
 [![Build Status](https://travis-ci.org/nbuechler/evgroio.svg?branch=master)](https://travis-ci.org/nbuechler/evgroio)
