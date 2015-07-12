@@ -3,7 +3,8 @@
 
 ## evgroio on Heroku
 [http://evgroio.herokuapp.com](http://evgroio.herokuapp.com).
-After looking at the application on Heroku, feel free to contact me [natebuechler@gmail.com](natebuechler@gmail.com)
+##
+After looking at the application on Heroku, feel free to contact me:  natebuechler@gmail.com
 
 [![MEAN.JS Logo](http://meanjs.org/img/logo-small.png)](http://meanjs.org/)
 
