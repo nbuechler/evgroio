@@ -9,7 +9,8 @@ angular.module('activities').controller('ActivitiesController', ['$scope', '$sta
 		$scope.create = function() {
 			// Create new Activity object
 			var activity = new Activities ({
-				name: this.name
+				name: this.name,
+                importance: this.importance
 			});
 
 			// Redirect after save
