@@ -16,6 +16,10 @@ var ActivitySchema = new Schema({
 		required: 'Please fill Activity name',
 		trim: true
 	},
+    importance: {
+		type: Number,
+		default: 50
+	},
 	created: {
 		type: Date,
 		default: Date.now
