@@ -6,14 +6,32 @@
         <a data-ng-repeat="activity in activities" data-ng-href="#!/activities/{{activity._id}}" class="list-group-item">
             
             <!--TODO: Show only user activities-->
+            <div class="row">    
+                <div class="col-lg-6">
+
+                    <small class="list-group-item-text">
+                        Posted on
+                        <span data-ng-bind="activity.created | date:'medium'"></span>
+                        by
+                        <span data-ng-bind="activity.user.displayName"></span>
+                    </small>
+                    <h4 class="list-group-item-heading" data-ng-bind="activity.name"></h4>
+                
+                <hr>
+                    
+                </div>
+                
+                <div>
+                    <!--Description of it-->
+                </div>
+                
+                <div class="col-lg-6">
+                    <h4 class="pull-right" style="padding: 30px; margin: 30px; border: solid 2px white;">
+                        {{activity.importance}}
+                    </h4>
+                </div>
+             </div>
             
-			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="activity.created | date:'medium'"></span>
-				by
-				<span data-ng-bind="activity.user.displayName"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="activity.name"></h4>
         </a>
     </div>
     <div class="alert alert-warning text-center" data-ng-hide="!activities.$resolved || activities.length">
