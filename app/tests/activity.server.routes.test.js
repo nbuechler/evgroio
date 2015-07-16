@@ -38,7 +38,8 @@ describe('Activity CRUD tests', function() {
 		// Save a user to the test db and create new Activity
 		user.save(function() {
 			activity = {
-				name: 'Activity Name'
+				name: 'Activity Name',
+                description: 'Activity Description'
 			};
 
 			done();
@@ -76,6 +77,7 @@ describe('Activity CRUD tests', function() {
 								// Set assertions
 								(activities[0].user._id).should.equal(userId);
 								(activities[0].name).should.match('Activity Name');
+								(activities[0].description).should.match('Activity Description');
 
 								// Call the assertion callback
 								done();
@@ -122,6 +124,34 @@ describe('Activity CRUD tests', function() {
 			});
 	});
 
+	it('should not be able to save Activity instance if no description is provided', function(done) {
+		// Invalidate name field
+		activity.description = '';
+
+		agent.post('/auth/signin')
+			.send(credentials)
+			.expect(200)
+			.end(function(signinErr, signinRes) {
+				// Handle signin error
+				if (signinErr) done(signinErr);
+
+				// Get the userId
+				var userId = user.id;
+
+				// Save a new Activity
+				agent.post('/activities')
+					.send(activity)
+					.expect(400)
+					.end(function(activitySaveErr, activitySaveRes) {
+						// Set message assertion
+						(activitySaveRes.body.message).should.match('Please fill in a description of the activity');
+						
+						// Handle Activity save error
+						done(activitySaveErr);
+					});
+			});
+	});
+
 	it('should be able to update Activity instance if signed in', function(done) {
 		agent.post('/auth/signin')
 			.send(credentials)
@@ -144,6 +174,9 @@ describe('Activity CRUD tests', function() {
 						// Update Activity name
 						activity.name = 'WHY YOU GOTTA BE SO MEAN?';
 
+                        // Update Activity description
+						activity.description = 'WHY YOU GOTTA BE SO MEAN?';
+                    
 						// Update existing Activity
 						agent.put('/activities/' + activitySaveRes.body._id)
 							.send(activity)
@@ -155,6 +188,7 @@ describe('Activity CRUD tests', function() {
 								// Set assertions
 								(activityUpdateRes.body._id).should.equal(activitySaveRes.body._id);
 								(activityUpdateRes.body.name).should.match('WHY YOU GOTTA BE SO MEAN?');
+								(activityUpdateRes.body.description).should.match('WHY YOU GOTTA BE SO MEAN?');
 
 								// Call the assertion callback
 								done();
@@ -192,7 +226,7 @@ describe('Activity CRUD tests', function() {
 			request(app).get('/activities/' + activityObj._id)
 				.end(function(req, res) {
 					// Set assertion
-					res.body.should.be.an.Object.with.property('name', activity.name);
+					res.body.should.be.an.Object.with.property('name', activity.name, activity.description);
 
 					// Call the assertion callback
 					done();
