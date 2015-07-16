@@ -8,6 +8,10 @@ GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 Copyright (C) 2007 Free Softw
 ##
 After looking at the application on Heroku, feel free to contact me:  natebuechler@gmail.com
 
+##Further notes
+This project is ongoing and may not be finished in places...as of Jul 2015.
+
+
 [![MEAN.JS Logo](http://meanjs.org/img/logo-small.png)](http://meanjs.org/)
 
 [![Build Status](https://travis-ci.org/nbuechler/evgroio.svg?branch=master)](https://travis-ci.org/nbuechler/evgroio)
