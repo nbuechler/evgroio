@@ -10,6 +10,7 @@ angular.module('activities').controller('ActivitiesController', ['$scope', '$sta
 			// Create new Activity object
 			var activity = new Activities ({
 				name: this.name,
+                description: this.description,
                 importance: this.importance
 			});
 
