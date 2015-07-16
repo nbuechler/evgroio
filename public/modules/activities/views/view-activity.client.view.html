@@ -1,16 +1,25 @@
 <section data-ng-controller="ActivitiesController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1 data-ng-bind="activity.name"></h1>
-	</div>
-	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == activity.user._id))">
-		<a class="btn btn-info" href="/#!/activities/{{activity._id}}/edit">
-			<i class="fa fa-pencil-square"></i> Change
-		</a>
-		<a class="btn btn-info" data-ng-click="remove();">
-			<i class="fa fa-trash"></i> Remove
-		</a>
-	</div>
-	<small>
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 data-ng-bind="activity.name"></h1>
+                <div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == activity.user._id))">
+                    <a class="btn btn-info" href="/#!/activities/{{activity._id}}/edit">
+                        <i class="fa fa-pencil-square"></i> Change
+                    </a>
+                    <a class="btn btn-info" data-ng-click="remove();">
+                        <i class="fa fa-trash"></i> Remove
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+        </div>
+    </div>
+    
         <!--TODO: Show only user activities-->
         
         <!--
@@ -19,21 +28,31 @@
         Visualize post information about activity
         visualize other analytics about activity?
         -->
-        
-        <div>
-            <h4 class="pull-left" style="padding: 30px; margin: 30px; border: solid 2px white;">
-                {{activity.importance}}
-            </h4>
-            <p>
-                This is a splash page for <strong>{{activity.name}}.</strong> As more information gets collected, this page will get way more interesting!
-            </p>
+
+	<small>
+        <div class="row">
+            <div class="col-lg-9">
+                <div>
+                    <h4 class="pull-left" style="padding: 30px; margin: 30px; border: solid 2px white;">
+                        {{activity.importance}}
+                    </h4>
+                    <p>
+                        <strong>{{activity.name}}.</strong>
+                        <hr>
+                        {{activity.description}} 
+                        <hr>
+                        As more information gets collected, this page will get way more interesting!
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <em class="text-muted">
+                    Posted on
+                    <span data-ng-bind="activity.created | date:'mediumDate'"></span>
+                    by
+                    <span data-ng-bind="activity.user.displayName"></span>
+                </em>
+            </div>
         </div>
-        
-		<em class="text-muted">
-			Posted on
-			<span data-ng-bind="activity.created | date:'mediumDate'"></span>
-			by
-			<span data-ng-bind="activity.user.displayName"></span>
-		</em>
 	</small>
 </section>

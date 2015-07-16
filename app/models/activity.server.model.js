@@ -20,6 +20,12 @@ var ActivitySchema = new Schema({
 		type: Number,
 		default: 50
 	},
+    description: {
+		type: String,
+		default: '',
+		required: 'Please fill in a description of the activity',
+		trim: true
+	},
 	created: {
 		type: Date,
 		default: Date.now
