@@ -30,6 +30,7 @@ describe('Activity Model Unit Tests:', function() {
 		user.save(function() { 
 			activity = new Activity({
 				name: 'Activity Name',
+                description: 'Activity Description',
 				user: user
 			});
 
