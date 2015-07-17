@@ -53,10 +53,19 @@ angular.module('activities').controller('ActivitiesController', ['$scope', '$sta
 			});
 		};
 
+        // Set marker for creating new log... for first time users
+        $scope.displayFirstTime = true;
+        
 		// Find a list of Activities
 		$scope.find = function() {
 			$scope.activities = Activities.query();
 		};
+        
+        for(var i in $scope.find) {
+            if(i._id === $scope.authentication.user._id) {
+                $scope.displayFirstTime = false;
+            }
+        }
 
 		// Find existing Activity
 		$scope.findOne = function() {
@@ -64,5 +73,22 @@ angular.module('activities').controller('ActivitiesController', ['$scope', '$sta
 				activityId: $stateParams.activityId
 			});
 		};
+        
+        /*
+         * Toggle button not used currently... but there is logic that can be used to toggle.
+         */
+        
+        // Show Public Log defaults to false
+        $scope.hidePublic = true;
+        
+        // Toggle Public Log
+        $scope.togglePublic = function() {
+            if($scope.hidePublic){
+                $scope.hidePublic = false;
+            } else {
+                $scope.hidePublic = true;
+            }
+        };
+        
 	}
 ]);
