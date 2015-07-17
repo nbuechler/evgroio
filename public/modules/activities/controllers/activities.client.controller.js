@@ -53,20 +53,14 @@ angular.module('activities').controller('ActivitiesController', ['$scope', '$sta
 			});
 		};
 
-        // Set marker for creating new log... for first time users
-        $scope.displayFirstTime = true;
+        // Set marker for creating new activity... for first time users
+        $scope.displayFirstTime = true; //not used
         
 		// Find a list of Activities
 		$scope.find = function() {
 			$scope.activities = Activities.query();
 		};
         
-        for(var i in $scope.find) {
-            if(i._id === $scope.authentication.user._id) {
-                $scope.displayFirstTime = false;
-            }
-        }
-
 		// Find existing Activity
 		$scope.findOne = function() {
 			$scope.activity = Activities.get({ 
