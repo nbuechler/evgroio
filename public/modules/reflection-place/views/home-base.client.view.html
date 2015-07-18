@@ -5,7 +5,7 @@
     
     <div class="row">
     
-        <div class="col-12-lg" id="tableOverview" style="margin-bottom: 150px;">
+        <div class="col-12-lg" id="tableOverview">
 
             <table class="table table-hover table-bordered" style="text-align: center;">
               <thead>
@@ -58,6 +58,44 @@
 
         </div>
     
+    </div>
+    
+    <div class="row">
+        <div class="list-group">
+        <a data-ng-repeat="activity in activities" data-ng-href="#!/activities/{{activity._id}}" class="list-group-item" ng-show="{{(activity.user._id === authentication.user._id)}}">
+            
+            <!--TODO: Show only user activities-->
+            <div class="row">    
+                <div class="col-lg-6">
+
+                    <small class="list-group-item-text">
+                        Posted on
+                        <span data-ng-bind="activity.created | date:'medium'"></span>
+                        by
+                        <span data-ng-bind="activity.user.displayName"></span>
+                    </small>
+                    <h4 class="list-group-item-heading" data-ng-bind="activity.name"></h4>
+                
+                <hr>
+                <div style="color: white;">
+                    {{activity.description}}
+                </div>
+                    
+                </div>
+                
+                
+                <div class="col-lg-3">
+                
+                </div>
+                    
+                    <h4 class="pull-right" style="width: 150px; padding: 30px; text-align: center; margin: 10px; border: solid 2px white;">
+                        {{activity.importance}}
+                    </h4>
+             </div>
+            
+        </a>
+    </div>
+        
     </div>
     
         <new-log-quick></new-log-quick>

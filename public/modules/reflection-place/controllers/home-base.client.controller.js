@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('reflection-place').controller('HomeBaseController', ['$scope', '$modal', '$log', '$stateParams', '$location', 'Authentication', 'Logs',
-	function($scope, $modal, $log, $stateParams, $location, Authentication, Logs) {
+angular.module('reflection-place').controller('HomeBaseController', ['$scope', '$modal', '$log', '$stateParams', '$location', 'Authentication', 'Logs', 'Activities', 
+	function($scope, $modal, $log, $stateParams, $location, Authentication, Logs, Activities) {
 		$scope.authentication = Authentication;
 
         /*
@@ -21,8 +21,8 @@ angular.module('reflection-place').controller('HomeBaseController', ['$scope', '
 //            etherContentLength: this.etherContent ? this.etherContent.length : 0
 //        });
         
-        // Find a list of Logs with information
 		$scope.find = function() {
+            // Find a list of Logs with information
 			$scope.logs = Logs.query();
             
             //Counting all the totals //TODO: Store this in a database tied to user.
@@ -49,6 +49,10 @@ angular.module('reflection-place').controller('HomeBaseController', ['$scope', '
                 communeTotal: communeTotal,
                 etherTotal: etherTotal
             };
+            
+            // Find a list of Activities
+            $scope.activities = Activities.query();
+            
             
 		};
         
