@@ -9,9 +9,9 @@ angular.module('reflection-place').config(['$stateProvider',
 			url: '/map',
 			templateUrl: 'modules/reflection-place/views/map.client.view.html'
 		}).
-		state('home-base', {
-			url: '/home-base',
-			templateUrl: 'modules/reflection-place/views/home-base.client.view.html'
+		state('overview', {
+			url: '/overview',
+			templateUrl: 'modules/reflection-place/views/overview.client.view.html'
 		});
 	}
 ]);
