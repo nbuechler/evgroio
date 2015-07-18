@@ -1,10 +1,10 @@
 'use strict';
 
 (function() {
-	// Home base Controller Spec
-	describe('Home base Controller Tests', function() {
+	// Overview Controller Spec
+	describe('Overview Controller Tests', function() {
 		// Initialize global variables
-		var HomeBaseController,
+		var OverviewController,
 			scope,
 			$httpBackend,
 			$stateParams,
@@ -44,8 +44,8 @@
 			$httpBackend = _$httpBackend_;
 			$location = _$location_;
 
-			// Initialize the Home base controller.
-			HomeBaseController = $controller('HomeBaseController', {
+			// Initialize the Overview controller.
+			OverviewController = $controller('OverviewController', {
 				$scope: scope
 			});
 		}));
