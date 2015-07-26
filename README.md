@@ -3,8 +3,14 @@ Please consider sharing this software as 'copylefted' as I would appreciate resp
 
 
 ##
-What should the name of this be? I'm still thinking...
+What should the name of this be? I'm still thinking... But here is a description of goals.
 
+##Goals
+Every human needs to fulfill certain basic needs before they are able to deeply reflect on their own. In other words, self-actualization in humans tends to occur stigmergically when humans do not have their attention focused on daily physical, emotional, analytical, cultural, ethereal tasks. Examples of these tasks are as follows: ...
+(Tasks description here).
+
+##
+This app attempts to address the attention deficit humans have in achieving self-actualization. It provides a basic framework that additionally can be tailored by end users. A set of tools to provide visualizations of information about the user's attention aim to aid in reaching self-actualization.
 
 ##
 GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 Copyright (C) 2007 Free Software Foundation, Inc. http://fsf.org/ Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
