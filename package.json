@@ -1,6 +1,6 @@
 {
 	"name": "evgroio",
-	"description": "Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js - introspective learning tool for educational use - including data visualizations as time goes on",
+	"description": "Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js - introspective learning tool for educational use - including data visualizations - addressing problems with human attention and self-acutualization",
 	"version": "0.0.6",
 	"author": "Nathaniel Buechler",
 	"engines": {
