@@ -82,15 +82,23 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
         $scope.logRollup = true;
         $scope.activitiesRollup = false;
         
-        d3.select('#logToggle').on('click', function() {
-            $scope.logRollup = true;
-            $scope.activitiesRollup = false;
-        });
+        $scope.changeActiveRollup = function(num) {
+             switch(num) {
+                case 0:
+                    $scope.logRollup = true;
+                    $scope.activitiesRollup = false;
+                    break;
+                case 1:
+                    $scope.logRollup = false;
+                    $scope.activitiesRollup = true;
+                    break;
+                default:
+                        $scope.logRollup = true;
+                        $scope.activitiesRollup = false;
+                        console.error(1/0, ' --  Due to nonexisting toggle.')
+            } 
+        }
         
-        d3.select('#activitiesToggle').on('click', function() {
-            $scope.logRollup = false;
-            $scope.activitiesRollup = true;
-        });
         
         //Modal window code
         $scope.animationsEnabled = true;
