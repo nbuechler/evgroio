@@ -82,12 +82,12 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
         $scope.logRollup = true;
         $scope.activitiesRollup = false;
         
-        $('#logToggle').on('click', function() {
+        d3.select('#logToggle').on('click', function() {
             $scope.logRollup = true;
             $scope.activitiesRollup = false;
         });
         
-        $('#activitiesToggle').on('click', function() {
+        d3.select('#activitiesToggle').on('click', function() {
             $scope.logRollup = false;
             $scope.activitiesRollup = true;
         });

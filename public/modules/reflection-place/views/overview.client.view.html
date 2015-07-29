@@ -5,102 +5,115 @@
     
     
     <div id="displayArea" style="padding-bottom: 150px;">
-        <div class="row">
+        <div id="navDisplay" class="col-lg-2">
+            <div>
+                <div id="logToggle" class="btn btn-sm btn-success">Logs</div>
+                <br>
+                <br>
+                <div id="activitiesToggle" class="btn btn-sm btn-success">Activities</div>
+            </div>
+        </div>
+        
+        <!-- All the business logic for html viewing -->
+        <div id="displayZone" class="col-lg-10">
+            <div class="row" ng-show="logRollup">
 
-            <h3>Logs</h3>
-            <div class="col-12-lg" id="tableOverview">
+                <h3>Logs</h3>
+                <div class="col-12-lg" id="tableOverview">
 
-                <table class="table table-hover table-bordered" style="text-align: center;">
-                  <thead>
-                    <tr style="background: #464545">
-                      <th style="text-align: center;">Log Title</th>
-    <!--                  <th style="text-align: center;">Date</th>-->
-                      <th style="text-align: center;"></th>
-                      <th style="text-align: center; background: #56222E">
-                          <i style="color: white;" class="fa fa-female"></i>
-                          <i style="color: white;" class="fa fa-male"></i>
-                      </th>
-                      <th style="text-align: center; background: #262561">
-                          <i style="color: white;" class="fa fa-heart"></i>
-                          <i style="color: white;" class="fa fa-heart-o"></i>
-                      </th>
-                      <th style="text-align: center; background: #632F5F">
-                          <i style="color: white;" class="fa fa-book"></i>
-                          <i style="color: white;" class="fa fa-picture-o"></i>
-                      </th>
-                      <th style="text-align: center; background: #296A52">
-                          <i style="color: white;" class="fa fa-university"></i>
-                          <i style="color: white;" class="fa fa-building-o"></i>
-                      </th>
-                      <th style="text-align: center; background: #775923">
-                          <i style="color: #;" class="fa fa-sun-o"></i>
-                          <i style="color: white;" class="fa fa-globe"></i>
-                      </th>
-                      <th style="text-align: center;">Log Link</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr data-ng-repeat="log in logs" ng-show="{{(log.user._id === authentication.user._id)}}">
-                      <td class="">
-                          <!-- Button trigger modal -->
-                          <!-- Also comes in open('sm'), open(), & open('lg')-->
-                        <button class="btn btn-link btn-xs" ng-click="open('sm', log)">{{log.name}}</button>
-                      </td>
-    <!--                  <td class="" data-ng-bind="log.created | date:'mediumDate'"></td>-->
-                      <td class="" style="width: 1px; background: #464545"></td>
-                      <td>{{log.physicContentLength}}</td>
-                      <td>{{log.emotionContentLength}}</td>
-                      <td>{{log.academicContentLength}}</td>
-                      <td>{{log.communeContentLength}}</td>
-                      <td>{{log.etherContentLength}}</td>
-                      <td><a data-ng-href="#!/logs/{{log._id}}"><i class="fa fa-file-text"></i>
-    </a></td>
-                    </tr>
-                  </tbody>
-                </table> 
+                    <table class="table table-hover table-bordered" style="text-align: center;">
+                      <thead>
+                        <tr style="background: #464545">
+                          <th style="text-align: center;">Log Title</th>
+        <!--                  <th style="text-align: center;">Date</th>-->
+                          <th style="text-align: center;"></th>
+                          <th style="text-align: center; background: #56222E">
+                              <i style="color: white;" class="fa fa-female"></i>
+                              <i style="color: white;" class="fa fa-male"></i>
+                          </th>
+                          <th style="text-align: center; background: #262561">
+                              <i style="color: white;" class="fa fa-heart"></i>
+                              <i style="color: white;" class="fa fa-heart-o"></i>
+                          </th>
+                          <th style="text-align: center; background: #632F5F">
+                              <i style="color: white;" class="fa fa-book"></i>
+                              <i style="color: white;" class="fa fa-picture-o"></i>
+                          </th>
+                          <th style="text-align: center; background: #296A52">
+                              <i style="color: white;" class="fa fa-university"></i>
+                              <i style="color: white;" class="fa fa-building-o"></i>
+                          </th>
+                          <th style="text-align: center; background: #775923">
+                              <i style="color: #;" class="fa fa-sun-o"></i>
+                              <i style="color: white;" class="fa fa-globe"></i>
+                          </th>
+                          <th style="text-align: center;">Log Link</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr data-ng-repeat="log in logs" ng-show="{{(log.user._id === authentication.user._id)}}">
+                          <td class="">
+                              <!-- Button trigger modal -->
+                              <!-- Also comes in open('sm'), open(), & open('lg')-->
+                            <button class="btn btn-link btn-xs" ng-click="open('sm', log)">{{log.name}}</button>
+                          </td>
+        <!--                  <td class="" data-ng-bind="log.created | date:'mediumDate'"></td>-->
+                          <td class="" style="width: 1px; background: #464545"></td>
+                          <td>{{log.physicContentLength}}</td>
+                          <td>{{log.emotionContentLength}}</td>
+                          <td>{{log.academicContentLength}}</td>
+                          <td>{{log.communeContentLength}}</td>
+                          <td>{{log.etherContentLength}}</td>
+                          <td><a data-ng-href="#!/logs/{{log._id}}"><i class="fa fa-file-text"></i>
+        </a></td>
+                        </tr>
+                      </tbody>
+                    </table> 
+
+                </div>
 
             </div>
 
-        </div>
+            <div class="row" ng-show="activitiesRollup">
 
-        <div class="row">
+                <h3>Activities</h3>
+                <div class="list-group">
+                <a data-ng-repeat="activity in activities" data-ng-href="#!/activities/{{activity._id}}" class="list-group-item" ng-show="{{(activity.user._id === authentication.user._id)}}">
 
-            <h3>Activities</h3>
-            <div class="list-group">
-            <a data-ng-repeat="activity in activities" data-ng-href="#!/activities/{{activity._id}}" class="list-group-item" ng-show="{{(activity.user._id === authentication.user._id)}}">
+                    <!--TODO: Show only user activities-->
+                    <div class="row">    
+                        <div class="col-lg-6">
 
-                <!--TODO: Show only user activities-->
-                <div class="row">    
-                    <div class="col-lg-6">
+                            <small class="list-group-item-text">
+                                Posted on
+                                <span data-ng-bind="activity.created | date:'medium'"></span>
+                                by
+                                <span data-ng-bind="activity.user.displayName"></span>
+                            </small>
+                            <h4 class="list-group-item-heading" data-ng-bind="activity.name"></h4>
 
-                        <small class="list-group-item-text">
-                            Posted on
-                            <span data-ng-bind="activity.created | date:'medium'"></span>
-                            by
-                            <span data-ng-bind="activity.user.displayName"></span>
-                        </small>
-                        <h4 class="list-group-item-heading" data-ng-bind="activity.name"></h4>
+                        <hr>
+                        <div style="color: white;">
+                            {{activity.description}}
+                        </div>
 
-                    <hr>
-                    <div style="color: white;">
-                        {{activity.description}}
-                    </div>
-
-                    </div>
+                        </div>
 
 
-                    <div class="col-lg-3">
+                        <div class="col-lg-3">
 
-                    </div>
+                        </div>
 
-                        <h4 class="pull-right" style="width: 150px; padding: 30px; text-align: center; margin: 10px; border: solid 2px white;">
-                            {{activity.importance}}
-                        </h4>
-                 </div>
+                            <h4 class="pull-right" style="width: 150px; padding: 30px; text-align: center; margin: 10px; border: solid 2px white;">
+                                {{activity.importance}}
+                            </h4>
+                     </div>
 
-            </a>
-        </div>
+                </a>
+                </div>
 
+            </div>
+        
         </div>
     </div>
     
