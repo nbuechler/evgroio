@@ -78,6 +78,28 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
 		};
         
         
+        //Toggling for dashboard level 1 items
+        $scope.logRollup = true;
+        $scope.activitiesRollup = false;
+        
+        $scope.changeActiveRollup = function(num) {
+             switch(num) {
+                case 0:
+                    $scope.logRollup = true;
+                    $scope.activitiesRollup = false;
+                    break;
+                case 1:
+                    $scope.logRollup = false;
+                    $scope.activitiesRollup = true;
+                    break;
+                default:
+                        $scope.logRollup = true;
+                        $scope.activitiesRollup = false;
+                        console.error(1/0, ' --  Due to nonexisting toggle.')
+            } 
+        }
+        
+        
         //Modal window code
         $scope.animationsEnabled = true;
 
