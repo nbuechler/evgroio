@@ -78,6 +78,20 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
 		};
         
         
+        //Toggling for dashboard level 1 items
+        $scope.logRollup = true;
+        $scope.activitiesRollup = false;
+        
+        $('#logToggle').on('click', function() {
+            $scope.logRollup = true;
+            $scope.activitiesRollup = false;
+        });
+        
+        $('#activitiesToggle').on('click', function() {
+            $scope.logRollup = false;
+            $scope.activitiesRollup = true;
+        });
+        
         //Modal window code
         $scope.animationsEnabled = true;
 
