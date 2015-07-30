@@ -6,8 +6,12 @@ Please consider sharing this software as 'copylefted' as I would appreciate resp
 What should the name of this be? I'm still thinking... But here is a description of goals.
 
 ##Goals
-Every human needs to fulfill certain basic needs before they are able to deeply reflect on their own. In other words, self-actualization in humans tends to occur stigmergically when humans do not have their attention focused on daily physical, emotional, analytical, cultural, ethereal tasks. Examples of these tasks are as follows: ...
-(Tasks description here).
+Every human needs to fulfill certain basic needs before they are able to deeply reflect on their own. In other words, self-actualization in humans tends to occur stigmergically when humans do not have their attention focused on daily physical, emotional, analytical, cultural, ethereal tasks. Examples of these tasks are...
+#- Running, gardening, singing, painting.
+#- Talking, smiling, hugging, helping.
+#- Learning, reading, focussing, thinking.
+#- Advocating, changing, participating, making.
+#- Believing, dreaming, mediating, meditating.
 
 ##
 This app attempts to address the attention deficit humans have in achieving self-actualization. It provides a basic framework that additionally can be tailored by end users. A set of tools to provide visualizations of information about the user's attention aim to aid in reaching self-actualization.
