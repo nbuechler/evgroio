@@ -17,44 +17,75 @@
             4. Make a check to see if actity has already been created.
             -->
             
-            <fieldset>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label class="control-label" for="name">Name</label>
-                            <div class="controls">
-                                <input type="text" data-ng-model="activity.name" id="name" class="form-control" placeholder="Name" required>
+            <div class="row">
+                <div class="col-lg-9">
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="control-label" for="name">Name</label>
+                                    <div class="controls">
+                                        <input type="text" data-ng-model="activity.name" id="name" class="form-control" placeholder="Name" required>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-2">
-                        <div class="form-group">
-                            <label class="control-label" for="activity">Importance</label>
-                            <div class="controls">
-                                <input type="number" data-ng-model="activity.importance" id="importance" class="form-control" placeholder="50" min="0" max="100" step="10">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <div class="form-group">
+                                    <label class="control-label" for="activity">Importance</label>
+                                    <div class="controls">
+                                        <input type="number" data-ng-model="activity.importance" id="importance" class="form-control" placeholder="50" min="0" max="100" step="10">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-1">
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="form-group">
+                                    <label class="control-label" for="description">What is this activity?</label>
+                                    <div class="controls">
+                                        <input type="text" data-ng-model="activity.description" id="description" class="form-control" placeholder="Describe it!" required>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-1">
-                    </div>
-                    <div class="col-lg-9">
                         <div class="form-group">
-                            <label class="control-label" for="description">What is this activity?</label>
-                            <div class="controls">
-                                <input type="text" data-ng-model="activity.description" id="description" class="form-control" placeholder="Describe it!" required>
-                            </div>
+                            <input type="submit" value="Update" class="btn btn-default">
                         </div>
+                        <div data-ng-show="error" class="text-danger">
+                            <strong data-ng-bind="error"></strong>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                <div data-ng-init="find()" class="col-lg-3">
+                    <hr>
+                    <h5>Current Activities</h5>
+                    <div class="list-group">
+                        <a data-ng-repeat="activity in activities" data-ng-href="#!/activities/{{activity._id}}" class="list-group-item" ng-show="{{(activity.user._id === authentication.user._id)}}">
+
+                            <div class="row">    
+                                <div class="col-lg-6">
+
+                                    <h6 class="list-group-item-heading" data-ng-bind="activity.name"></h6>
+
+                                </div>
+
+
+                                <div class="col-lg-3">
+
+                                </div>
+
+                                    <h6 class="pull-right" style="150px; text-align: center; margin: 10px;">
+                                        {{activity.importance}}
+                                    </h6>
+                             </div>
+
+                        </a>
                     </div>
                 </div>
-                <div class="form-group">
-                    <input type="submit" value="Update" class="btn btn-default">
-                </div>
-				<div data-ng-show="error" class="text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
-            </fieldset>
+            </div>
         </form>
     </div>
 </section>
