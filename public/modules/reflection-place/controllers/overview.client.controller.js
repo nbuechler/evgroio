@@ -95,9 +95,9 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
                 default:
                         $scope.logRollup = true;
                         $scope.activitiesRollup = false;
-                        console.error(1/0, ' --  Due to nonexisting toggle.')
+                        console.error(1/0, ' --  Due to nonexisting toggle.');
             } 
-        }
+        };
         
         
         //Modal window code
