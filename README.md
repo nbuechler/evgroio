@@ -1,4 +1,4 @@
-##evgroio - introspective learning tool for educational use
+##evgroio - introspective learning tool for educational use, no really, for learning!
 Please consider sharing this software as 'copylefted' as I would appreciate respecting this license:
 
 
