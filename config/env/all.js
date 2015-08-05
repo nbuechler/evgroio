@@ -13,6 +13,7 @@ module.exports = {
 	assets: {
 		lib: {
 			css: [
+                'public/lib/angular-material/angular-material.css',
 				'public/customLib/bootstrapThemed/darkly/bootstrap.css',
                 'public/lib/fontawesome/css/font-awesome.css'
 			],
@@ -26,7 +27,9 @@ module.exports = {
 				'public/lib/angular-ui-router/release/angular-ui-router.js',
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
-				'public/lib/d3/d3.js'
+				'public/lib/d3/d3.js',
+                'public/lib/angular-aria/angular-aria.js',
+                'public/lib/angular-material/angular-material.js'
 			]
 		},
 		css: [
