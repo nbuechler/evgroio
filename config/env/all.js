@@ -27,6 +27,7 @@ module.exports = {
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
 				'public/lib/d3/d3.js',
+                'public/lib/angular-aria/angular-aria.js',
                 'public/lib/angular-material/angular-material.js'
 			]
 		},
