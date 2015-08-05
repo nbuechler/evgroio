@@ -86,3 +86,6 @@ angular.module('activities').controller('ActivitiesController', ['$scope', '$sta
         
 	}
 ]);
+
+//Change the html background to match due to styling of angular-material on the height style of body.
+d3.select('html').style('background-color', '#222222');
