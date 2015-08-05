@@ -9,6 +9,8 @@ var mongoose = require('mongoose'),
 /**
  * Activity Schema
  */
+
+ // TODO: Add an event of the activity
 var ActivitySchema = new Schema({
 	name: {
 		type: String,
