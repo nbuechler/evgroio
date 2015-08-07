@@ -7,14 +7,17 @@
         <form class="form-horizontal" data-ng-submit="create()">
             <fieldset>
                 <div class="form-group" style="position: relative; z-index: 10; text-align: center; width: 225px;">
-                    <label class="control-label" for="name">Reflection Title</label>
+                    <label class="control-label" for="name">poopp Title</label>
                     <div class="controls">
                         <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Pick a theme!" required>
                     </div>
                 </div>
-                
+                      <h5>Will the world see this log?</h5>
+                      <md-checkbox data-ng-model="privacy" aria-label="Privacy Checkbox">
+                          {{privacy === true ? 'Yup!' : 'Nope'}}
+                      </md-checkbox>
                 <div id="reflectionZone">
-                
+                    <div>
                     <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6 box marginPaddingBox physicContent">
                                 <textarea type="text" data-ng-model="physicContent" id="physicContentINPUT" class="editArea form-control" placeholder="Which part(s) of your body did you use?"></textarea>
@@ -66,9 +69,9 @@
                             </div>
                         </div>
                     </div>
-                
+
                 </div>
-                
+
                 <div class="form-group" style="position: relative; z-index: 10; margin-top: 15px; text-align: center; width: 225px;">
                     <input class="btn btn-default btn-lg" type="submit" class="btn btn-default" value="Save Reflection">
                 </div>

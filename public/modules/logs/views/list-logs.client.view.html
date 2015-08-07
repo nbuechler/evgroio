@@ -42,7 +42,7 @@
         </div>
         <div class="list-group" ng-hide="hidePublic">
             <a ng-hide="log.privacy < 1" data-ng-repeat="log in logs" data-ng-href="#!/logs/{{log._id}}" class="list-group-item col-lg-4">
-                <div >
+                <div>
                     <small class="list-group-item-text">
                         Posted on
                         <span data-ng-bind="log.created | date:'medium'"></span>

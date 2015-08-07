@@ -20,7 +20,7 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
                 academicContentLength: this.academicContent ? this.academicContent.length : 0,
                 communeContentLength: this.communeContent ? this.communeContent.length : 0,
                 etherContentLength: this.etherContent ? this.etherContent.length : 0,
-                privacy: this.privacy ? privacy : 0
+                privacy: this.privacy ? 1 : 0
 			});
 
 			// Redirect after save

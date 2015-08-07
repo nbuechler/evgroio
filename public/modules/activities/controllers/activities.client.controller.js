@@ -12,7 +12,7 @@ angular.module('activities').controller('ActivitiesController', ['$scope', '$sta
 				name: this.name,
                 description: this.description,
                 importance: this.importance,
-								privacy: this.privacy
+								privacy: this.privacy ? 1 : 0
 			});
 
 			// Redirect after save
