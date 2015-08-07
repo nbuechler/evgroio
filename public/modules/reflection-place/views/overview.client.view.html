@@ -2,8 +2,8 @@
 	<div class="page-header">
         <h1><i class="fa fa-columns"></i> Overview</h1>
     </div>
-    
-    
+
+
     <div id="displayArea">
         <div id="navDisplay" class="col-lg-2" style="text-align: center;">
             <div>
@@ -13,7 +13,7 @@
                 <div id="activitiesToggle" class="btn btn-sm btn-success" ng-click="changeActiveRollup(1)">Activities</div>
             </div>
         </div>
-        
+
         <!-- All the business logic for html viewing -->
         <div id="displayZone" class="col-lg-10" style="padding-bottom: 150px;">
             <div class="row" ng-show="logRollup">
@@ -68,7 +68,7 @@
         </a></td>
                         </tr>
                       </tbody>
-                    </table> 
+                    </table>
 
                 </div>
 
@@ -81,7 +81,7 @@
                 <a data-ng-repeat="activity in activities" data-ng-href="#!/activities/{{activity._id}}" class="list-group-item" ng-show="{{(activity.user._id === authentication.user._id)}}">
 
                     <!--TODO: Show only user activities-->
-                    <div class="row">    
+                    <div class="row">
                         <div class="col-lg-6">
 
                             <small class="list-group-item-text">
@@ -113,16 +113,17 @@
                 </div>
 
             </div>
-        
+
         </div>
     </div>
-    
+
         <new-log-quick></new-log-quick>
+        <new-activity-quick></new-activity-quick>
 
     <div class="text-center footer">
         <div class="text-muted" style="padding: 10px; background: #303030; border: 2px solid #464545; border-left: none; border-right: none;box-shadow: 0px 0px 10px black;">
     	Here's your overview. Think of it as your source of truth. Good luck!
         </div>
     </div>
-    
+
 </section>

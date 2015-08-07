@@ -36,12 +36,18 @@
         </a>
     </div>
 
-    <div class="alert alert-warning text-center">
+    <div class="alert alert-warning text-center" style="margin-bottom: 100px;">
     	Why don't you <a style="color: black;" href="/#!/activities/create">write about an activity</a>?
     </div>
 
+    <new-log-quick></new-log-quick>
     <new-activity-quick></new-activity-quick>
 
+    <div class="text-center footer">
+        <div class="text-muted" style="padding: 10px; background: #303030; border: 2px solid #464545; border-left: none; border-right: none;box-shadow: 0px 0px 10px black;">
+    	A list of some of things you do. Why don't you <a ng-href="/#!/activities/create">add a new activity now</a>!
+        </div>
+    </div>
 
 <!--
     <div class="alert alert-warning text-center" data-ng-hide="!activities.$resolved || activities.length">
