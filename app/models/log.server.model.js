@@ -71,7 +71,7 @@ var LogSchema = new Schema({
 	},
 	privacy: {
 		type: Number,
-		default: 1
+		default: 0
 	}
 });
 

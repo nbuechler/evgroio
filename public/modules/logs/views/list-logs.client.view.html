@@ -25,10 +25,10 @@
                     <span data-ng-bind="log.user.displayName"></span>
                 </small>
                 <div class="pull-right badge" ng-show="{{(log.privacy === 0)}}">
-                    Public
+                    Private
                 </div>
                 <div class="pull-right badge" ng-show="{{(log.privacy === 1)}}">
-                    Private
+                    Public
                 </div>
                 <h4 class="list-group-item-heading" data-ng-bind="log.name"></h4>
                 <div class="" style="text-align: center;">
@@ -41,7 +41,7 @@
             </a>
         </div>
         <div class="list-group" ng-hide="hidePublic">
-            <a ng-show="log.privacy < 1" data-ng-repeat="log in logs" data-ng-href="#!/logs/{{log._id}}" class="list-group-item col-lg-4">
+            <a ng-hide="log.privacy < 1" data-ng-repeat="log in logs" data-ng-href="#!/logs/{{log._id}}" class="list-group-item col-lg-4">
                 <div >
                     <small class="list-group-item-text">
                         Posted on
