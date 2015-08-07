@@ -55,6 +55,14 @@
                         <br>
                         by
                         <span data-ng-bind="activity.user.displayName"></span>
+                        <span>
+                          <div ng-if="activity.privacy === 0">
+                          This activity is public.
+                          </div>
+                          <div ng-if="activity.privacy === 1">
+                          This activity is private.
+                          </div>
+                        </span>
                     </em>
                 </div>
             </div>

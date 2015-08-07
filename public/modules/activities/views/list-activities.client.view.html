@@ -16,6 +16,13 @@
                     </small>
                     <h4 class="list-group-item-heading" data-ng-bind="activity.name"></h4>
 
+                    <div class="badge" ng-show="{{(activity.privacy === 0)}}">
+                        Public
+                    </div>
+                    <div class="badge" ng-show="{{(activity.privacy === 1)}}">
+                        Private
+                    </div>
+
                 <hr>
                 <div style="color: white;">
                     {{activity.description}}
@@ -27,7 +34,6 @@
                 <div class="col-lg-3">
 
                 </div>
-
                     <h4 class="pull-right" style="width: 150px; padding: 30px; text-align: center; margin: 10px; border: solid 2px white;">
                         {{activity.importance}}
                     </h4>

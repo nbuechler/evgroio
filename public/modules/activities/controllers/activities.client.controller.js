@@ -11,7 +11,8 @@ angular.module('activities').controller('ActivitiesController', ['$scope', '$sta
 			var activity = new Activities ({
 				name: this.name,
                 description: this.description,
-                importance: this.importance
+                importance: this.importance,
+								privacy: this.privacy
 			});
 
 			// Redirect after save
@@ -27,7 +28,7 @@ angular.module('activities').controller('ActivitiesController', ['$scope', '$sta
 
 		// Remove existing Activity
 		$scope.remove = function(activity) {
-			if ( activity ) { 
+			if ( activity ) {
 				activity.$remove();
 
 				for (var i in $scope.activities) {
@@ -55,26 +56,26 @@ angular.module('activities').controller('ActivitiesController', ['$scope', '$sta
 
         // Set marker for creating new activity... for first time users
         $scope.displayFirstTime = true; //not used
-        
+
 		// Find a list of Activities
 		$scope.find = function() {
 			$scope.activities = Activities.query();
 		};
-        
+
 		// Find existing Activity
 		$scope.findOne = function() {
-			$scope.activity = Activities.get({ 
+			$scope.activity = Activities.get({
 				activityId: $stateParams.activityId
 			});
 		};
-        
+
         /*
          * Toggle button not used currently... but there is logic that can be used to toggle.
          */
-        
+
         // Show Public Log defaults to false
         $scope.hidePublic = true;
-        
+
         // Toggle Public Log
         $scope.togglePublic = function() {
             if($scope.hidePublic){
@@ -83,7 +84,7 @@ angular.module('activities').controller('ActivitiesController', ['$scope', '$sta
                 $scope.hidePublic = true;
             }
         };
-        
+
 	}
 ]);
 

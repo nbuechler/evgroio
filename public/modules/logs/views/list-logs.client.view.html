@@ -27,6 +27,9 @@
                 <div class="pull-right badge" ng-show="{{(log.privacy === 0)}}">
                     Public
                 </div>
+                <div class="pull-right badge" ng-show="{{(log.privacy === 1)}}">
+                    Private
+                </div>
                 <h4 class="list-group-item-heading" data-ng-bind="log.name"></h4>
                 <div class="" style="text-align: center;">
                     <span ng-if="log.physicContent.length > 0" class="physicBox globalPadding">{{log.physicContent.length}}</span>
