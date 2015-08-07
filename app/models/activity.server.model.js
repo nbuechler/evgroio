@@ -38,7 +38,7 @@ var ActivitySchema = new Schema({
 	},
 	privacy: {
 		type: Number,
-		default: 0
+		default: 1
 	}
 });
 
