@@ -4,8 +4,8 @@
     </div>
     <div class="list-group">
         <a data-ng-repeat="activity in activities" data-ng-href="#!/activities/{{activity._id}}" class="list-group-item" ng-show="{{(activity.user._id === authentication.user._id)}}">
-            
-            <div class="row">    
+
+            <div class="row">
                 <div class="col-lg-6">
 
                     <small class="list-group-item-text">
@@ -15,31 +15,40 @@
                         <span data-ng-bind="activity.user.displayName"></span>
                     </small>
                     <h4 class="list-group-item-heading" data-ng-bind="activity.name"></h4>
-                
+
                 <hr>
                 <div style="color: white;">
                     {{activity.description}}
                 </div>
-                    
+
                 </div>
-                
-                
+
+
                 <div class="col-lg-3">
-                
+
                 </div>
-                    
+
                     <h4 class="pull-right" style="width: 150px; padding: 30px; text-align: center; margin: 10px; border: solid 2px white;">
                         {{activity.importance}}
                     </h4>
              </div>
-            
+
         </a>
     </div>
-    
-    <div class="alert alert-warning text-center">
+
+    <div class="alert alert-warning text-center" style="margin-bottom: 100px;">
     	Why don't you <a style="color: black;" href="/#!/activities/create">write about an activity</a>?
     </div>
-    
+
+    <new-log-quick></new-log-quick>
+    <new-activity-quick></new-activity-quick>
+
+    <div class="text-center footer">
+        <div class="text-muted" style="padding: 10px; background: #303030; border: 2px solid #464545; border-left: none; border-right: none;box-shadow: 0px 0px 10px black;">
+    	A list of some of things you do. Why don't you <a ng-href="/#!/activities/create">add a new activity now</a>!
+        </div>
+    </div>
+
 <!--
     <div class="alert alert-warning text-center" data-ng-hide="!activities.$resolved || activities.length">
     	No Activities yet, why don't you <a style="color: black;" href="/#!/activities/create">create one</a>?

@@ -1,17 +1,17 @@
 <section data-ng-controller="LogsController" data-ng-init="findOne()">
-	
+
     <div class="pull-right">
         <a href="/#!/logs">
             <div class="btn btn-default">
                 View all logs
             </div>
-        </a>    
+        </a>
     </div>
-    
+
     <div class="page-header">
         <h1 data-ng-bind="log.name"></h1>
     </div>
-    
+
 	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == log.user._id))">
 		<a class="btn btn-info" href="/#!/logs/{{log._id}}/edit">
 			<i class="fa fa-pencil-square"></i> Change
@@ -20,7 +20,7 @@
 			<i class="fa fa-trash"></i> Remove
 		</a>
 	</div>
-    
+
 	<small>
 		<em class="text-muted">
 			Posted on
@@ -29,7 +29,7 @@
 			<span data-ng-bind="log.user.displayName"></span>
 		</em>
 	</small>
-    
+
         <div class="row" style="margin-top: 30px; margin-bottom: 100px;">
             <div style="border: solid 3px #464545;" ng-if="log.physicContentLength > 0" class="physicBox marginPaddingBox">
                 <div data-ng-bind="log.physicContent"></div>
@@ -52,13 +52,14 @@
                 <div style="float: right; margin-top: -20px; color: white; text-shadow: 1px 1px black" data-ng-bind="log.etherContentLength"></div>
             </div>
         </div>
-    
-        <new-log-quick></new-log-quick>
 
+        <new-log-quick></new-log-quick>
+				<new-activity-quick></new-activity-quick>
+				
     <div class="text-center footer">
         <div class="text-muted" style="padding: 10px; background: #303030; border: 2px solid #464545; border-left: none; border-right: none;box-shadow: 0px 0px 10px black;">
     	Just like a poem, these are the sections of your idea!
         </div>
     </div>
-    
+
 </section>
