@@ -27,6 +27,15 @@
 			<span data-ng-bind="log.created | date:'mediumDate'"></span>
 			by
 			<span data-ng-bind="log.user.displayName"></span>
+      <br>
+      <span>
+        <div ng-if="log.privacy === 0">
+        This log is private.
+        </div>
+        <div ng-if="log.privacy === 1">
+        This log is public.
+        </div>
+      </span>
 		</em>
 	</small>
 
@@ -55,7 +64,7 @@
 
         <new-log-quick></new-log-quick>
 				<new-activity-quick></new-activity-quick>
-				
+
     <div class="text-center footer">
         <div class="text-muted" style="padding: 10px; background: #303030; border: 2px solid #464545; border-left: none; border-right: none;box-shadow: 0px 0px 10px black;">
     	Just like a poem, these are the sections of your idea!

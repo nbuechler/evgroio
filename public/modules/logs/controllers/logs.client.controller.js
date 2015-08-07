@@ -19,7 +19,8 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
                 emotionContentLength: this.emotionContent ? this.emotionContent.length : 0,
                 academicContentLength: this.academicContent ? this.academicContent.length : 0,
                 communeContentLength: this.communeContent ? this.communeContent.length : 0,
-                etherContentLength: this.etherContent ? this.etherContent.length : 0
+                etherContentLength: this.etherContent ? this.etherContent.length : 0,
+                privacy: this.privacy ? 1 : 0
 			});
 
 			// Redirect after save
@@ -35,7 +36,7 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
 
 		// Remove existing Log
 		$scope.remove = function(log) {
-			if ( log ) { 
+			if ( log ) {
 				log.$remove();
 
 				for (var i in $scope.logs) {
@@ -52,19 +53,20 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
 
 		// Update existing Log
 		$scope.update = function() {
-			
-            
+
+
             //Calculate log lengths for logs that don't have log lengths
             $scope.log.physicContentLength = $scope.log.physicContent ? $scope.log.physicContent.length : 0;
             $scope.log.emotionContentLength = $scope.log.emotionContent ? $scope.log.emotionContent.length : 0;
             $scope.log.academicContentLength = $scope.log.academicContent ? $scope.log.academicContent.length : 0;
             $scope.log.communeContentLength = $scope.log.communeContent ? $scope.log.communeContent.length : 0;
             $scope.log.etherContentLength = $scope.log.etherContent ? $scope.log.etherContent.length : 0;
-            
+            $scope.log.privacy = $scope.log.privacy ? 1 : 0;
+
             var log = $scope.log;
-            
+
 			log.$update(function() {
-                
+
 				$location.path('logs/' + log._id);
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
@@ -73,7 +75,7 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
 
         // Set marker for creating new log... for first time users
         $scope.displayFirstTime = true;
-        
+
 		// Find a list of Logs
 		$scope.find = function() {
 			$scope.logs = Logs.query();
@@ -84,17 +86,17 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
                 $scope.displayFirstTime = false;
             }
         }
-        
+
 		// Find existing Log
 		$scope.findOne = function() {
-			$scope.log = Logs.get({ 
+			$scope.log = Logs.get({
 				logId: $stateParams.logId
 			});
 		};
-        
+
         // Show Public Log defaults to false
         $scope.hidePublic = true;
-        
+
         // Toggle Public Log
         $scope.togglePublic = function() {
             if($scope.hidePublic){
@@ -103,6 +105,6 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
                 $scope.hidePublic = true;
             }
         };
-        
+
 	}
 ]);

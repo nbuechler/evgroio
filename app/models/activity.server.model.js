@@ -18,11 +18,11 @@ var ActivitySchema = new Schema({
 		required: 'Please fill Activity name',
 		trim: true
 	},
-    importance: {
+  importance: {
 		type: Number,
 		default: 50
 	},
-    description: {
+  description: {
 		type: String,
 		default: '',
 		required: 'Please fill in a description of the activity',
@@ -35,6 +35,10 @@ var ActivitySchema = new Schema({
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'
+	},
+	privacy: {
+		type: Number,
+		default: 0
 	}
 });
 
