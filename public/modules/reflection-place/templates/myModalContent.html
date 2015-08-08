@@ -4,8 +4,8 @@
 <div class="modal-body">
     <hr>
     <ul style="text-align: center;">
-        <li ng-repeat="item in items" style="list-style-type: none;">
-            <a ng-click="selected.item = item">{{ item }}</a>
+        <li ng-repeat="item in items track by item.id" style="list-style-type: none;">
+            <a ng-click="selected.item = item.entry">{{ item.entry }}</a>
         </li>
     </ul>
     <hr>

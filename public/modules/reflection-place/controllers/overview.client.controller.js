@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('reflection-place').controller('OverviewController', ['$scope', '$modal', '$log', '$stateParams', '$location', 'Authentication', 'Logs', 'Activities', 
+angular.module('reflection-place').controller('OverviewController', ['$scope', '$modal', '$log', '$stateParams', '$location', 'Authentication', 'Logs', 'Activities',
 	function($scope, $modal, $log, $stateParams, $location, Authentication, Logs, Activities) {
 		$scope.authentication = Authentication;
 
@@ -20,28 +20,28 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
 //            communeContentLength: this.communeContent ? this.communeContent.length : 0,
 //            etherContentLength: this.etherContent ? this.etherContent.length : 0
 //        });
-        
+
 		$scope.find = function() {
             // Find a list of Logs with information
 			$scope.logs = Logs.query();
-            
+
             //Counting all the totals //TODO: Store this in a database tied to user.
             var physicTotal = 0;
             var emotionTotal = 0;
             var academicTotal = 0;
             var communeTotal = 0;
             var etherTotal = 0;
-            
+
             for( var i in $scope.logs) {
-                
+
                 physicTotal += $scope.logs[i].physicContentLength;
                 emotionTotal += $scope.logs[i].emotionContentLength;
                 academicTotal += $scope.logs[i].academicContentLength;
                 communeTotal += $scope.logs[i].communeContentLength;
                 etherTotal += $scope.logs[i].etherContentLength;
-            } 
-            
-            
+            }
+
+
             $scope.totals = {
                 physicTotal: physicTotal,
                 emotionTotal: emotionTotal,
@@ -49,13 +49,13 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
                 communeTotal: communeTotal,
                 etherTotal: etherTotal
             };
-            
+
             // Find a list of Activities
             $scope.activities = Activities.query();
-            
-            
+
+
 		};
-        
+
         //In this method...
         /*
          *
@@ -68,20 +68,20 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
             console.log('response', response);
             console.log('here - repsonse[0]', response[0]);
         });
-        
-        
+
+
         // Find existing Log
 		$scope.findOne = function() {
-			$scope.log = Logs.get({ 
+			$scope.log = Logs.get({
 				logId: $stateParams.logId
 			});
 		};
-        
-        
+
+
         //Toggling for dashboard level 1 items
         $scope.logRollup = true;
         $scope.activitiesRollup = false;
-        
+
         $scope.changeActiveRollup = function(num) {
              switch(num) {
                 case 0:
@@ -96,36 +96,36 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
                         $scope.logRollup = true;
                         $scope.activitiesRollup = false;
                         console.error(1/0, ' --  Due to nonexisting toggle.');
-            } 
+            }
         };
-        
-        
+
+
         //Modal window code
         $scope.animationsEnabled = true;
 
         $scope.open = function (size, log) {
         $scope.items = [];
-        
+
             //Logic to improve UX for log understanding
             if(log.physicContentLength > 0) {
-                $scope.items.push(log.physicContent);
+                $scope.items.push({'id': 0, 'entry': log.physicContent});
             }
             if(log.academicContentLength > 0) {
-                $scope.items.push(log.academicContent);
+                $scope.items.push({'id': 1, 'entry': log.academicContent});
             }
             if(log.emotionContentLength > 0) {
-                $scope.items.push(log.emotionContent);
+                $scope.items.push({'id': 2, 'entry': log.emotionContent});
             }
             if(log.communeContentLength > 0) {
-                $scope.items.push(log.communeContent);
+                $scope.items.push({'id': 3, 'entry': log.communeContent});
             }
             if(log.etherContentLength > 0) {
-                $scope.items.push(log.etherContent);
+                $scope.items.push({'id': 4, 'entry': log.etherContent});
             }
-            
-            
-        $scope.logTitle = log.name;    
-            
+
+
+        $scope.logTitle = log.name;
+
         var modalInstance = $modal.open({
           animation: $scope.animationsEnabled,
           templateUrl: 'modules/reflection-place/templates/myModalContent.html',
@@ -151,7 +151,7 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
         $scope.toggleAnimation = function () {
         $scope.animationsEnabled = !$scope.animationsEnabled;
         };
-        
-        
+
+
 	}
 ]);
