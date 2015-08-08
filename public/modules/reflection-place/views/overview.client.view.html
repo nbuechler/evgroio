@@ -98,6 +98,13 @@
                             </small>
                             <h4 class="list-group-item-heading" data-ng-bind="activity.name"></h4>
 
+														<div class="badge" ng-show="{{(activity.privacy === 0)}}">
+																Private
+														</div>
+														<div class="badge" ng-show="{{(activity.privacy === 1)}}">
+																Public
+														</div>
+														
                         <hr>
                         <div style="color: white;">
                             {{activity.description}}
