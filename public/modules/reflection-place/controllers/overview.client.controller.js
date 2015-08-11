@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('reflection-place').controller('OverviewController', ['$scope', '$modal', '$log', '$stateParams', '$location', 'Authentication', 'Logs', 'Activities', 'LogService',
-	function($scope, $modal, $log, $stateParams, $location, Authentication, Logs, Activities, LogService) {
+angular.module('reflection-place').controller('OverviewController', ['$scope', '$modal', '$log', '$stateParams', '$location', 'Authentication', 'Logs', 'Activities',
+	function($scope, $modal, $log, $stateParams, $location, Authentication, Logs, Activities) {
 		$scope.authentication = Authentication;
 
         /*
