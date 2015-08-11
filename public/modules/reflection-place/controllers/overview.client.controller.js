@@ -54,21 +54,9 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
             $scope.activities = Activities.query();
 
 
+
+
 		};
-
-        //In this method...
-        /*
-         *
-         * I need to figure out how to pull back the following information:
-         * 1) Information regarding the totals of all logs
-         * 2) Information regarding the totals of all logs with regard to a user!
-         *
-         */
-        $scope.getAllLogs = Logs.query(function(response) {
-            console.log('response', response);
-            console.log('here - repsonse[0]', response[0]);
-        });
-
 
         // Find existing Log
 		$scope.findOne = function() {

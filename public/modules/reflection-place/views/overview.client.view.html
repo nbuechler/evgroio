@@ -3,7 +3,6 @@
         <h1><i class="fa fa-columns"></i> Overview</h1>
     </div>
 
-
     <div id="displayArea">
         <div id="navDisplay" class="col-lg-2" style="text-align: center;">
             <div>
@@ -12,6 +11,9 @@
                 <br>
                 <div id="activitiesToggle" class="btn btn-sm btn-success" ng-click="changeActiveRollup(1)">Activities</div>
             </div>
+
+						<count-bar-chart-viz></count-bar-chart-viz>
+						
         </div>
 
         <!-- All the business logic for html viewing -->
@@ -104,7 +106,7 @@
 														<div class="badge" ng-show="{{(activity.privacy === 1)}}">
 																Public
 														</div>
-														
+
                         <hr>
                         <div style="color: white;">
                             {{activity.description}}
