@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('logs').directive('countBarChartViz', ['Logs', 'Authentication',
+angular.module('logs').directive('countLineChartViz', ['Logs', 'Authentication',
 	function(Logs, Authentication) {
 
 
 		return {
-			templateUrl: 'modules/reflection-place/templates/countBarChartViz.html',
+			templateUrl: 'modules/reflection-place/templates/countLineChartViz.html',
 			restrict: 'E',
 			link: function postLink(scope, element, attrs) {
 
@@ -39,10 +39,15 @@ angular.module('logs').directive('countBarChartViz', ['Logs', 'Authentication',
       				}
               // console.log(allUserLogData); //data
 
-              // d3.select('#rpBarChart').text(dateData);
+
+							/*
+							 * Inspired by : http://bl.ocks.org/mbostock/3884955
+							 * This visualization tracks the length of all the passages for a
+							 * give log entry.
+							 */
 
 							var margin = {top: 20, right: 80, bottom: 30, left: 50},
-							    width = 960 - margin.left - margin.right,
+							    width = 700 - margin.left - margin.right,
 							    height = 500 - margin.top - margin.bottom;
 
 							// var parseDate = d3.time.format("%Y%m%d").parse;
@@ -57,8 +62,6 @@ angular.module('logs').directive('countBarChartViz', ['Logs', 'Authentication',
 														.range(['#56222E', '#262561', '#632F5F', '#296A52', '#775923']);
 							// var color = d3.scale.category10();
 
-console.log(color());
-
 							var xAxis = d3.svg.axis()
 							    .scale(x)
 							    .orient("bottom");
@@ -72,7 +75,7 @@ console.log(color());
 							    .x(function(d) { return x(d.date); })
 							    .y(function(d) { return y(d.distance); });
 
-							var svg = d3.select("#rpBarChart").append("svg")
+							var svg = d3.select("#rpLineChart").append("svg")
 							    .attr("width", width + margin.left + margin.right)
 							    .attr("height", height + margin.top + margin.bottom)
 							  .append("g")
@@ -137,7 +140,7 @@ console.log(color());
 							      .attr("x", 3)
 							      // .text(function(d) { return d.name; })
 							      .attr("dy", ".35em")
-										.classed('white', true);;
+										.classed('white', true);
 
 
   			});
