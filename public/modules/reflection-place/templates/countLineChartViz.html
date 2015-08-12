@@ -1,0 +1,39 @@
+<style> /* set the CSS */
+
+/*body { font: 12px Arial;}*/
+
+path {
+    stroke: white;
+    stroke-width: 2;
+    fill: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+.axis text,
+#lineChartDescription {
+    fill: white;
+}
+
+</style>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div id="rpLineChart" style="overflow-x: auto;"></div>
+  </div>
+</div>
+
+<h5 id="lineChartDescription">
+  The line chart depicts the way your ideas fluctuated over time.
+  This graph is based on the five different questions in each log post
+  where each answer is thought of as a distinct category. Each line
+  is graphed based on the length of the category - the number of characters in
+  the response to the question. Time is the scaled to intuitively suggest a
+  change over a period of time.
+</h5>

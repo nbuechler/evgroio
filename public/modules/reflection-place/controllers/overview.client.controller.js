@@ -67,22 +67,31 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
 
 
         //Toggling for dashboard level 1 items
-        $scope.logRollup = true;
+        $scope.logRollup = false;
         $scope.activitiesRollup = false;
+        $scope.vizLineChartRollup = true;
 
         $scope.changeActiveRollup = function(num) {
              switch(num) {
                 case 0:
                     $scope.logRollup = true;
                     $scope.activitiesRollup = false;
+                    $scope.vizLineChartRollup = false;
                     break;
                 case 1:
                     $scope.logRollup = false;
                     $scope.activitiesRollup = true;
+                    $scope.vizLineChartRollup = false;
+                    break;
+								case 2:
+                    $scope.logRollup = false;
+                    $scope.activitiesRollup = false;
+                    $scope.vizLineChartRollup = true;
                     break;
                 default:
                         $scope.logRollup = true;
                         $scope.activitiesRollup = false;
+												$scope.vizLineChartRollup = true;
                         console.error(1/0, ' --  Due to nonexisting toggle.');
             }
         };

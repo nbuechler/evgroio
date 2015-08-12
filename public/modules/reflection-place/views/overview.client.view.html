@@ -10,10 +10,10 @@
                 <br>
                 <br>
                 <div id="activitiesToggle" class="btn btn-sm btn-success" ng-click="changeActiveRollup(1)">Activities</div>
+								<br>
+                <br>
+								<div id="vizLineChartToggle" class="btn btn-sm btn-success" ng-click="changeActiveRollup(2)">Visualization</div>
             </div>
-
-						<count-bar-chart-viz></count-bar-chart-viz>
-						
         </div>
 
         <!-- All the business logic for html viewing -->
@@ -128,8 +128,11 @@
                 </div>
 
             </div>
+						<count-line-chart-viz ng-show="vizLineChartRollup"></count-line-chart-viz>
 
-        </div>
+			</div>
+
+
     </div>
 
         <new-log-quick></new-log-quick>
