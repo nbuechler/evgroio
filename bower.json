@@ -1,6 +1,6 @@
 {
   "name": "evgroio",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js",
   "dependencies": {
     "bootstrap": "~3",
