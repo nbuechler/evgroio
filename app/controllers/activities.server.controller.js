@@ -15,6 +15,9 @@ exports.create = function(req, res) {
 	var activity = new Activity(req.body);
 	activity.user = req.user;
 
+	activity.descriptionArray = activity.description.split(' ');
+	activity.descriptionArrayLength = activity.descriptionArray.length;
+
 	activity.save(function(err) {
 		if (err) {
 			return res.status(400).send({
@@ -40,6 +43,9 @@ exports.update = function(req, res) {
 	var activity = req.activity ;
 
 	activity = _.extend(activity , req.body);
+
+	activity.descriptionArray = activity.description.split(' ');
+	activity.descriptionArrayLength = activity.descriptionArray.length;
 
 	activity.save(function(err) {
 		if (err) {
