@@ -41,6 +41,9 @@ var LogSchema = new Schema({
       default: '',
       trim: true,
   },
+	physicArray: {
+      type: Array
+  },
   physicContentLength: {
       type: Number,
       default: 0
