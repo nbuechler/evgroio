@@ -15,6 +15,9 @@ exports.create = function(req, res) {
 	var activity = new Activity(req.body);
 	activity.user = req.user;
 
+	activity.descriptionArray = activity.description.split(' ');
+	activity.descriptionArrayLength = activity.descriptionArray.length;
+
 	activity.save(function(err) {
 		if (err) {
 			return res.status(400).send({
@@ -40,6 +43,9 @@ exports.update = function(req, res) {
 	var activity = req.activity ;
 
 	activity = _.extend(activity , req.body);
+
+	activity.descriptionArray = activity.description.split(' ');
+	activity.descriptionArrayLength = activity.descriptionArray.length;
 
 	activity.save(function(err) {
 		if (err) {
@@ -72,7 +78,7 @@ exports.delete = function(req, res) {
 /**
  * List of Activities
  */
-exports.list = function(req, res) { 
+exports.list = function(req, res) {
 	Activity.find().sort('-created').populate('user', 'displayName').exec(function(err, activities) {
 		if (err) {
 			return res.status(400).send({
@@ -84,10 +90,12 @@ exports.list = function(req, res) {
 	});
 };
 
+// TODO: List of activities by user
+
 /**
  * Activity middleware
  */
-exports.activityByID = function(req, res, next, id) { 
+exports.activityByID = function(req, res, next, id) {
 	Activity.findById(id).populate('user', 'displayName').exec(function(err, activity) {
 		if (err) return next(err);
 		if (! activity) return next(new Error('Failed to load Activity ' + id));

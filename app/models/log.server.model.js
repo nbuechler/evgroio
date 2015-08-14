@@ -41,6 +41,26 @@ var LogSchema = new Schema({
       default: '',
       trim: true,
   },
+	physicArray: {
+      type: Array,
+			default : []
+  },
+	emotionArray: {
+      type: Array,
+      default: []
+  },
+  academicArray: {
+      type: Array,
+      default: []
+  },
+  communeArray: {
+      type: Array,
+      default: []
+  },
+  etherArray: {
+      type: Array,
+      default: []
+  },
   physicContentLength: {
       type: Number,
       default: 0
@@ -58,6 +78,26 @@ var LogSchema = new Schema({
       default: 0
   },
   etherContentLength: {
+      type: Number,
+      default: 0
+  },
+	physicArrayLength: {
+      type: Number,
+      default: 0
+  },
+  emotionArrayLength: {
+      type: Number,
+      default: 0
+  },
+  academicArrayLength: {
+      type: Number,
+      default: 0
+  },
+  communeArrayLength: {
+      type: Number,
+      default: 0
+  },
+  etherArrayLength: {
       type: Number,
       default: 0
   },

@@ -15,6 +15,23 @@ exports.create = function(req, res) {
 	var log = new Log(req.body);
 	log.user = req.user;
 
+	// TODO: Use a utility function or express something or other to make this
+	// part of the array building modular
+
+	//Create items in the logs physicArray, and others like it.
+
+	log.physicArray = log.physicContent.split(' ');
+	log.emotionArray = log.emotionContent.split(' ');
+	log.academicArray = log.academicContent.split(' ');
+	log.communeArray = log.communeContent.split(' ');
+	log.etherArray = log.etherContent.split(' ');
+
+	log.physicArrayLength = log.physicArray.length;
+	log.emotionArrayLength = log.emotionArray.length;
+	log.academicArrayLength = log.academicArray.length;
+	log.communeArrayLength = log.communeArray.length;
+	log.etherArrayLength = log.etherArray.length;
+
 	log.save(function(err) {
 		if (err) {
 			return res.status(400).send({
@@ -40,6 +57,18 @@ exports.update = function(req, res) {
 	var log = req.log ;
 
 	log = _.extend(log , req.body);
+
+	log.physicArray = log.physicContent.split(' ');
+	log.emotionArray = log.emotionContent.split(' ');
+	log.academicArray = log.academicContent.split(' ');
+	log.communeArray = log.communeContent.split(' ');
+	log.etherArray = log.etherContent.split(' ');
+
+	log.physicArrayLength = log.physicArray.length;
+	log.emotionArrayLength = log.emotionArray.length;
+	log.academicArrayLength = log.academicArray.length;
+	log.communeArrayLength = log.communeArray.length;
+	log.etherArrayLength = log.etherArray.length;
 
 	log.save(function(err) {
 		if (err) {
@@ -72,7 +101,7 @@ exports.delete = function(req, res) {
 /**
  * List of Logs
  */
-exports.list = function(req, res) { 
+exports.list = function(req, res) {
 	Log.find().sort('-created').populate('user', 'displayName').exec(function(err, logs) {
 		if (err) {
 			return res.status(400).send({
@@ -84,10 +113,12 @@ exports.list = function(req, res) {
 	});
 };
 
+// TODO: List of logs by user
+
 /**
  * Log middleware
  */
-exports.logByID = function(req, res, next, id) { 
+exports.logByID = function(req, res, next, id) {
 	Log.findById(id).populate('user', 'displayName').exec(function(err, log) {
 		if (err) return next(err);
 		if (! log) return next(new Error('Failed to load Log ' + id));
