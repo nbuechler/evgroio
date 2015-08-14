@@ -15,6 +15,10 @@ exports.create = function(req, res) {
 	var log = new Log(req.body);
 	log.user = req.user;
 
+	//Create items in the logs physicArray, and others like it.
+
+	log.physicArray = ['here', 'it', 'is'];
+
 	log.save(function(err) {
 		if (err) {
 			return res.status(400).send({
@@ -72,7 +76,7 @@ exports.delete = function(req, res) {
 /**
  * List of Logs
  */
-exports.list = function(req, res) { 
+exports.list = function(req, res) {
 	Log.find().sort('-created').populate('user', 'displayName').exec(function(err, logs) {
 		if (err) {
 			return res.status(400).send({
@@ -87,7 +91,7 @@ exports.list = function(req, res) {
 /**
  * Log middleware
  */
-exports.logByID = function(req, res, next, id) { 
+exports.logByID = function(req, res, next, id) {
 	Log.findById(id).populate('user', 'displayName').exec(function(err, log) {
 		if (err) return next(err);
 		if (! log) return next(new Error('Failed to load Log ' + id));
