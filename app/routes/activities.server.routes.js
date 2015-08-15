@@ -9,6 +9,10 @@ module.exports = function(app) {
 		.get(activities.list)
 		.post(users.requiresLogin, activities.create);
 
+	app.route('/activities/mine')
+		.get(activities.listByLogedInUser)
+		.post(users.requiresLogin, activities.create);
+
 	app.route('/activities/:activityId')
 		.get(activities.read)
 		.put(users.requiresLogin, activities.hasAuthorization, activities.update)

@@ -9,6 +9,10 @@ angular.module('activities').config(['$stateProvider',
 			url: '/activities',
 			templateUrl: 'modules/activities/views/list-activities.client.view.html'
 		}).
+		state('listMyActivities', {
+			url: '/activities/mine',
+			templateUrl: 'modules/activities/views/list-activities.client.view.html'
+		}).
 		state('createActivity', {
 			url: '/activities/create',
 			templateUrl: 'modules/activities/views/create-activity.client.view.html'

@@ -90,7 +90,21 @@ exports.list = function(req, res) {
 	});
 };
 
-// TODO: List of activities by user
+/**
+ * List of Activities by user
+ */
+exports.listByLogedInUser = function(req, res) {
+	//where activity.user === req.user
+	Activity.find({'user': req.user}).sort('-created').populate('user', 'displayName').exec(function(err, activities) {
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.jsonp(activities);
+		}
+	});
+};
 
 /**
  * Activity middleware
