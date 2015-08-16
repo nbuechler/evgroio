@@ -1,8 +1,8 @@
 'use strict';
 
 // Activities controller
-angular.module('activities').controller('ActivitiesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Activities',
-	function($scope, $stateParams, $location, Authentication, Activities) {
+angular.module('activities').controller('ActivitiesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Activities', 'PublicActivities',
+	function($scope, $stateParams, $location, Authentication, Activities, PublicActivities) {
 		$scope.authentication = Authentication;
 
 		// Create new Activity
@@ -60,6 +60,11 @@ angular.module('activities').controller('ActivitiesController', ['$scope', '$sta
 		// Find a list of Activities
 		$scope.find = function() {
 			$scope.activities = Activities.query();
+		};
+
+		// Find a list of PublicActivities
+		$scope.findPublic = function() {
+			$scope.activities = PublicActivities.query();
 		};
 
 		// Find existing Activity

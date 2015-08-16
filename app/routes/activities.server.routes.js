@@ -6,11 +6,11 @@ module.exports = function(app) {
 
 	// Activities Routes
 	app.route('/activities')
-		.get(activities.list)
+		.get(activities.listByLogedInUser)
 		.post(users.requiresLogin, activities.create);
 
-	app.route('/activities/mine')
-		.get(activities.listByLogedInUser)
+	app.route('/publicActivities')
+		.get(activities.listPublic)
 		.post(users.requiresLogin, activities.create);
 
 	app.route('/activities/:activityId')
