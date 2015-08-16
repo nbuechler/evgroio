@@ -63,7 +63,7 @@ angular.module('activities').controller('ActivitiesController', ['$scope', '$sta
 		};
 
 		// Find a list of PublicActivities
-		$scope.find = function() {
+		$scope.findPublic = function() {
 			$scope.activities = PublicActivities.query();
 		};
 
