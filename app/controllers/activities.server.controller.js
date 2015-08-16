@@ -94,7 +94,7 @@ exports.list = function(req, res) {
  * List of Activities
  */
 exports.listPublic = function(req, res) {
-	Activity.find().sort('-created').populate('user', 'displayName').exec(function(err, activities) {
+	Activity.find({'privacy': 1}).sort('-created').populate('user', 'displayName').exec(function(err, activities) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)

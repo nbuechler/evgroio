@@ -59,10 +59,12 @@ angular.module('activities').controller('ActivitiesController', ['$scope', '$sta
 
 		// Find a list of Activities
 		$scope.find = function() {
-
-			console.log(PublicActivities.query());
-
 			$scope.activities = Activities.query();
+		};
+
+		// Find a list of PublicActivities
+		$scope.find = function() {
+			$scope.activities = PublicActivities.query();
 		};
 
 		// Find existing Activity
