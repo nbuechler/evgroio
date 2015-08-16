@@ -5,12 +5,12 @@ angular.module('activities').config(['$stateProvider',
 	function($stateProvider) {
 		// Activities state routing
 		$stateProvider.
-		state('listActivities', {
-			url: '/activities',
-			templateUrl: 'modules/activities/views/list-activities.client.view.html'
+		state('listPublicActivities', {
+			url: '/publicActivities',
+			templateUrl: 'modules/activities/views/list-public-activities.client.view.html'
 		}).
 		state('listMyActivities', {
-			url: '/activities/mine',
+			url: '/activities',
 			templateUrl: 'modules/activities/views/list-activities.client.view.html'
 		}).
 		state('createActivity', {

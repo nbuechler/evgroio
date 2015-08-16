@@ -91,6 +91,21 @@ exports.list = function(req, res) {
 };
 
 /**
+ * List of Activities
+ */
+exports.listPublic = function(req, res) {
+	Activity.find().sort('-created').populate('user', 'displayName').exec(function(err, activities) {
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.jsonp(activities);
+		}
+	});
+};
+
+/**
  * List of Activities by user
  */
 exports.listByLogedInUser = function(req, res) {
