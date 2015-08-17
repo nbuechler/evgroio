@@ -1,7 +1,8 @@
 {
   "name": "evgroio",
   "version": "0.1.6",
-  "description": "Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js",
+  "description": "Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js  - introspective learning tool for educational use - including data visualizations - addressing problems with human attention and self-acutualization",
+",
   "dependencies": {
     "bootstrap": "~3",
     "angular": "~1.3",

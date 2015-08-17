@@ -3,7 +3,8 @@
 module.exports = {
 	app: {
 		title: 'evgroio',
-		description: 'Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js',
+		description: 'Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js - introspective learning tool for educational use - including data visualizations - addressing problems with human attention and self-acutualization",
+',
 		keywords: 'MongoDB, Express, AngularJS, Node.js'
 	},
 	port: process.env.PORT || 3000,
