@@ -12,7 +12,7 @@ angular.module('activities').controller('ActivitiesController', ['$scope', '$sta
 				name: this.name,
                 description: this.description,
                 importance: this.importance,
-								privacy: this.privacy ? 1 : 0
+								privacy: this.privacy ? this.privacy : 0
 			});
 
 			// Redirect after save
@@ -45,6 +45,9 @@ angular.module('activities').controller('ActivitiesController', ['$scope', '$sta
 
 		// Update existing Activity
 		$scope.update = function() {
+
+			$scope.activity.privacy = $scope.activity.privacy ? $scope.activity.privacy : 0;
+
 			var activity = $scope.activity;
 
 			activity.$update(function() {

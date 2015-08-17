@@ -20,7 +20,7 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
                 academicContentLength: this.academicContent ? this.academicContent.length : 0,
                 communeContentLength: this.communeContent ? this.communeContent.length : 0,
                 etherContentLength: this.etherContent ? this.etherContent.length : 0,
-                privacy: this.privacy ? 1 : 0
+                privacy: this.privacy ? this.privacy : 0
 			});
 
 			// Redirect after save
@@ -54,16 +54,16 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
 		// Update existing Log
 		$scope.update = function() {
 
+      //Calculate log lengths for logs that don't have log lengths
+      $scope.log.physicContentLength = $scope.log.physicContent ? $scope.log.physicContent.length : 0;
+      $scope.log.emotionContentLength = $scope.log.emotionContent ? $scope.log.emotionContent.length : 0;
+      $scope.log.academicContentLength = $scope.log.academicContent ? $scope.log.academicContent.length : 0;
+      $scope.log.communeContentLength = $scope.log.communeContent ? $scope.log.communeContent.length : 0;
+      $scope.log.etherContentLength = $scope.log.etherContent ? $scope.log.etherContent.length : 0;
 
-            //Calculate log lengths for logs that don't have log lengths
-            $scope.log.physicContentLength = $scope.log.physicContent ? $scope.log.physicContent.length : 0;
-            $scope.log.emotionContentLength = $scope.log.emotionContent ? $scope.log.emotionContent.length : 0;
-            $scope.log.academicContentLength = $scope.log.academicContent ? $scope.log.academicContent.length : 0;
-            $scope.log.communeContentLength = $scope.log.communeContent ? $scope.log.communeContent.length : 0;
-            $scope.log.etherContentLength = $scope.log.etherContent ? $scope.log.etherContent.length : 0;
-            $scope.log.privacy = $scope.log.privacy ? 1 : 0;
+			$scope.log.privacy = $scope.log.privacy ? $scope.log.privacy : 0;
 
-            var log = $scope.log;
+      var log = $scope.log;
 
 			log.$update(function() {
 
