@@ -5,7 +5,8 @@ angular.module('activities').run(['Menus',
 	function(Menus) {
 		// Set top bar menu items
 		Menus.addMenuItem('topbar', 'Activities', 'activities', 'dropdown', '/activities(/create)?');
-		Menus.addSubMenuItem('topbar', 'activities', 'List Activities', 'activities');
+		Menus.addSubMenuItem('topbar', 'activities', 'Personal Activities', 'activities');
+		Menus.addSubMenuItem('topbar', 'activities', 'Public Activities', 'publicActivities');
 		Menus.addSubMenuItem('topbar', 'activities', 'New Activity', 'activities/create');
 	}
 ]);

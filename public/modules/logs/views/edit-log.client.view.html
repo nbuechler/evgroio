@@ -12,10 +12,11 @@
                         <input type="text" data-ng-model="log.name" id="name" class="form-control" placeholder="Pick a theme!" required>
                     </div>
                 </div>
-                      <h5>Will the world see this log?</h5>
-                      <md-checkbox data-ng-model="log.privacy" aria-label="Privacy Checkbox">
-                          {{log.privacy === true ? 'Yup!' : 'Nope'}}
-                      </md-checkbox>
+                    <h5>Will the world see this log?</h5>
+                    <md-radio-group ng-model="log.privacy">
+                      <md-radio-button value="0" class="md-primary">Nope</md-radio-button>
+                      <md-radio-button value="1">Yup</md-radio-button>
+                    </md-radio-group>
                 <div id="reflectionZone">
 
                     <div class="row">
