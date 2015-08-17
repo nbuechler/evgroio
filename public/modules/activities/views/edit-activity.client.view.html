@@ -1,22 +1,30 @@
 <section data-ng-controller="ActivitiesController" data-ng-init="findOne()">
     <div class="page-header">
         <h1>Edit Activity</h1>
+        <h5>Will the world see this activity?</h5>
+        <md-radio-group ng-model="activity.privacy">
+    {{privacy}}
+          <md-radio-button value="0" class="md-primary">Nope</md-radio-button>
+          <md-radio-button value="1">Yup</md-radio-button>
+          <md-radio-button value="2">Sort of</md-radio-button>
+
+        </md-radio-group>
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="update()" novalidate>
-                        
-            
+
+
             <!--
             TODO: Put these inputs as questions
             1. What is the name of the activity?
             2. How important is this activity compared to other activities, scale 1-100
-               -List other activites already created.  
-               -Maybe data visualization of other activites already created with importance.  
-               -Maybe data visualization is nightengale graph? Or something else.  
+               -List other activites already created.
+               -Maybe data visualization of other activites already created with importance.
+               -Maybe data visualization is nightengale graph? Or something else.
             3. Loads page to view reflections about the activity -- see view-activity...html
             4. Make a check to see if actity has already been created.
             -->
-            
+
             <div class="row">
                 <div class="col-lg-9">
                     <fieldset>
@@ -58,14 +66,14 @@
                         </div>
                     </fieldset>
                 </div>
-                
+
                 <div data-ng-init="find()" class="col-lg-3">
                     <hr>
                     <h5>Current Activities</h5>
                     <div class="list-group">
                         <a data-ng-repeat="activity in activities" data-ng-href="#!/activities/{{activity._id}}" class="list-group-item" ng-show="{{(activity.user._id === authentication.user._id)}}">
 
-                            <div class="row">    
+                            <div class="row">
                                 <div class="col-lg-6">
 
                                     <h6 class="list-group-item-heading" data-ng-bind="activity.name"></h6>
