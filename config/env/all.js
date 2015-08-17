@@ -3,8 +3,7 @@
 module.exports = {
 	app: {
 		title: 'evgroio',
-		description: 'Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js - introspective learning tool for educational use - including data visualizations - addressing problems with human attention and self-acutualization",
-',
+		description: 'Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js - introspective learning tool for educational use - including data visualizations - addressing problems with human attention and self-acutualization"',
 		keywords: 'MongoDB, Express, AngularJS, Node.js'
 	},
 	port: process.env.PORT || 3000,
@@ -20,11 +19,11 @@ module.exports = {
 			],
 			js: [
 				'public/lib/angular/angular.js',
-				'public/lib/angular-resource/angular-resource.js', 
-				'public/lib/angular-cookies/angular-cookies.js', 
-				'public/lib/angular-animate/angular-animate.js', 
-				'public/lib/angular-touch/angular-touch.js', 
-				'public/lib/angular-sanitize/angular-sanitize.js', 
+				'public/lib/angular-resource/angular-resource.js',
+				'public/lib/angular-cookies/angular-cookies.js',
+				'public/lib/angular-animate/angular-animate.js',
+				'public/lib/angular-touch/angular-touch.js',
+				'public/lib/angular-sanitize/angular-sanitize.js',
 				'public/lib/angular-ui-router/release/angular-ui-router.js',
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
