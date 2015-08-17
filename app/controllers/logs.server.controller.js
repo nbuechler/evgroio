@@ -101,8 +101,8 @@ exports.delete = function(req, res) {
 /**
  * List of Logs
  */
-exports.list = function(req, res) {
-	Log.find().sort('-created').populate('user', 'displayName').exec(function(err, logs) {
+exports.listPublic = function(req, res) {
+	Log.find({'privacy': 1}).sort('-created').populate('user', 'displayName').exec(function(err, logs) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -113,7 +113,17 @@ exports.list = function(req, res) {
 	});
 };
 
-// TODO: List of logs by user
+exports.listByLogedInUser = function(req, res) {
+	Log.find({'user': req.user}).sort('-created').populate('user', 'displayName').exec(function(err, logs) {
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.jsonp(logs);
+		}
+	});
+};
 
 /**
  * Log middleware

@@ -1,8 +1,8 @@
 'use strict';
 
 // Logs controller
-angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Logs',
-	function($scope, $stateParams, $location, Authentication, Logs) {
+angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Logs', 'PublicLogs',
+	function($scope, $stateParams, $location, Authentication, Logs, PublicLogs) {
 		$scope.authentication = Authentication;
 
 		// Create new Log
@@ -77,7 +77,7 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
         $scope.displayFirstTime = true;
 
 		// Find a list of Logs
-		$scope.find = function() {
+		$scope.findOld = function() {
 			$scope.logs = Logs.query();
 		};
 
@@ -86,6 +86,16 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
                 $scope.displayFirstTime = false;
             }
         }
+
+		$scope.find = function() {
+			$scope.logs = Logs.query();
+		};
+
+
+		// Find a list of PublicActivities
+		$scope.findPublic = function() {
+			$scope.logs = PublicLogs.query();
+		};
 
 		// Find existing Log
 		$scope.findOne = function() {

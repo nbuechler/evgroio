@@ -6,7 +6,11 @@ module.exports = function(app) {
 
 	// Logs Routes
 	app.route('/logs')
-		.get(logs.list)
+		.get(logs.listByLogedInUser)
+		.post(users.requiresLogin, logs.create);
+
+	app.route('/publicLogs')
+		.get(logs.listPublic)
 		.post(users.requiresLogin, logs.create);
 
 	app.route('/logs/:logId')

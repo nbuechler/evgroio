@@ -7,7 +7,12 @@ angular.module('logs').config(['$stateProvider',
 	function($stateProvider) {
 		// Logs state routing
 		$stateProvider.
-		state('listLogs', {
+		state('listPublicLogs', {
+			url: '/publicLogs',
+			templateUrl: 'modules/logs/views/list-public-logs.client.view.html',
+            css: 'css/box.css'
+		}).
+		state('listMyLogs', {
 			url: '/logs',
 			templateUrl: 'modules/logs/views/list-logs.client.view.html',
             css: 'css/box.css'
