@@ -43,11 +43,6 @@
 	<!--Application CSS Files-->
 	{% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
 
-	{% if process.env.NODE_ENV === 'production' %}
-	<!--Application File -->
-	<link rel="stylesheet" href="lib/dist/application.min.css">
-	{% endif %}
-
 	<!-- HTML5 Shim -->
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -71,11 +66,6 @@
 	<!--Application JavaScript Files-->
     <!--Find jsFiles here: config/env/*.js file(s)-->
 	{% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>{% endfor %}
-
-	{% if process.env.NODE_ENV === 'production' %}
-	<!--Application File -->
-	<script type="text/javascript" src="lib/dist/application.min.js"></script>
-	{% endif %}
 
 	{% if process.env.NODE_ENV === 'development' %}
 	<!--Livereload script rendered -->
