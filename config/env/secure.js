@@ -5,28 +5,35 @@ module.exports = {
 	db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://localhost/evgroio',
 	assets: {
 		lib: {
-			css: [
-				'public/lib/angular-material/angular-material.css',
-				'public/customLib/bootstrapThemed/darkly/bootstrap.css',
-				'public/lib/fontawesome/css/font-awesome.css'
-			],
-			js: [
-				'public/lib/d3/d3.js',
-				'public/lib/angular/angular.js',
-				'public/lib/angular-aria/angular-aria.js',
-				'public/lib/angular-material/angular-material.js',
-				'public/lib/angular-resource/angular-resource.js',
-				'public/lib/angular-cookies/angular-cookies.js',
-				'public/lib/angular-animate/angular-animate.js',
-				'public/lib/angular-touch/angular-touch.js',
-				'public/lib/angular-sanitize/angular-sanitize.js',
-				'public/lib/angular-ui-router/release/angular-ui-router.js',
-				'public/lib/angular-ui-utils/ui-utils.js',
-				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js'
-			]
+				css: [
+					'public/lib/angular-material/angular-material.css',
+					'public/customLib/bootstrapThemed/darkly/bootstrap.css',
+					'public/lib/fontawesome/css/font-awesome.css'
+				],
+				js: [
+					'public/lib/d3/d3.js',
+					'public/lib/angular/angular.js',
+					'public/lib/angular-aria/angular-aria.js',
+					'public/lib/angular-material/angular-material.js',
+					'public/lib/angular-resource/angular-resource.js',
+					'public/lib/angular-cookies/angular-cookies.js',
+					'public/lib/angular-animate/angular-animate.js',
+					'public/lib/angular-touch/angular-touch.js',
+					'public/lib/angular-sanitize/angular-sanitize.js',
+					'public/lib/angular-ui-router/release/angular-ui-router.js',
+					'public/lib/angular-ui-utils/ui-utils.js',
+					'public/lib/angular-bootstrap/ui-bootstrap-tpls.js'
+				]
 		},
-		css: 'public/dist/application.min.css',
-		js: 'public/dist/application.min.js'
+		css: [
+			'public/modules/**/css/*.css'
+		],
+		js: [
+			'public/config.js',
+			'public/application.js',
+			'public/modules/*/*.js',
+			'public/modules/*/*[!tests]*/*.js'
+		]
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',
