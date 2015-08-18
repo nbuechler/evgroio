@@ -12,7 +12,7 @@ angular.module('logs')
 		});
 	}
 ])
-//PublicActivities service used to communicate Activities REST endpoints
+//PublicLogs service used to communicate Activities REST endpoints
 .factory('PublicLogs', ['$resource',
 	function($resource) {
 		return $resource('publicLogs');
