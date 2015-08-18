@@ -71,14 +71,14 @@ module.exports = function(grunt) {
 					mangle: false
 				},
 				files: {
-					'public/dist/application.min.js': 'public/dist/application.js'
+					'lib/dist/application.min.js': 'lib/dist/application.js'
 				}
 			}
 		},
 		cssmin: {
 			combine: {
 				files: {
-					'public/dist/application.min.css': '<%= applicationCSSFiles %>'
+					'lib/dist/application.min.css': '<%= applicationCSSFiles %>'
 				}
 			}
 		},
@@ -108,7 +108,7 @@ module.exports = function(grunt) {
 		ngAnnotate: {
 			production: {
 				files: {
-					'public/dist/application.js': '<%= applicationJavaScriptFiles %>'
+					'lib/dist/application.js': '<%= applicationJavaScriptFiles %>'
 				}
 			}
 		},
