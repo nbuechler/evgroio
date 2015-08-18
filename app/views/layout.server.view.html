@@ -39,7 +39,7 @@
     <!--Google Material Design Icons : Remove if self hosting becomes active-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-    
+
 	<!--Application CSS Files-->
 	{% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
 
@@ -50,7 +50,7 @@
 </head>
 
 <body class="ng-cloak">
-    
+
 	<header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
 	<section class="content">
 		<section class="container">
@@ -65,7 +65,12 @@
 
 	<!--Application JavaScript Files-->
     <!--Find jsFiles here: config/env/*.js file(s)-->
-	{% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>{% endfor %} 
+	{% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>{% endfor %}
+
+	{% if process.env.NODE_ENV === 'production' %}
+	<!--Livereload script rendered -->
+	<script type="text/javascript" src="public/dist/application.min.js"></script>
+	{% endif %}
 
 	{% if process.env.NODE_ENV === 'development' %}
 	<!--Livereload script rendered -->
