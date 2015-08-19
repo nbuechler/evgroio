@@ -1,16 +1,23 @@
 <section data-ng-controller="ExperiencesController" data-ng-init="find()">
     <div class="page-header">
-        <h1>Experiences</h1>
+        <h1>Personal Experiences</h1>
     </div>
     <div class="list-group">
         <a data-ng-repeat="experience in experiences" data-ng-href="#!/experiences/{{experience._id}}" class="list-group-item">
-			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="experience.created | date:'medium'"></span>
-				by
-				<span data-ng-bind="experience.user.displayName"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="experience.name"></h4>
+    			<small class="list-group-item-text">
+    				Posted on
+    				<span data-ng-bind="experience.created | date:'medium'"></span>
+    				by
+    				<span data-ng-bind="experience.user.displayName"></span>
+    			</small>
+          <h4 class="list-group-item-heading" data-ng-bind="experience.name"></h4>
+
+          <h6 style="text-align: right; color: white;" ng-show="{{(experience.privacy === 0)}}">
+              Private
+          </h6>
+          <h6 style="text-align: right; color: white;" ng-show="{{(experience.privacy === 1)}}">
+              Public
+          </h6>
         </a>
     </div>
     <div class="alert alert-warning text-center" data-ng-hide="!experiences.$resolved || experiences.length">

@@ -1,8 +1,8 @@
 'use strict';
 
 // Experiences controller
-angular.module('experiences').controller('ExperiencesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Experiences',
-	function($scope, $stateParams, $location, Authentication, Experiences) {
+angular.module('experiences').controller('ExperiencesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Experiences', 'PublicExperiences', 
+	function($scope, $stateParams, $location, Authentication, Experiences, PublicExperiences) {
 		$scope.authentication = Authentication;
 
 		// Create new Experience
@@ -10,6 +10,7 @@ angular.module('experiences').controller('ExperiencesController', ['$scope', '$s
 			// Create new Experience object
 			var experience = new Experiences ({
 				name: this.name,
+								description: this.description,
 								importance: this.importance,
 								privacy: this.privacy ? this.privacy : 0,
 								seconds: this.seconds ? this.seconds : 0,
