@@ -9,7 +9,10 @@ angular.module('experiences').controller('ExperiencesController', ['$scope', '$s
 		$scope.create = function() {
 			// Create new Experience object
 			var experience = new Experiences ({
-				name: this.name
+				name: this.name,
+								importance: this.importance,
+								privacy: this.privacy ? this.privacy : 0,
+								seconds: this.seconds ? this.seconds : 0,
 			});
 
 			// Redirect after save
@@ -25,7 +28,7 @@ angular.module('experiences').controller('ExperiencesController', ['$scope', '$s
 
 		// Remove existing Experience
 		$scope.remove = function(experience) {
-			if ( experience ) { 
+			if ( experience ) {
 				experience.$remove();
 
 				for (var i in $scope.experiences) {
@@ -56,9 +59,14 @@ angular.module('experiences').controller('ExperiencesController', ['$scope', '$s
 			$scope.experiences = Experiences.query();
 		};
 
+		// Find a list of PublicExperiences
+		$scope.findPublic = function() {
+			$scope.experiences = PublicExperiences.query();
+		};
+
 		// Find existing Experience
 		$scope.findOne = function() {
-			$scope.experience = Experiences.get({ 
+			$scope.experience = Experiences.get({
 				experienceId: $stateParams.experienceId
 			});
 		};

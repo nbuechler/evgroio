@@ -53,7 +53,9 @@
 		it('$scope.find() should create an array with at least one Experience object fetched from XHR', inject(function(Experiences) {
 			// Create sample Experience using the Experiences service
 			var sampleExperience = new Experiences({
-				name: 'New Experience'
+				name: 'New Experience',
+				privacy: 0,
+				seconds: 0
 			});
 
 			// Create a sample Experiences array that includes the new Experience
@@ -73,7 +75,9 @@
 		it('$scope.findOne() should create an array with one Experience object fetched from XHR using a experienceId URL parameter', inject(function(Experiences) {
 			// Define a sample Experience object
 			var sampleExperience = new Experiences({
-				name: 'New Experience'
+				name: 'New Experience',
+				privacy: 0,
+				seconds: 0
 			});
 
 			// Set the URL parameter
@@ -93,13 +97,17 @@
 		it('$scope.create() with valid form data should send a POST request with the form input values and then locate to new object URL', inject(function(Experiences) {
 			// Create a sample Experience object
 			var sampleExperiencePostData = new Experiences({
-				name: 'New Experience'
+				name: 'New Experience',
+				privacy: 0,
+				seconds: 0
 			});
 
 			// Create a sample Experience response
 			var sampleExperienceResponse = new Experiences({
 				_id: '525cf20451979dea2c000001',
-				name: 'New Experience'
+				name: 'New Experience',
+				privacy: 0,
+				seconds: 0
 			});
 
 			// Fixture mock form input values
@@ -123,7 +131,9 @@
 			// Define a sample Experience put data
 			var sampleExperiencePutData = new Experiences({
 				_id: '525cf20451979dea2c000001',
-				name: 'New Experience'
+				name: 'New Experience',
+				privacy: 0,
+				seconds: 0
 			});
 
 			// Mock Experience in scope

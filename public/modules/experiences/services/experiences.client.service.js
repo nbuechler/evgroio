@@ -10,4 +10,10 @@ angular.module('experiences').factory('Experiences', ['$resource',
 			}
 		});
 	}
+])
+//PublicExperiences service used to communicate Experiences REST endpoints
+.factory('PublicExperiences', ['$resource',
+	function($resource) {
+		return $resource('publicExperiences');
+	}
 ]);

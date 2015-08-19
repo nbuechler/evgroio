@@ -5,7 +5,11 @@ angular.module('experiences').config(['$stateProvider',
 	function($stateProvider) {
 		// Experiences state routing
 		$stateProvider.
-		state('listExperiences', {
+		state('listPublicExperiences', {
+			url: '/publicExperiences',
+			templateUrl: 'modules/experiences/views/list-public-experiences.client.view.html'
+		}).
+		state('listMyExperiences', {
 			url: '/experiences',
 			templateUrl: 'modules/experiences/views/list-experiences.client.view.html'
 		}).
