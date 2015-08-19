@@ -9,7 +9,7 @@ var mongoose = require('mongoose'),
 	_ = require('lodash');
 
 /**
- * Create a Experience
+ * Create an Experience
  */
 exports.create = function(req, res) {
 	var experience = new Experience(req.body);
@@ -72,8 +72,35 @@ exports.delete = function(req, res) {
 /**
  * List of Experiences
  */
-exports.list = function(req, res) { 
+exports.list = function(req, res) {
 	Experience.find().sort('-created').populate('user', 'displayName').exec(function(err, experiences) {
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.jsonp(experiences);
+		}
+	});
+};
+
+exports.listPublic = function(req, res) {
+	Experience.find({'privacy': 1}).sort('-created').populate('user', 'displayName').exec(function(err, experiences) {
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.jsonp(experiences);
+		}
+	});
+};
+
+/**
+ * List of Experiences by user
+ */
+exports.listByLogedInUser = function(req, res) {
+	Experience.find({'user': req.user}).sort('-created').populate('user', 'displayName').exec(function(err, experiences) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -87,7 +114,7 @@ exports.list = function(req, res) {
 /**
  * Experience middleware
  */
-exports.experienceByID = function(req, res, next, id) { 
+exports.experienceByID = function(req, res, next, id) {
 	Experience.findById(id).populate('user', 'displayName').exec(function(err, experience) {
 		if (err) return next(err);
 		if (! experience) return next(new Error('Failed to load Experience ' + id));

@@ -38,7 +38,8 @@ describe('Experience CRUD tests', function() {
 		// Save a user to the test db and create new Experience
 		user.save(function() {
 			experience = {
-				name: 'Experience Name'
+				name: 'Experience Name',
+                description: 'Experience Description'
 			};
 
 			done();
@@ -76,6 +77,7 @@ describe('Experience CRUD tests', function() {
 								// Set assertions
 								(experiences[0].user._id).should.equal(userId);
 								(experiences[0].name).should.match('Experience Name');
+								(experiences[0].description).should.match('Experience Description');
 
 								// Call the assertion callback
 								done();
@@ -115,7 +117,35 @@ describe('Experience CRUD tests', function() {
 					.end(function(experienceSaveErr, experienceSaveRes) {
 						// Set message assertion
 						(experienceSaveRes.body.message).should.match('Please fill Experience name');
-						
+
+						// Handle Experience save error
+						done(experienceSaveErr);
+					});
+			});
+	});
+
+	it('should not be able to save Experience instance if no description is provided', function(done) {
+		// Invalidate name field
+		experience.description = '';
+
+		agent.post('/auth/signin')
+			.send(credentials)
+			.expect(200)
+			.end(function(signinErr, signinRes) {
+				// Handle signin error
+				if (signinErr) done(signinErr);
+
+				// Get the userId
+				var userId = user.id;
+
+				// Save a new Experience
+				agent.post('/experiences')
+					.send(experience)
+					.expect(400)
+					.end(function(experienceSaveErr, experienceSaveRes) {
+						// Set message assertion
+						(experienceSaveRes.body.message).should.match('Please fill in a description of the experience');
+
 						// Handle Experience save error
 						done(experienceSaveErr);
 					});
@@ -144,6 +174,9 @@ describe('Experience CRUD tests', function() {
 						// Update Experience name
 						experience.name = 'WHY YOU GOTTA BE SO MEAN?';
 
+                        // Update Experience description
+						experience.description = 'WHY YOU GOTTA BE SO MEAN?';
+
 						// Update existing Experience
 						agent.put('/experiences/' + experienceSaveRes.body._id)
 							.send(experience)
@@ -155,6 +188,7 @@ describe('Experience CRUD tests', function() {
 								// Set assertions
 								(experienceUpdateRes.body._id).should.equal(experienceSaveRes.body._id);
 								(experienceUpdateRes.body.name).should.match('WHY YOU GOTTA BE SO MEAN?');
+								(experienceUpdateRes.body.description).should.match('WHY YOU GOTTA BE SO MEAN?');
 
 								// Call the assertion callback
 								done();
@@ -192,7 +226,7 @@ describe('Experience CRUD tests', function() {
 			request(app).get('/experiences/' + experienceObj._id)
 				.end(function(req, res) {
 					// Set assertion
-					res.body.should.be.an.Object.with.property('name', experience.name);
+					res.body.should.be.an.Object.with.property('name', experience.name, experience.description);
 
 					// Call the assertion callback
 					done();
@@ -238,7 +272,7 @@ describe('Experience CRUD tests', function() {
 	});
 
 	it('should not be able to delete Experience instance if not signed in', function(done) {
-		// Set Experience user 
+		// Set Experience user
 		experience.user = user;
 
 		// Create new Experience model instance

@@ -6,7 +6,11 @@ module.exports = function(app) {
 
 	// Experiences Routes
 	app.route('/experiences')
-		.get(experiences.list)
+		.get(experiences.listByLogedInUser)
+		.post(users.requiresLogin, experiences.create);
+
+	app.route('/publicexperiences')
+		.get(experiences.listPublic)
 		.post(users.requiresLogin, experiences.create);
 
 	app.route('/experiences/:experienceId')

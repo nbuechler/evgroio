@@ -27,9 +27,10 @@ describe('Experience Model Unit Tests:', function() {
 			password: 'password'
 		});
 
-		user.save(function() { 
+		user.save(function() {
 			experience = new Experience({
 				name: 'Experience Name',
+								description: 'Experience Description',
 				user: user
 			});
 
@@ -45,7 +46,7 @@ describe('Experience Model Unit Tests:', function() {
 			});
 		});
 
-		it('should be able to show an error when try to save without name', function(done) { 
+		it('should be able to show an error when try to save without name', function(done) {
 			experience.name = '';
 
 			return experience.save(function(err) {
@@ -55,7 +56,7 @@ describe('Experience Model Unit Tests:', function() {
 		});
 	});
 
-	afterEach(function(done) { 
+	afterEach(function(done) {
 		Experience.remove().exec();
 		User.remove().exec();
 
