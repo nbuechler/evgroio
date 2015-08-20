@@ -117,7 +117,7 @@ describe('Activity CRUD tests', function() {
 					.end(function(activitySaveErr, activitySaveRes) {
 						// Set message assertion
 						(activitySaveRes.body.message).should.match('Please fill Activity name');
-						
+
 						// Handle Activity save error
 						done(activitySaveErr);
 					});
@@ -145,7 +145,7 @@ describe('Activity CRUD tests', function() {
 					.end(function(activitySaveErr, activitySaveRes) {
 						// Set message assertion
 						(activitySaveRes.body.message).should.match('Please fill in a description of the activity');
-						
+
 						// Handle Activity save error
 						done(activitySaveErr);
 					});
@@ -176,7 +176,7 @@ describe('Activity CRUD tests', function() {
 
                         // Update Activity description
 						activity.description = 'WHY YOU GOTTA BE SO MEAN?';
-                    
+
 						// Update existing Activity
 						agent.put('/activities/' + activitySaveRes.body._id)
 							.send(activity)
@@ -217,19 +217,20 @@ describe('Activity CRUD tests', function() {
 	});
 
 
-	it('should be able to get a single Activity if not signed in', function(done) {
+	it('should only be able to get a single Activity if signed in', function(done) {
 		// Create new Activity model instance
 		var activityObj = new Activity(activity);
 
 		// Save the Activity
 		activityObj.save(function() {
 			request(app).get('/activities/' + activityObj._id)
-				.end(function(req, res) {
-					// Set assertion
-					res.body.should.be.an.Object.with.property('name', activity.name, activity.description);
+			  .expect(400)
+			  .end(function(logSaveErr, logSaveRes) {
+				// Set message assertion
+				(logSaveRes.body.message).should.match('User is not logged in');
 
-					// Call the assertion callback
-					done();
+				// Call the assertion callback
+				done();
 				});
 		});
 	});
@@ -272,7 +273,7 @@ describe('Activity CRUD tests', function() {
 	});
 
 	it('should not be able to delete Activity instance if not signed in', function(done) {
-		// Set Activity user 
+		// Set Activity user
 		activity.user = user;
 
 		// Create new Activity model instance

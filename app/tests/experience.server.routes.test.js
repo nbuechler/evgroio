@@ -217,19 +217,20 @@ describe('Experience CRUD tests', function() {
 	});
 
 
-	it('should be able to get a single Experience if not signed in', function(done) {
+	it('should only be able to get a single Experience if signed in', function(done) {
 		// Create new Experience model instance
 		var experienceObj = new Experience(experience);
 
 		// Save the Experience
 		experienceObj.save(function() {
 			request(app).get('/experiences/' + experienceObj._id)
-				.end(function(req, res) {
-					// Set assertion
-					res.body.should.be.an.Object.with.property('name', experience.name, experience.description);
+			  .expect(400)
+			  .end(function(logSaveErr, logSaveRes) {
+				// Set message assertion
+				(logSaveRes.body.message).should.match('User is not logged in');
 
-					// Call the assertion callback
-					done();
+				// Call the assertion callback
+				done();
 				});
 		});
 	});
