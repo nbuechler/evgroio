@@ -14,7 +14,7 @@ module.exports = function(app) {
 		.post(users.requiresLogin, activities.create);
 
 	app.route('/activities/:activityId')
-		.get(activities.read)
+		.get(users.requiresLogin, activities.hasAuthorization, activities.read)
 		.put(users.requiresLogin, activities.hasAuthorization, activities.update)
 		.delete(users.requiresLogin, activities.hasAuthorization, activities.delete);
 

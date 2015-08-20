@@ -14,7 +14,7 @@ module.exports = function(app) {
 		.post(users.requiresLogin, logs.create);
 
 	app.route('/logs/:logId')
-		.get(logs.read)
+		.get(users.requiresLogin, logs.hasAuthorization, logs.read)
 		.put(users.requiresLogin, logs.hasAuthorization, logs.update)
 		.delete(users.requiresLogin, logs.hasAuthorization, logs.delete);
 
