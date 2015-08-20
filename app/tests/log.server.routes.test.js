@@ -115,7 +115,7 @@ describe('Log CRUD tests', function() {
 					.end(function(logSaveErr, logSaveRes) {
 						// Set message assertion
 						(logSaveRes.body.message).should.match('Please fill Log name');
-						
+
 						// Handle Log save error
 						done(logSaveErr);
 					});
@@ -183,16 +183,17 @@ describe('Log CRUD tests', function() {
 	});
 
 
-	it('should be able to get a single Log if not signed in', function(done) {
+	it('should only be able to get a single Log if signed in', function(done) {
 		// Create new Log model instance
 		var logObj = new Log(log);
 
 		// Save the Log
 		logObj.save(function() {
 			request(app).get('/logs/' + logObj._id)
-				.end(function(req, res) {
-					// Set assertion
-					res.body.should.be.an.Object.with.property('name', log.name);
+				.expect(400)
+				.end(function(logSaveErr, logSaveRes) {
+					// Set message assertion
+					(logSaveRes.body.message).should.match('User is not logged in');
 
 					// Call the assertion callback
 					done();
@@ -238,7 +239,7 @@ describe('Log CRUD tests', function() {
 	});
 
 	it('should not be able to delete Log instance if not signed in', function(done) {
-		// Set Log user 
+		// Set Log user
 		log.user = user;
 
 		// Create new Log model instance

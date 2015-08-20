@@ -1,8 +1,10 @@
 'use strict';
 
 // Experiences controller
-angular.module('experiences').controller('ExperiencesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Experiences', 'PublicExperiences', 
-	function($scope, $stateParams, $location, Authentication, Experiences, PublicExperiences) {
+angular.module('experiences').controller('ExperiencesController',
+['$scope', '$stateParams', '$location', 'Authentication', 'Experiences',
+'PublicExperiences', 'Activities',
+	function($scope, $stateParams, $location, Authentication, Experiences, PublicExperiences, Activities) {
 		$scope.authentication = Authentication;
 
 		// Create new Experience
@@ -71,5 +73,16 @@ angular.module('experiences').controller('ExperiencesController', ['$scope', '$s
 				experienceId: $stateParams.experienceId
 			});
 		};
+
+		$scope.findPersonalActivities = function() {
+			// Find a list of Activities
+			$scope.activities = Activities.query();
+		};
+		// d3.select('md-select-label > span').text('foo');
+
+		d3.selectAll('md-select-label')
+			.style('background', '#00BC8C')
+			.style('padding', '10px');
+
 	}
 ]);

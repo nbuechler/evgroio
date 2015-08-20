@@ -45,7 +45,11 @@ var ExperienceSchema = new Schema({
 	seconds: { //Lenght of time the experience happened
 		type: Number,
 		default: 0
-	}
+	},
+	firstActivity: {
+		type: Schema.ObjectId,
+		ref: 'Activity'
+	},
 });
 
 mongoose.model('Experience', ExperienceSchema);

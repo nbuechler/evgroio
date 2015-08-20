@@ -138,6 +138,9 @@ exports.activityByID = function(req, res, next, id) {
  */
 exports.hasAuthorization = function(req, res, next) {
 	if (req.activity.user.id !== req.user.id) {
+
+		// TODO: Add logic that creates an alert log if someone is this is true
+
 		return res.status(403).send('User is not authorized');
 	}
 	next();

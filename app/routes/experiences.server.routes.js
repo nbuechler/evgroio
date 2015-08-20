@@ -14,7 +14,7 @@ module.exports = function(app) {
 		.post(users.requiresLogin, experiences.create);
 
 	app.route('/experiences/:experienceId')
-		.get(experiences.read)
+		.get(users.requiresLogin, experiences.hasAuthorization, experiences.read)
 		.put(users.requiresLogin, experiences.hasAuthorization, experiences.update)
 		.delete(users.requiresLogin, experiences.hasAuthorization, experiences.delete);
 

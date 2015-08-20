@@ -15,6 +15,9 @@ exports.create = function(req, res) {
 	var experience = new Experience(req.body);
 	experience.user = req.user;
 
+	experience.descriptionArray = experience.description.split(' ');
+	experience.descriptionArrayLength = experience.descriptionArray.length;
+
 	experience.save(function(err) {
 		if (err) {
 			return res.status(400).send({
@@ -40,6 +43,9 @@ exports.update = function(req, res) {
 	var experience = req.experience ;
 
 	experience = _.extend(experience , req.body);
+
+	experience.descriptionArray = experience.description.split(' ');
+	experience.descriptionArrayLength = experience.descriptionArray.length;
 
 	experience.save(function(err) {
 		if (err) {
