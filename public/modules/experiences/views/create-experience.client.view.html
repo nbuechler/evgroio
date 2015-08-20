@@ -7,25 +7,17 @@
           <md-radio-button value="1">Yup</md-radio-button>
         </md-radio-group>
 
-        <div data-ng-init="findPersonalActivities()">
-            <md-input-container>
-              <md-select ng-model="activties" aria-label="activities">
-                <md-option style="background: #00BC8C" ng-repeat="a in activities" value="{{a}}">{{a.name}}</md-option>
-              </md-select>
-            </md-input-container>
-
-            <!-- <div data-ng-init="findPersonalActivities()"  style="color: black;">
-              <select class="form-control "
-                      ng-options="a.name as a.description for a in activities track by a._id"
-                      ng-model="selectedItem"
-                      value="foo">foo</select>
-            </div> -->
-
-        </div>
-
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="create()" novalidate>
+
+          <div data-ng-init="findPersonalActivities()">
+              <md-input-container>
+                <md-select ng-model="activties" aria-label="activities">
+                  <md-option style="background: #00BC8C" ng-repeat="a in activities" value="{{a}}" required>{{a.name}}</md-option>
+                </md-select>
+              </md-input-container>
+          </div>
 
           <!--
           TODO: Do something with experience data
