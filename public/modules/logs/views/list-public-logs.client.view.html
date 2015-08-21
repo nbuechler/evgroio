@@ -14,7 +14,7 @@
                     <span data-ng-bind="log.user.displayName"></span>
                 </small>
                 <div class="badge" ng-show="{{(log.user._id === authentication.user._id)}}">
-                    My Activity
+                    My Log
                 </div>
                 <h4 class="list-group-item-heading" data-ng-bind="log.name"></h4>
                 <div class="" style="text-align: center;">
@@ -23,6 +23,9 @@
                     <span ng-if="log.academicContent.length > 0" class="academicBox globalPadding">{{log.academicContent.length}}</span>
                     <span ng-if="log.communeContent.length > 0" class="communeBox globalPadding">{{log.communeContent.length}}</span>
                     <span ng-if="log.etherContent.length > 0" class="etherBox globalPadding">{{log.etherContent.length}}</span>
+                </div>
+                <div style="text-align: center;">
+                  <list-viz></list-viz>
                 </div>
             </a>
         </div>
