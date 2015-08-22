@@ -8,7 +8,8 @@ module.exports = {
 				css: [
 					'public/lib/angular-material/angular-material.css',
 					'public/customLib/bootstrapThemed/darkly/bootstrap.css',
-					'public/lib/fontawesome/css/font-awesome.css'
+					'public/lib/fontawesome/css/font-awesome.css',
+					'public/lib/angular-ui-select/dist/select.css'
 				],
 				js: [
 					'public/lib/d3/d3.js',
@@ -22,7 +23,8 @@ module.exports = {
 					'public/lib/angular-sanitize/angular-sanitize.js',
 					'public/lib/angular-ui-router/release/angular-ui-router.js',
 					'public/lib/angular-ui-utils/ui-utils.js',
-					'public/lib/angular-bootstrap/ui-bootstrap-tpls.js'
+					'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
+					'public/lib/angular-ui-select/dist/select.js'
 				]
 		},
 		css: [
