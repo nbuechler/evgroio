@@ -9,13 +9,15 @@ angular.module('experiences').controller('ExperiencesController',
 
 		// Create new Experience
 		$scope.create = function() {
+
 			// Create new Experience object
 			var experience = new Experiences ({
 				name: this.name,
 								description: this.description,
 								importance: this.importance,
 								privacy: this.privacy ? this.privacy : 0,
-								seconds: this.seconds ? this.seconds : 0,
+								seconds: this.seconds ? this.seconds : 0//,
+								// firstActivityId: $scope.selectedActivity._id
 			});
 
 			// Redirect after save
@@ -49,6 +51,7 @@ angular.module('experiences').controller('ExperiencesController',
 		// Update existing Experience
 		$scope.update = function() {
 			var experience = $scope.experience;
+					// experience.firstActivityId = $scope.selectedActivity._id;
 
 			experience.$update(function() {
 				$location.path('experiences/' + experience._id);
@@ -80,7 +83,7 @@ angular.module('experiences').controller('ExperiencesController',
 		};
 		// d3.select('md-select-label > span').text('foo');
 
-		d3.selectAll('md-select-label')
+		d3.selectAll('select')
 			.style('background', '#00BC8C')
 			.style('padding', '10px');
 

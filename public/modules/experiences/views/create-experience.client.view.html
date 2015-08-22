@@ -7,23 +7,30 @@
           <md-radio-button value="1">Yup</md-radio-button>
         </md-radio-group>
 
+        <span>
+          Every experience is tied to something you've done. That's why you can choose an activity!
+        </span>
+
+        <br>
+
+
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="create()" novalidate>
 
-          <div data-ng-init="findPersonalActivities()">
-              <md-input-container>
-                <md-select ng-model="activties" aria-label="activities">
-                  <md-option style="background: #00BC8C" ng-repeat="a in activities" value="{{a}}" required>{{a.name}}</md-option>
-                </md-select>
-              </md-input-container>
-          </div>
 
           <!--
           TODO: Do something with experience data
           -->
-
             <fieldset>
+                <label>
+                  <div data-ng-init="findPersonalActivities()">
+                      <select class="form-control" ng-options="item as item.name for item in activities track by item._id" ng-model="selectedActivity" required>
+                        <option style="color: white;" value="" disabled="">Choose an activity...</option>
+                      </select>
+                  </div>
+                </label>
+
                 <div class="form-group">
                     <label class="control-label" for="name">Experience</label>
                     <div class="controls">

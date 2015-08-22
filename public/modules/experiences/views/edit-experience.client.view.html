@@ -9,6 +9,13 @@
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="update()" novalidate>
+          <label>
+            <div data-ng-init="findPersonalActivities()">
+                <select class="form-control" ng-options="item as item.name for item in activities track by item._id" ng-model="selectedActivity" required>
+                  <option style="color: white;" value="selectedActivity" selected="">Choose an activity...</option>
+                </select>
+            </div>
+          </label>
 
           <!--
           TODO: Do something with experience data

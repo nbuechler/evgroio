@@ -5,8 +5,7 @@ var ApplicationConfiguration = (function() {
 	// Init module configuration options
 	var applicationModuleName = 'evgroio';
 	var applicationModuleVendorDependencies = ['ngResource', 'ngCookies',  'ngAnimate',
-	'ngTouch',  'ngSanitize',  'ui.router', 'ui.bootstrap', 'ui.utils', 'ngMaterial',
-  'ui.select', 'ngSanitize'];
+	'ngTouch',  'ngSanitize',  'ui.router', 'ui.bootstrap', 'ui.utils', 'ngMaterial'];
 
 	// Add a new vertical module
 	var registerModule = function(moduleName, dependencies) {
