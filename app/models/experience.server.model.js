@@ -46,10 +46,11 @@ var ExperienceSchema = new Schema({
 		type: Number,
 		default: 0
 	},
-	firstActivity: {
+	firstActivityId: {
 		type: Schema.ObjectId,
-		ref: 'Activity'
-	},
+		ref: 'Activity'//,
+		// required: 'Please choose an activity'
+	}
 });
 
 mongoose.model('Experience', ExperienceSchema);
