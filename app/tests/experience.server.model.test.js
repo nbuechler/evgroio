@@ -6,12 +6,13 @@
 var should = require('should'),
 	mongoose = require('mongoose'),
 	User = mongoose.model('User'),
+	Activity = mongoose.model('Activity'),
 	Experience = mongoose.model('Experience');
 
 /**
  * Globals
  */
-var user, experience;
+var user, experience, activity;
 
 /**
  * Unit tests
@@ -27,11 +28,18 @@ describe('Experience Model Unit Tests:', function() {
 			password: 'password'
 		});
 
+		activity = new Activity({
+			name: 'Activity Name',
+							description: 'Activity Description',
+			user: user
+		});
+
 		user.save(function() {
 			experience = new Experience({
 				name: 'Experience Name',
 								description: 'Experience Description',
-				user: user
+				user: user,
+				activity: activity
 			});
 
 			done();

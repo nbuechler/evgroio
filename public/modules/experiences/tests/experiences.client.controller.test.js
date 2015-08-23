@@ -55,7 +55,8 @@
 			var sampleExperience = new Experiences({
 				name: 'New Experience',
 				privacy: 0,
-				seconds: 0
+				seconds: 0,
+				activity: '55d933133191d9e31586df96'
 			});
 
 			// Create a sample Experiences array that includes the new Experience
@@ -77,7 +78,8 @@
 			var sampleExperience = new Experiences({
 				name: 'New Experience',
 				privacy: 0,
-				seconds: 0
+				seconds: 0,
+				activity: '55d933133191d9e31586df96'
 			});
 
 			// Set the URL parameter
@@ -99,7 +101,8 @@
 			var sampleExperiencePostData = new Experiences({
 				name: 'New Experience',
 				privacy: 0,
-				seconds: 0
+				seconds: 0,
+				activity: '55d933133191d9e31586df96'
 			});
 
 			// Create a sample Experience response
@@ -107,7 +110,8 @@
 				_id: '525cf20451979dea2c000001',
 				name: 'New Experience',
 				privacy: 0,
-				seconds: 0
+				seconds: 0,
+				activity: '55d933133191d9e31586df96'
 			});
 
 			// Fixture mock form input values
@@ -133,7 +137,8 @@
 				_id: '525cf20451979dea2c000001',
 				name: 'New Experience',
 				privacy: 0,
-				seconds: 0
+				seconds: 0,
+				activity: '55d933133191d9e31586df96'
 			});
 
 			// Mock Experience in scope
