@@ -31,15 +31,20 @@ describe('Experience Model Unit Tests:', function() {
 		activity = new Activity({
 			name: 'Activity Name',
 							description: 'Activity Description',
+							descriptionArray: [],
+							descriptionArrayLength: 0,
+							importance: 0,
+							privacy: 0,
 			user: user
 		});
 
 		user.save(function() {
+
 			experience = new Experience({
 				name: 'Experience Name',
 								description: 'Experience Description',
 				user: user,
-				activity: activity
+				firstActivity: '55d933133191d9e31586df96'
 			});
 
 			done();
@@ -49,6 +54,7 @@ describe('Experience Model Unit Tests:', function() {
 	describe('Method Save', function() {
 		it('should be able to save without problems', function(done) {
 			return experience.save(function(err) {
+				console.log(err);
 				should.not.exist(err);
 				done();
 			});
