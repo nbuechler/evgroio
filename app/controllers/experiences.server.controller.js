@@ -121,7 +121,7 @@ exports.listByLogedInUser = function(req, res) {
  * Experience middleware
  */
 exports.experienceByID = function(req, res, next, id) {
-	Experience.findById(id).populate('user', 'displayName').exec(function(err, experience) {
+	Experience.findById(id).populate('user', 'displayName').populate('firstActivity').exec(function(err, experience) {
 		if (err) return next(err);
 		if (! experience) return next(new Error('Failed to load Experience ' + id));
 		req.experience = experience ;
