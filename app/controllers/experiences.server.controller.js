@@ -117,6 +117,21 @@ exports.listByLogedInUser = function(req, res) {
 	});
 };
 
+// /**
+//  * List of Experience by activity
+//  */
+// exports.experienceByActivity = function(req, res) {
+// 	Experience.find({'firstActivity': req.firstActivity}).sort('-created').populate('user', 'displayName').exec(function(err, experiences) {
+// 		if (err) {
+// 			return res.status(400).send({
+// 				message: errorHandler.getErrorMessage(err)
+// 			});
+// 		} else {
+// 			res.jsonp(experiences);
+// 		}
+// 	});
+// };
+
 /**
  * Experience middleware
  */
