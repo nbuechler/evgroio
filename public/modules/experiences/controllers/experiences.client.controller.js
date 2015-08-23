@@ -17,7 +17,7 @@ angular.module('experiences').controller('ExperiencesController',
 								importance: this.importance,
 								privacy: this.privacy ? this.privacy : 0,
 								seconds: this.seconds ? this.seconds : 0,
-								firstActivity: $scope.selectedActivity._id
+								firstActivity: $scope.selectedActivity ? $scope.selectedActivity._id : null
 			});
 
 			// Redirect after save
@@ -51,7 +51,7 @@ angular.module('experiences').controller('ExperiencesController',
 		// Update existing Experience
 		$scope.update = function() {
 			var experience = $scope.experience;
-					experience.firstActivity = $scope.selectedActivity._id;
+					experience.firstActivity = $scope.selectedActivity ? $scope.selectedActivity._id : null;
 
 			experience.$update(function() {
 				$location.path('experiences/' + experience._id);
