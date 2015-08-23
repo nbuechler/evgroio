@@ -46,10 +46,10 @@ var ExperienceSchema = new Schema({
 		type: Number,
 		default: 0
 	},
-	firstActivityId: {
+	firstActivity: {
 		type: Schema.ObjectId,
-		ref: 'Activity'//,
-		// required: 'Please choose an activity'
+		ref: 'Activity',
+		required: 'Please choose an activity'
 	}
 });
 
