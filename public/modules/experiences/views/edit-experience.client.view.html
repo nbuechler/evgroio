@@ -57,19 +57,19 @@
                       <div class="col-lg-4">
                         <label class="control-label" for="hours">Hours</label>
                         <div class="controls">
-                            <input type="number" data-ng-model="hours" id="hours" class="form-control" placeholder="0" value="0">
+                            <input type="number" data-ng-model="hours" id="hours" class="form-control" placeholder="0" min="0" max="100000000" step="10" value="0">
                         </div>
                       </div>
                     <div class="col-lg-4">
                       <label class="control-label" for="minutes">Minutes</label>
                       <div class="controls">
-                          <input type="number" data-ng-model="minutes" id="minutes" class="form-control" placeholder="0" value="0">
+                          <input type="number" data-ng-model="minutes" id="minutes" class="form-control" placeholder="0" min="0" max="60" step="5" value="0">
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <label class="control-label" for="secs">Seconds</label>
                       <div class="controls">
-                          <input type="number" data-ng-model="secs" id="secs" class="form-control" placeholder="0" value="0">
+                          <input type="number" data-ng-model="secs" id="secs" class="form-control" placeholder="0" min="0" max="60" step="5" value="0">
                       </div>
                     </div>
                     </div>
