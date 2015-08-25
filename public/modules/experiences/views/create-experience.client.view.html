@@ -13,7 +13,6 @@
 
         <br>
 
-
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="create()" novalidate>
@@ -50,8 +49,35 @@
                       Or quick 'one-off' things that don't get tied to just one activiy.
                 -->
 
+                <hr>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-default">
+                    <span>
+                      How long was this experience?
+                    </span>
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <label class="control-label" for="hours">Hours</label>
+                        <div class="controls">
+                            <input type="number" data-ng-model="hours" id="hours" class="form-control" placeholder="0" min="0" max="100000000" step="10" value="0">
+                        </div>
+                      </div>
+                    <div class="col-lg-4">
+                      <label class="control-label" for="minutes">Minutes</label>
+                      <div class="controls">
+                          <input type="number" data-ng-model="minutes" id="minutes" class="form-control" placeholder="0" min="0" max="60" step="5" value="0">
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <label class="control-label" for="secs">Seconds</label>
+                      <div class="controls">
+                          <input type="number" data-ng-model="secs" id="secs" class="form-control" placeholder="0" min="0" max="60" step="5" value="0">
+                      </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="New Experience" class="btn btn-default">
                 </div>
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>
