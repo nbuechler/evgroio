@@ -17,9 +17,9 @@ angular.module('experiences').controller('ExperiencesController',
 					h = ($scope.hours ? $scope.hours : 0),
 					m = ($scope.minutes ? $scope.minutes : 0),
 					s = ($scope.secs ? $scope.secs : 0);
-					calculatedSeconds = calculatedSeconds + (h * 60 * 60)
-					calculatedSeconds = calculatedSeconds + (m * 60)
-					calculatedSeconds = calculatedSeconds + (s)
+					calculatedSeconds += calculatedSeconds + (h * 60 * 60);
+					calculatedSeconds += calculatedSeconds + (m * 60);
+					calculatedSeconds += calculatedSeconds + (s);
 
 			// Create new Experience object
 			var experience = new Experiences ({
@@ -27,7 +27,6 @@ angular.module('experiences').controller('ExperiencesController',
 								description: this.description,
 								importance: this.importance,
 								privacy: this.privacy ? this.privacy : 0,
-								seconds: this.seconds ? this.seconds : 0,
 								firstActivity: $scope.selectedActivity ? $scope.selectedActivity._id : null,
 								seconds: calculatedSeconds ? calculatedSeconds : 0
 			});
@@ -70,9 +69,9 @@ angular.module('experiences').controller('ExperiencesController',
 					h = ($scope.hours ? $scope.hours : 0),
 					m = ($scope.minutes ? $scope.minutes : 0),
 					s = ($scope.secs ? $scope.secs : 0);
-					calculatedSeconds = calculatedSeconds + (h * 60 * 60)
-					calculatedSeconds = calculatedSeconds + (m * 60)
-					calculatedSeconds = calculatedSeconds + (s)
+					calculatedSeconds = calculatedSeconds + (h * 60 * 60);
+					calculatedSeconds = calculatedSeconds + (m * 60);
+					calculatedSeconds = calculatedSeconds + (s);
 
 
 			var experience = $scope.experience;
@@ -115,7 +114,7 @@ angular.module('experiences').controller('ExperiencesController',
 						$scope.hours = h;
 						$scope.minutes = m;
 						$scope.secs = s;
-			})
+			});
 		};
 
 		$scope.findPersonalActivities = function() {
