@@ -1,0 +1,24 @@
+
+<!-- Using the fab speed dial to 'dial' a new entry -->
+    <div style="position: fixed;
+                bottom: 25px;
+                right: 25px;
+                ">
+      <md-fab-speed-dial ng-hide="hidden" md-direction="up" class="md-fling">
+        <md-fab-trigger>
+          <md-button aria-label="menu" class="md-fab md-default">
+            <md-tooltip md-direction="top">New Entry</md-tooltip>
+            <md-icon><i class="material-icons">dashboard</i></md-icon>
+          </md-button>
+        </md-fab-trigger>
+
+        <md-fab-actions>
+          <div ng-repeat="item in items">
+            <md-tooltip md-direction="{{item.direction}}">{{item.name}}</md-tooltip>
+            <md-button aria-label="{{item.name}}" class="md-fab md-raised" style="background: #00BC8C;" ng-click="changeLocation(item)">
+              <i class="material-icons">{{item.icon}}</i>
+            </md-button>
+          </div>
+        </md-fab-actions>
+      </md-fab-speed-dial>
+    </div>
