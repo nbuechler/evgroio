@@ -127,5 +127,29 @@ angular.module('experiences').controller('ExperiencesController',
 			.style('background', '#00BC8C')
 			.style('padding', '10px');
 
+
+			var self = $scope;
+
+      self.hidden = false;
+
+      self.items = [
+        {name: "New Activity",
+					icon: 'archive',
+					direction: 'left',
+					url: 'activities/create'},
+        {name: "New Experience",
+					icon: 'extension',
+					direction: 'left',
+					url: 'experiences/create'},
+        {name: "New Log",
+					icon: 'speaker_notes',
+					direction: 'left',
+					url: 'logs/create'}
+      ];
+
+			self.changeLocation = function(item) {
+        $location.url(item.url);
+      }
+
 	}
 ]);
