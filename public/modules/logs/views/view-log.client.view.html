@@ -40,26 +40,42 @@
 	</small>
 
         <div class="row" style="margin-top: 30px; margin-bottom: 100px;" data-ng-show="((authentication.user) && (authentication.user._id == log.user._id)) || log.privacy == 1">
-            <div style="border: solid 3px #464545;" ng-if="log.physicContentLength > 0" class="physicBox marginPaddingBox">
-                <div data-ng-bind="log.physicContent"></div>
-                <div style="float: right; margin-top: -20px; color: white; text-shadow: 1px 1px black" data-ng-bind="log.physicContentLength"></div>
+
+          <md-list-item class="md-3-line" ng-if="log.physicContentLength > 0">
+            <div ng-if="log.physicContentLength > 0" class="physicBox md-list-item-text">
+              <h3 style="color: gray;">Which part(s) of your body did you use?</h3>
+              <p data-ng-bind="log.physicContent"><!-- Dynamic binding --></p>
             </div>
-            <div style="border: solid 3px #464545;" ng-if="log.emotionContentLength > 0" class="emotionBox marginPaddingBox">
-                <div data-ng-bind="log.emotionContent"></div>
-                <div style="float: right; margin-top: -20px; color: white; text-shadow: 1px 1px black" data-ng-bind="log.emotionContentLength"></div>
+          </md-list-item>
+          <md-divider ng-if="log.physicContentLength > 0"></md-divider>
+          <md-list-item class="md-3-line" ng-if="log.emotionContentLength > 0">
+            <div ng-if="log.emotionContentLength > 0" class="emotionBox md-list-item-text">
+              <h3 style="color: gray;">How do you feel?</h3>
+              <p data-ng-bind="log.emotionContent"><!-- Dynamic binding --></p>
             </div>
-            <div style="border: solid 3px #464545;" ng-if="log.academicContentLength > 0" class="academicBox marginPaddingBox">
-                <div data-ng-bind="log.academicContent"></div>
-                <div style="float: right; margin-top: -20px; color: white; text-shadow: 1px 1px black" data-ng-bind="log.academicContentLength"></div>
+          </md-list-item>
+          <md-divider ng-if="log.emotionContentLength > 0"></md-divider>
+          <md-list-item class="md-3-line" ng-if="log.academicContentLength > 0">
+            <div ng-if="log.academicContentLength > 0" class="academicBox md-list-item-text">
+              <h3 style="color: gray;">What did you learn?</h3>
+              <p data-ng-bind="log.academicContent"><!-- Dynamic binding --></p>
             </div>
-            <div style="border: solid 3px #464545;" ng-if="log.communeContentLength > 0" class="communeBox marginPaddingBox">
-                <div data-ng-bind="log.communeContent"></div>
-                <div style="float: right; margin-top: -20px; color: white; text-shadow: 1px 1px black" data-ng-bind="log.communeContentLength"></div>
+          </md-list-item>
+          <md-divider ng-if="log.academicContentLength > 0"></md-divider>
+          <md-list-item class="md-3-line" ng-if="log.communeContentLength > 0">
+            <div ng-if="log.communeContentLength > 0" class="communeBox md-list-item-text">
+              <h3 style="color: gray;">Who did you care about?</h3>
+              <p data-ng-bind="log.communeContent"><!-- Dynamic binding --></p>
             </div>
-            <div style="border: solid 3px #464545;" ng-if="log.etherContentLength > 0" class="etherBox marginPaddingBox">
-                <div data-ng-bind="log.etherContent"></div>
-                <div style="float: right; margin-top: -20px; color: white; text-shadow: 1px 1px black" data-ng-bind="log.etherContentLength"></div>
+          </md-list-item>
+          <md-divider ng-if="log.communeContentLength > 0"></md-divider>
+          <md-list-item class="md-3-line" ng-if="log.etherContentLength > 0">
+            <div ng-if="log.etherContentLength > 0" class="etherBox md-list-item-text">
+              <h3 style="color: gray;">Why did this matter?</h3>
+              <p data-ng-bind="log.etherContent"><!-- Dynamic binding --></p>
             </div>
+          </md-list-item>
+          <md-divider ng-if="log.etherContentLength > 0"></md-divider>
         </div>
 
         <!--
