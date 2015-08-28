@@ -12,15 +12,15 @@ angular.module('logs').directive('newEntryQuick', [ '$location',
 	      self.hidden = false;
 
 	      self.items = [
-	        {name: "New Activity",
+	        {name: 'New Activity',
 						icon: 'archive',
 						direction: 'left',
 						url: 'activities/create'},
-	        {name: "New Experience",
+	        {name: 'New Experience',
 						icon: 'extension',
 						direction: 'left',
 						url: 'experiences/create'},
-	        {name: "New Log",
+	        {name: 'New Log',
 						icon: 'speaker_notes',
 						direction: 'left',
 						url: 'logs/create'}
@@ -28,7 +28,7 @@ angular.module('logs').directive('newEntryQuick', [ '$location',
 
 				self.changeLocation = function(item) {
 	        location.url(item.url);
-	      }
+	      };
 
 			}
 		};
