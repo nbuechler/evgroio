@@ -6,6 +6,7 @@
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Activity = mongoose.model('Activity'),
+	Experience = mongoose.model('Experience'),
 	_ = require('lodash');
 
 /**
@@ -121,6 +122,7 @@ exports.listByLogedInUser = function(req, res) {
 	});
 };
 
+
 /**
  * Activity middleware
  */
@@ -128,8 +130,22 @@ exports.activityByID = function(req, res, next, id) {
 	Activity.findById(id).populate('user', 'displayName').exec(function(err, activity) {
 		if (err) return next(err);
 		if (! activity) return next(new Error('Failed to load Activity ' + id));
-		req.activity = activity ;
-		next();
+
+		/**
+		 * List of Experience by activity
+		 */
+		Experience.find({'firstActivity': id}).sort('-created').populate('user', 'displayName').exec(function(err, experiences) {
+			if (err) {
+				return res.status(400).send({
+					message: errorHandler.getErrorMessage(err)
+				});
+			} else {
+				activity.experiencesList = experiences;
+				req.activity = activity ;
+				next();
+
+			}
+		});
 	});
 };
 

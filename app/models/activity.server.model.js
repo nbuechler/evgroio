@@ -47,6 +47,10 @@ var ActivitySchema = new Schema({
 	privacy: {
 		type: Number,
 		default: 0
+	},
+	experiencesList: {
+		type: Array,
+		default: []
 	}
 });
 
