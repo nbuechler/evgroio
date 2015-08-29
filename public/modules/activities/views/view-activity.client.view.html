@@ -74,6 +74,22 @@
                                 </md-list-item>
                                 <md-divider  data-ng-show="(((authentication.user) && (authentication.user._id == experience.user._id))) || experience.privacy == 1"></md-divider>
                               </div>
+                              <div ng-show="activity.experiencesList.length < 1">
+                                <md-list-item class="md-3-line">
+                                  <div class="md-list-item-text">
+                                    <h3 style="color: gray;">
+                                        No experiences for this activity
+                                    </h3>
+                                    <p style="color: white;">
+                                      Why don't you
+                                      <a data-ng-href="#!/experiences/create" target="_blank">
+                                        create one
+                                      </a>
+                                      ?
+                                    </p>
+                                  </div>
+                                </md-list-item>
+                              </div>
                             </md-content>
                         </p>
                     </div>
