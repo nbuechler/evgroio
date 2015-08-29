@@ -35,7 +35,8 @@
                         {{hours ? hours + 'h' : ''}}
                         {{minutes ? minutes + 'm' : ''}}
                         {{secs ? secs + 's' : ''}}
-                        {{seconds ? '' : '0s'}}
+                        {{minutes ? '' : '0m'}}
+                        {{secs ? '' : '0s'}}
                     </h4>
                 </div>
                 <div class="col-lg-6">
@@ -45,7 +46,6 @@
                             <hr>
                             {{experience.description}}
                             <hr>
-                            <strong>I experienced {{experience.name.toLowerCase()}} while I was {{experience.firstActivity.name.toLowerCase()}}.</strong>
                         </p>
                     </div>
                 </div>
@@ -68,6 +68,42 @@
                 </div>
             </div>
         </div>
+
+				<br>
+
+				<div class="row">
+					<div class="col-lg-12" data-ng-show="((authentication.user) && (authentication.user._id == experience.firstActivity.user)) || experience.firstActivity.privacy == 1">
+
+						<md-toolbar style="background: #00BC8C; color: #222222">
+							<div class="md-toolbar-tools">
+								<h2 class="md-flex">I experienced {{experience.name.toLowerCase()}} while I was {{experience.firstActivity.name.toLowerCase()}}.</h2>
+							</div>
+						</md-toolbar>
+						<md-content layout-padding style="height: auto; max-height: 300px; padding: 24px; background: #333333">
+								<h6 style="color: gray; text-align: right;">Just for reference, this is the activity this experience is associated with.</h6>
+								<md-list-item class="md-3-line">
+									<div class="md-list-item-text">
+										<br>
+										<h3>
+											<a data-ng-href="#!/activities/{{experience.firstActivity._id}}" target="_blank">
+												{{ experience.firstActivity.name }}
+											</a>
+											<span style="color: #444444;">{{' ( Importance - ' + experience.firstActivity.importance + ' )'}}</span>
+										</h3>
+										<p style="color: white;">
+											{{ experience.firstActivity.description}}.
+										</p>
+										<p style="color: gray;">
+											Activity started on {{ experience.firstActivity.created  | date:'mediumDate'}}.
+										</p>
+
+									</div>
+								</md-list-item>
+						</md-content>
+
+					</div>
+				</div>
+
         <new-entry-quick></new-entry-quick>
 	</small>
 </section>

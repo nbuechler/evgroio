@@ -14,12 +14,12 @@ angular.module('experiences').controller('ExperiencesController',
 			 * calculatedSeconds is the amount of seconds for the experience.
 			 */
 			var calculatedSeconds = 0,
-					h = ($scope.hours ? $scope.hours : 0),
-					m = ($scope.minutes ? $scope.minutes : 0),
-					s = ($scope.secs ? $scope.secs : 0);
-					calculatedSeconds += calculatedSeconds + (h * 60 * 60);
-					calculatedSeconds += calculatedSeconds + (m * 60);
-					calculatedSeconds += calculatedSeconds + (s);
+ 					h = ($scope.hours ? $scope.hours : 0),
+ 					m = ($scope.minutes ? $scope.minutes : 0),
+ 					s = ($scope.secs ? $scope.secs : 0);
+ 					calculatedSeconds = calculatedSeconds + (h * 60 * 60);
+ 					calculatedSeconds = calculatedSeconds + (m * 60);
+ 					calculatedSeconds = calculatedSeconds + (s);
 
 			// Create new Experience object
 			var experience = new Experiences ({
