@@ -46,15 +46,21 @@
                             As more information gets collected, this page will get way more interesting! Some exciting visualizations of data as well as more intreactivity will be unlocked, so be patient :D.
                             <hr>
                               <div data-ng-repeat="experience in activity.experiencesList">
-                                <md-list-item class="md-3-line"  data-ng-show="(((authentication.user) && (authentication.user._id == experience.user._id))) || experience.privacy == 1">
+                                <md-list-item class="md-3-line" data-ng-show="(((authentication.user) && (authentication.user._id == experience.user._id))) || experience.privacy == 1">
                                   <div class="md-list-item-text">
-                                    <h3>{{ experience.name }}</h3>
-                                    <p>{{ experience.description }}</p>
-                                    <h6 style="text-align: right;"  data-ng-show="(((authentication.user) && (authentication.user._id == experience.user._id)))">
-                                      <div class="badge" ng-show="{{(experience.privacy === 0)}}">
+                                    <h3>
+                                      <a data-ng-href="#!/experiences/{{experience._id}}" target="_blank">
+                                        {{ experience.name }}
+                                      </a>
+                                    </h3>
+                                    <p>
+                                      {{ experience.description }}
+                                    </p>
+                                    <h6 style="text-align: right;" data-ng-show="(((authentication.user) && (authentication.user._id == experience.user._id)))">
+                                      <div class="badge" data-ng-show="{{(experience.privacy === 0)}}">
                                           Private
                                       </div>
-                                      <div class="badge" ng-show="{{(experience.privacy === 1)}}">
+                                      <div class="badge" data-ng-show="{{(experience.privacy === 1)}}">
                                           Public
                                       </div>
                                     </h6>
