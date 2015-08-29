@@ -43,6 +43,16 @@
                             <hr>
                             {{activity.description}}
                             <hr>
+                              <div data-ng-repeat="experience in activities.experiencesList">
+                                <md-list-item class="md-2-line">
+                                  <div class="md-list-item-text">
+                                    <h3>{{ experience.name }}</h3>
+                                    <p>{{ experience.descripition }}</p>
+                                  </div>
+                                </md-list-item>
+                                <md-divider ></md-divider>
+                              </div>
+                            <hr>
                             As more information gets collected, this page will get way more interesting! Some exciting visualizations of data as well as more intreactivity will be unlocked, so be patient :D.
                         </p>
                     </div>
