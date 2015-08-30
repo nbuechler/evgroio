@@ -112,18 +112,24 @@
 									<h2 class="md-flex">Logs</h2>
 								</div>
 							</md-toolbar>
-							<md-content layout-padding style="height: auto; max-height: 300px; padding: 24px; background: #333333">
+							<md-content layout-padding style="height: auto; max-height: 600px; padding: 24px; background: #333333">
 								<div data-ng-repeat="log in experience.logsList">
+											<a data-ng-href="#!/logs/{{log._id}}" style="text-decoration: none;">
 									<md-list-item class="md-3-line" data-ng-show="(((authentication.user) && (authentication.user._id == log.user._id))) || log.privacy == 1">
 										<div class="md-list-item-text">
-											<h3>
-												<a data-ng-href="#!/logs/{{log._id}}">
-													{{ log.name }}
-												</a>
-											</h3>
-											<p style="color: white;">
-												{{ log }}
-											</p>
+												<h3>
+														{{ log.name }}
+												</h3>
+												<div class="" style="text-align: center;">
+				                    <span ng-if="log.physicContent.length > 0" class="physicBox globalPadding">{{log.physicContent.length}}</span>
+				                    <span ng-if="log.emotionContent.length > 0" class="emotionBox globalPadding">{{log.emotionContent.length}}</span>
+				                    <span ng-if="log.academicContent.length > 0" class="academicBox globalPadding">{{log.academicContent.length}}</span>
+				                    <span ng-if="log.communeContent.length > 0" class="communeBox globalPadding">{{log.communeContent.length}}</span>
+				                    <span ng-if="log.etherContent.length > 0" class="etherBox globalPadding">{{log.etherContent.length}}</span>
+				                </div>
+				                <div style="text-align: center;">
+				                  <list-viz></list-viz>
+				                </div>
 											<h6 style="text-align: right;" data-ng-show="(((authentication.user) && (authentication.user._id == log.user._id)))">
 												<div class="badge" data-ng-show="{{(log.privacy === 0)}}">
 														Private
@@ -134,6 +140,7 @@
 											</h6>
 										</div>
 									</md-list-item>
+											</a>
 									<md-divider  data-ng-show="(((authentication.user) && (authentication.user._id == log.user._id))) || log.privacy == 1"></md-divider>
 								</div>
 								<div ng-show="experience.logsList.length < 1">
