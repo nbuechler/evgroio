@@ -121,7 +121,6 @@ angular.module('experiences').controller('ExperiencesController',
 			// Find a list of Activities
 			$scope.activities = Activities.query();
 		};
-		// d3.select('md-select-label > span').text('foo');
 
 		d3.selectAll('select')
 			.style('background', '#00BC8C')

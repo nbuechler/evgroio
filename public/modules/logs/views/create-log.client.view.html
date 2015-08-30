@@ -17,6 +17,20 @@
                       <md-radio-button value="0" class="md-primary">Nope</md-radio-button>
                       <md-radio-button value="1">Yup</md-radio-button>
                     </md-radio-group>
+
+                <br>
+
+                <label>
+                  <div data-ng-init="findPersonalExperiences()">
+                      <select class="form-control" ng-options="item as item.name for item in experiences track by item._id" ng-model="selectedExperience" required>
+                        <option style="color: white;" value="" disabled="">Is this part of an experience?</option>
+                      </select>
+                  </div>
+                </label>
+
+                <br>
+                <br>
+
                 <div id="reflectionZone">
                     <div>
                     <div class="row">
