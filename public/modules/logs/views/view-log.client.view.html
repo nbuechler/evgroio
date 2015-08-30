@@ -38,8 +38,8 @@
       </span>
 		</em>
 	</small>
-
-        <div class="row" style="margin-top: 30px; margin-bottom: 100px;" data-ng-show="((authentication.user) && (authentication.user._id == log.user._id)) || log.privacy == 1">
+      <div style="margin-top: 30px; margin-bottom: 100px;">
+        <div class="row" data-ng-show="((authentication.user) && (authentication.user._id == log.user._id)) || log.privacy == 1">
 
           <md-list-item class="md-3-line" ng-if="log.physicContentLength > 0">
             <div ng-if="log.physicContentLength > 0" class="physicBox md-list-item-text">
@@ -87,7 +87,41 @@
 
         -->
 
-        <new-entry-quick></new-entry-quick>
+        <div class="row">
+					<div class="col-lg-12" data-ng-show="((authentication.user) && (authentication.user._id == log.firstExperience.user)) || log.firstExperience.privacy == 1">
+
+						<md-toolbar style="background: white; color: #222222">
+							<div class="md-toolbar-tools">
+								<h2 class="md-flex">The log, {{log.name.toLowerCase()}}, was part of the experience -- {{log.firstExperience.name.toLowerCase()}}.</h2>
+							</div>
+						</md-toolbar>
+						<md-content layout-padding style="height: auto; max-height: 300px; padding: 24px; background: #333333">
+								<h6 style="color: gray; text-align: right;">Remember, this is the experience this log is associated with.</h6>
+								<md-list-item class="md-3-line">
+									<div class="md-list-item-text">
+										<br>
+										<h3>
+											<a data-ng-href="#!/experiences/{{log.firstExperience._id}}">
+												{{ log.firstExperience.name }}
+											</a>
+											<span style="color: #444444;">{{' ( Seconds - ' + log.firstExperience.seconds + ' )'}}</span>
+										</h3>
+										<p style="color: white;">
+											{{ log.firstExperience.description}}.
+										</p>
+										<p style="color: gray;">
+											Activity started on {{ log.firstExperience.created  | date:'mediumDate'}}.
+										</p>
+
+									</div>
+								</md-list-item>
+						</md-content>
+
+					</div>
+				</div>
+      </div>
+
+      <new-entry-quick></new-entry-quick>
 
     <div class="text-center footer">
         <div class="text-muted" style="padding: 10px; background: #303030; border: 2px solid #464545; border-left: none; border-right: none;box-shadow: 0px 0px 10px black;">
