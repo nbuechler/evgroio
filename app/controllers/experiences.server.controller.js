@@ -140,6 +140,21 @@ exports.experienceByID = function(req, res, next, id) {
 		if (err) return next(err);
 		if (! experience) return next(new Error('Failed to load Experience ' + id));
 		req.experience = experience ;
+
+		if(experience.firstActivity){
+			/**
+			 * Does the user id of the activity of the experience match the current user?
+			 * If it does, then nothing happens, but if it doesn't then the firstActivity
+			 * might be set to null so that people can't see it. Here's how:
+			 * If the firstActivity.privacy is less than 1, then the it is private.
+			 */
+
+			var doesActivityUserMatch = experience.firstActivity.user.toString() === req.user._id.toString();
+				if(experience.firstActivity.privacy < 1 && !doesActivityUserMatch) {
+						req.experience.firstActivity = null;
+				}
+		}
+
 		next();
 	});
 };
