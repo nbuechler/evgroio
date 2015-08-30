@@ -80,7 +80,7 @@
                                     <h3 style="color: gray;">
                                         No experiences for this activity
                                     </h3>
-                                    <p style="color: white;">
+                                    <p style="color: white;" ng-show="(authentication.user) && (authentication.user._id == activity.user._id)">
                                       Why don't you
                                       <a data-ng-href="#!/experiences/create">
                                         create one
