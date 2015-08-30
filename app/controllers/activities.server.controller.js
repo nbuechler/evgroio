@@ -140,7 +140,18 @@ exports.activityByID = function(req, res, next, id) {
 					message: errorHandler.getErrorMessage(err)
 				});
 			} else {
-				activity.experiencesList = experiences;
+
+				/**
+				 * Get only the public experiences.
+				 */
+				var experiencesList= [];
+				for (var i = 0; i < experiences.length; i++) {
+					if(experiences[i].privacy > 0){
+						experiencesList.push(experiences[i]);
+					}
+				}
+
+				activity.experiencesList = experiencesList;
 				req.activity = activity ;
 				next();
 
