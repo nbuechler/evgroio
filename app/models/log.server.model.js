@@ -112,6 +112,10 @@ var LogSchema = new Schema({
 	privacy: {
 		type: Number,
 		default: 0
+	},
+	firstExperience: {
+		type: Schema.ObjectId,
+		ref: 'Experience'
 	}
 });
 

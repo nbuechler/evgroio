@@ -44,8 +44,9 @@
                             {{activity.description}}
                             <hr>
                             As more information gets collected, this page will get way more interesting! Some exciting visualizations of data as well as more intreactivity will be unlocked, so be patient :D.
+                        </p>
                             <hr>
-                            <md-toolbar style="background: #FF4081;">
+                            <md-toolbar style="background: white; color: #222222">
                               <div class="md-toolbar-tools">
                                 <h2 class="md-flex">Experiences</h2>
                               </div>
@@ -80,7 +81,7 @@
                                     <h3 style="color: gray;">
                                         No experiences for this activity
                                     </h3>
-                                    <p style="color: white;">
+                                    <p style="color: white;" ng-show="(authentication.user) && (authentication.user._id == activity.user._id)">
                                       Why don't you
                                       <a data-ng-href="#!/experiences/create">
                                         create one
@@ -91,7 +92,6 @@
                                 </md-list-item>
                               </div>
                             </md-content>
-                        </p>
                     </div>
                 </div>
                 <div class="col-lg-3" style="text-align: right;">

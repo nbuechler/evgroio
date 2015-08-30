@@ -1,109 +1,170 @@
 <section data-ng-controller="ExperiencesController" data-ng-init="findOne()">
-	<div class="pull-right">
-		<a href="/#!/experiences">
-			<div class="btn btn-default">
-				View my experiences
-			</div>
-		</a>
-	</div>
-
-	<div class="page-header">
-		<h1 data-ng-bind="experience.name"></h1>
-	</div>
-
-	<div class="row">
-      <div class="col-lg-12">
-					<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == experience.user._id))">
-						<a class="btn btn-info" href="/#!/experiences/{{experience._id}}/edit">
-								<i class="fa fa-pencil-square"></i> Change
-						</a>
-						<a class="btn btn-info" data-ng-click="remove();">
-								<i class="fa fa-trash"></i> Remove
-						</a>
-					</div>
-			</div>
-	</div>
-	<small>
-        <div class="row">
-            <div class="col-lg-9" data-ng-show="((authentication.user) && (authentication.user._id == experience.user._id)) || experience.privacy == 1">
-                <div class="col-lg-3">
-                    <h4 class="pull-left" style="padding: 50px;
-																								 margin: 50px;
-																								 border: 1px gray solid;
-																								 color: gray;
-																								 text-align: center;">
-                        {{hours ? hours + 'h' : ''}}
-                        {{minutes ? minutes + 'm' : ''}}
-                        {{secs ? secs + 's' : ''}}
-                        {{minutes ? '' : '0m'}}
-                        {{secs ? '' : '0s'}}
-                    </h4>
-                </div>
-                <div class="col-lg-6">
-                    <div>
-                        <p>
-                            <strong>{{experience.name}}</strong>
-                            <hr>
-                            {{experience.description}}
-                            <hr>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3" style="text-align: right;">
-                    <em class="text-muted">
-                        Posted on
-                        <span data-ng-bind="experience.created | date:'mediumDate'"></span>
-                        <br>
-                        by
-                        <span data-ng-bind="experience.user.displayName"></span>
-                        <span>
-                          <div ng-if="experience.privacy === 0">
-                          This experience is private.
-                          </div>
-                          <div ng-if="experience.privacy === 1">
-                          This experience is public.
-                          </div>
-                        </span>
-                    </em>
-                </div>
-            </div>
-        </div>
-
-				<br>
-
-				<div class="row">
-					<div class="col-lg-12" data-ng-show="((authentication.user) && (authentication.user._id == experience.firstActivity.user)) || experience.firstActivity.privacy == 1">
-
-						<md-toolbar style="background: #00BC8C; color: #222222">
-							<div class="md-toolbar-tools">
-								<h2 class="md-flex">I experienced {{experience.name.toLowerCase()}} while I was {{experience.firstActivity.name.toLowerCase()}}.</h2>
-							</div>
-						</md-toolbar>
-						<md-content layout-padding style="height: auto; max-height: 300px; padding: 24px; background: #333333">
-								<h6 style="color: gray; text-align: right;">Just for reference, this is the activity this experience is associated with.</h6>
-								<md-list-item class="md-3-line">
-									<div class="md-list-item-text">
-										<br>
-										<h3>
-											<a data-ng-href="#!/activities/{{experience.firstActivity._id}}">
-												{{ experience.firstActivity.name }}
-											</a>
-											<span style="color: #444444;">{{' ( Importance - ' + experience.firstActivity.importance + ' )'}}</span>
-										</h3>
-										<p style="color: white;">
-											{{ experience.firstActivity.description}}.
-										</p>
-										<p style="color: gray;">
-											Activity started on {{ experience.firstActivity.created  | date:'mediumDate'}}.
-										</p>
-
-									</div>
-								</md-list-item>
-						</md-content>
-
-					</div>
+	<div style="margin-bottom: 100px;">
+		<div class="pull-right">
+			<a href="/#!/experiences">
+				<div class="btn btn-default">
+					View my experiences
 				</div>
+			</a>
+		</div>
 
-        <new-entry-quick></new-entry-quick>
-	</small>
+		<div class="page-header">
+			<h1 data-ng-bind="experience.name"></h1>
+		</div>
+
+		<div class="row">
+	      <div class="col-lg-12">
+						<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == experience.user._id))">
+							<a class="btn btn-info" href="/#!/experiences/{{experience._id}}/edit">
+									<i class="fa fa-pencil-square"></i> Change
+							</a>
+							<a class="btn btn-info" data-ng-click="remove();">
+									<i class="fa fa-trash"></i> Remove
+							</a>
+						</div>
+				</div>
+		</div>
+		<small>
+	        <div class="row">
+	            <div class="col-lg-9" data-ng-show="((authentication.user) && (authentication.user._id == experience.user._id)) || experience.privacy == 1">
+	                <div class="col-lg-3">
+	                    <h4 class="pull-left" style="padding: 50px;
+																									 margin: 50px;
+																									 border: 1px gray solid;
+																									 color: gray;
+																									 text-align: center;">
+	                        {{hours ? hours + 'h' : ''}}
+	                        {{minutes ? minutes + 'm' : ''}}
+	                        {{secs ? secs + 's' : ''}}
+	                        {{minutes ? '' : '0m'}}
+	                        {{secs ? '' : '0s'}}
+	                    </h4>
+	                </div>
+	                <div class="col-lg-6">
+	                    <div>
+	                        <p>
+	                            <strong>{{experience.name}}</strong>
+	                            <hr>
+	                            {{experience.description}}
+	                            <hr>
+	                        </p>
+	                    </div>
+	                </div>
+	                <div class="col-lg-3" style="text-align: right;">
+	                    <em class="text-muted">
+	                        Posted on
+	                        <span data-ng-bind="experience.created | date:'mediumDate'"></span>
+	                        <br>
+	                        by
+	                        <span data-ng-bind="experience.user.displayName"></span>
+	                        <span>
+	                          <div ng-if="experience.privacy === 0">
+	                          This experience is private.
+	                          </div>
+	                          <div ng-if="experience.privacy === 1">
+	                          This experience is public.
+	                          </div>
+	                        </span>
+	                    </em>
+	                </div>
+	            </div>
+	        </div>
+
+					<br>
+
+					<div class="row">
+						<div class="col-lg-12" data-ng-show="((authentication.user) && (authentication.user._id == experience.firstActivity.user)) || experience.firstActivity.privacy == 1">
+
+							<md-toolbar style="background: #00BC8C; color: #222222">
+								<div class="md-toolbar-tools">
+									<h2 class="md-flex">I experienced {{experience.name.toLowerCase()}} while I was {{experience.firstActivity.name.toLowerCase()}}.</h2>
+								</div>
+							</md-toolbar>
+							<md-content layout-padding style="height: auto; max-height: 300px; padding: 24px; background: #333333">
+									<h6 style="color: gray; text-align: right;">Just for reference, this is the activity this experience is associated with.</h6>
+									<md-list-item class="md-3-line">
+										<div class="md-list-item-text">
+											<br>
+											<h3>
+												<a data-ng-href="#!/activities/{{experience.firstActivity._id}}">
+													{{ experience.firstActivity.name }}
+												</a>
+												<span style="color: #444444;">{{' ( Importance - ' + experience.firstActivity.importance + ' )'}}</span>
+											</h3>
+											<p style="color: white;">
+												{{ experience.firstActivity.description}}.
+											</p>
+											<p style="color: gray;">
+												Activity started on {{ experience.firstActivity.created  | date:'mediumDate'}}.
+											</p>
+
+										</div>
+									</md-list-item>
+							</md-content>
+
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-12">
+							<md-toolbar style="background: #FF4081; color: white">
+								<div class="md-toolbar-tools">
+									<h2 class="md-flex">Logs</h2>
+								</div>
+							</md-toolbar>
+							<md-content layout-padding style="height: auto; max-height: 600px; padding: 24px; background: #333333">
+								<div data-ng-repeat="log in experience.logsList">
+											<a data-ng-href="#!/logs/{{log._id}}" style="text-decoration: none;">
+									<md-list-item class="md-3-line" data-ng-show="(((authentication.user) && (authentication.user._id == log.user._id))) || log.privacy == 1">
+										<div class="md-list-item-text">
+												<h3>
+														{{ log.name }}
+												</h3>
+												<div class="" style="text-align: center;">
+				                    <span ng-if="log.physicContent.length > 0" class="physicBox globalPadding">{{log.physicContent.length}}</span>
+				                    <span ng-if="log.emotionContent.length > 0" class="emotionBox globalPadding">{{log.emotionContent.length}}</span>
+				                    <span ng-if="log.academicContent.length > 0" class="academicBox globalPadding">{{log.academicContent.length}}</span>
+				                    <span ng-if="log.communeContent.length > 0" class="communeBox globalPadding">{{log.communeContent.length}}</span>
+				                    <span ng-if="log.etherContent.length > 0" class="etherBox globalPadding">{{log.etherContent.length}}</span>
+				                </div>
+				                <div style="text-align: center;">
+				                  <list-viz></list-viz>
+				                </div>
+											<h6 style="text-align: right;" data-ng-show="(((authentication.user) && (authentication.user._id == log.user._id)))">
+												<div class="badge" data-ng-show="{{(log.privacy === 0)}}">
+														Private
+												</div>
+												<div class="badge" data-ng-show="{{(log.privacy === 1)}}">
+														Public
+												</div>
+											</h6>
+										</div>
+									</md-list-item>
+											</a>
+									<md-divider  data-ng-show="(((authentication.user) && (authentication.user._id == log.user._id))) || log.privacy == 1"></md-divider>
+								</div>
+								<div ng-show="experience.logsList.length < 1">
+									<md-list-item class="md-3-line">
+										<div class="md-list-item-text">
+											<h3 style="color: gray;">
+													No logs for this experience
+											</h3>
+											<p style="color: white;" ng-show="(authentication.user) && (authentication.user._id == experience.user._id)">
+												Why don't you
+												<a data-ng-href="#!/logs/create">
+													create one
+												</a>
+												?
+											</p>
+										</div>
+									</md-list-item>
+								</div>
+							</md-content>
+						</div>
+					</div>
+
+
+		</small>
+	</div>
+	        <new-entry-quick></new-entry-quick>
 </section>

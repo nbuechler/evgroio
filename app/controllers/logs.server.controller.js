@@ -141,10 +141,25 @@ exports.listByLogedInUser = function(req, res) {
  * Log middleware
  */
 exports.logByID = function(req, res, next, id) {
-	Log.findById(id).populate('user', 'displayName').exec(function(err, log) {
+	Log.findById(id).populate('user', 'displayName').populate('firstExperience').exec(function(err, log) {
 		if (err) return next(err);
 		if (! log) return next(new Error('Failed to load Log ' + id));
+
 		req.log = log ;
+
+		if(log.firstExperience){
+			/**
+			 * Does the user id of the experience of the log match the current user?
+			 * If it does, then nothing happens, but if it doesn't then the firstExperience
+			 * might be set to null so that people can't see it. Here's how:
+			 * If the firstExperience.privacy is less than 1, then the it is private.
+			 */
+
+			var doesExperienceUserMatch = log.firstExperience.user.toString() === req.user._id.toString();
+				if(log.firstExperience.privacy < 1 && !doesExperienceUserMatch) {
+						req.log.firstExperience = null;
+				}
+		}
 		next();
 	});
 };

@@ -6,6 +6,7 @@
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Experience = mongoose.model('Experience'),
+	Log = mongoose.model('Log'),
 	_ = require('lodash');
 
 /**
@@ -117,21 +118,6 @@ exports.listByLogedInUser = function(req, res) {
 	});
 };
 
-// /**
-//  * List of Experience by activity
-//  */
-// exports.experienceByActivity = function(req, res) {
-// 	Experience.find({'firstActivity': req.firstActivity}).sort('-created').populate('user', 'displayName').exec(function(err, experiences) {
-// 		if (err) {
-// 			return res.status(400).send({
-// 				message: errorHandler.getErrorMessage(err)
-// 			});
-// 		} else {
-// 			res.jsonp(experiences);
-// 		}
-// 	});
-// };
-
 /**
  * Experience middleware
  */
@@ -140,7 +126,58 @@ exports.experienceByID = function(req, res, next, id) {
 		if (err) return next(err);
 		if (! experience) return next(new Error('Failed to load Experience ' + id));
 		req.experience = experience ;
-		next();
+
+		/**
+		 * List of Logs by experience
+		 */
+
+		 Log.find({'firstExperience': id}).sort('-created').populate('user', 'displayName').exec(function(err, logs) {
+			 if (err) {
+				 return res.status(400).send({
+					 message: errorHandler.getErrorMessage(err)
+				 });
+			 } else {
+
+				 /**
+					* Get only the public logs. Or all logs if the current user matches the log user.
+					*/
+				 var logsList= [];
+				 for (var i = 0; i < logs.length; i++) {
+					 if(logs[i].privacy > 0){
+						 logsList.push(logs[i]);
+					 } else if (logs[i].user._id.toString() === req.user._id.toString()) {
+					 	 logsList.push(logs[i]);
+					 } else {
+						 //That log was private - :{D
+					 }
+				 }
+
+				 experience.logsList = logsList;
+
+				 /**
+				  * Handle the experience firstActivity
+					*/
+
+				 if(experience.firstActivity){
+		 			/**
+		 			 * Does the user id of the activity of the experience match the current user?
+		 			 * If it does, then nothing happens, but if it doesn't then the firstActivity
+		 			 * might be set to null so that people can't see it. Here's how:
+		 			 * If the firstActivity.privacy is less than 1, then the it is private.
+		 			 */
+
+		 			var doesActivityUserMatch = experience.firstActivity.user.toString() === req.user._id.toString();
+		 				if(experience.firstActivity.privacy < 1 && !doesActivityUserMatch) {
+		 						req.experience.firstActivity = null;
+		 				}
+		 		}
+
+		 		next();
+
+			 }
+		});
+
+
 	});
 };
 

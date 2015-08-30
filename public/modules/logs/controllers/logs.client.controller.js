@@ -1,8 +1,10 @@
 'use strict';
 
 // Logs controller
-angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Logs', 'PublicLogs',
-	function($scope, $stateParams, $location, Authentication, Logs, PublicLogs) {
+angular.module('logs').controller('LogsController',
+['$scope', '$stateParams', '$location', 'Authentication', 'Logs',
+'PublicLogs', 'Experiences',
+	function($scope, $stateParams, $location, Authentication, Logs, PublicLogs, Experiences) {
 		$scope.authentication = Authentication;
 
 		// Create new Log
@@ -20,7 +22,8 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
                 academicContentLength: this.academicContent ? this.academicContent.length : 0,
                 communeContentLength: this.communeContent ? this.communeContent.length : 0,
                 etherContentLength: this.etherContent ? this.etherContent.length : 0,
-                privacy: this.privacy ? this.privacy : 0
+                privacy: this.privacy ? this.privacy : 0,
+								firstExperience: $scope.selectedExperience ? $scope.selectedExperience._id : null,
 			});
 
 			// Redirect after save
@@ -64,6 +67,7 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
 			$scope.log.privacy = $scope.log.privacy ? $scope.log.privacy : 0;
 
       var log = $scope.log;
+					log.firstExperience = $scope.selectedExperience ? $scope.selectedExperience._id : null;
 
 			log.$update(function() {
 
@@ -75,17 +79,6 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
 
         // Set marker for creating new log... for first time users
         $scope.displayFirstTime = true;
-
-		// Find a list of Logs
-		$scope.findOld = function() {
-			$scope.logs = Logs.query();
-		};
-
-        for(var i in $scope.find) {
-            if(i._id === $scope.authentication.user._id) {
-                $scope.displayFirstTime = false;
-            }
-        }
 
 		$scope.find = function() {
 			$scope.logs = Logs.query();
@@ -102,7 +95,22 @@ angular.module('logs').controller('LogsController', ['$scope', '$stateParams', '
 			$scope.log = Logs.get({
 				logId: $stateParams.logId
 			});
+			
+			$scope.log.$promise.then(function(theLog) {
+				$scope.selectedExperience = theLog.firstExperience;
+			});
 		};
+
+		$scope.findPersonalExperiences = function() {
+			// Find a list of Activities
+			$scope.experiences = Experiences.query();
+		};
+
+		d3.selectAll('select')
+			.style('background', '#00BC8C')
+			.style('padding', '10px');
+
+		//TODO: Remove this code below because I think it is dead. It served its purpose well.
 
         // Show Public Log defaults to false
         $scope.hidePublic = true;

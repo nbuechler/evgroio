@@ -59,7 +59,8 @@
                 academicContentLength:0,
                 communeContentLength:0,
                 etherContentLength:0,
-								privacy: 0
+								privacy: 0,
+								firstExperience: null
              });
 
 			// Create a sample Logs array that includes the new Log
@@ -85,7 +86,8 @@
                 academicContentLength:0,
                 communeContentLength:0,
                 etherContentLength:0,
-								privacy: 0
+								privacy: 0,
+								firstExperience: null
              });
 
 
@@ -112,7 +114,8 @@
                 academicContentLength:0,
                 communeContentLength:0,
                 etherContentLength:0,
-								privacy: 0
+								privacy: 0,
+								firstExperience: null
              });
 
 
@@ -149,7 +152,8 @@
                 academicContentLength:0,
                 communeContentLength:0,
                 etherContentLength:0,
-								privacy: 0
+								privacy: 0,
+								firstExperience: null
 			});
 
 			// Mock Log in scope

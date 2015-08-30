@@ -50,6 +50,10 @@ var ExperienceSchema = new Schema({
 		type: Schema.ObjectId,
 		ref: 'Activity',
 		required: 'Please choose an activity'
+	},
+	logsList: {
+		type: Array,
+		default: []
 	}
 });
 
