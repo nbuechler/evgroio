@@ -1,11 +1,42 @@
 <section data-ng-controller="ActivitiesController" data-ng-init="findOne()">
     <div class="page-header">
-        <h1>Edit Activity</h1>
-        <h5>Will the world see this activity?</h5>
-        <md-radio-group ng-model="activity.privacy">
-          <md-radio-button value="0" class="md-primary">Nope</md-radio-button>
-          <md-radio-button value="1">Yup</md-radio-button>
-        </md-radio-group>
+      <div class="row">
+          <div class="col-lg-6 well">
+            <div style="text-align: left;">
+              <h1>Edit Activity</h1>
+              <h5>Will the world see this activity?</h5>
+            </div>
+            <md-radio-group ng-model="activity.privacy">
+              <md-radio-button value="0" class="md-primary">Nope</md-radio-button>
+              <md-radio-button value="1">Yup</md-radio-button>
+            </md-radio-group>
+          </div>
+          <!-- <div class="col-lg-3">
+          </div> -->
+          <div class="col-lg-6">
+            <!-- TODO" Add video tutorial? -->
+
+            <div class="panel panel-success">
+              <div class="panel-body">
+                <h5>
+                A good activity name really ought to be a gerund. Since most
+                activities are things you do, you might think of them as things.
+                Hence, it makes sense that an activity is a noun made from a verb.
+                </h5>
+                <br>
+
+                <span style="color: gray; text-align: right;">
+                  Here are a few examples of an activity:
+                  <ul>Thinking
+                  <ul>Living
+                  <ul>Singing
+                </span>
+
+              </div>
+            </div>
+
+          </div>
+      </div>
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="update()" novalidate>
@@ -23,74 +54,97 @@
             -->
 
             <div class="row">
-                <div class="col-lg-9">
+                <div class="col-lg-3">
+                </div>
+                <div class="col-lg-6">
+                  <md-whiteframe class="md-whiteframe-z2" layout layout-align="center center">
                     <fieldset>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label class="control-label" for="name">Name</label>
+                                    <label class="control-label" for="name">Activity</label>
                                     <div class="controls">
-                                        <input type="text" data-ng-model="activity.name" id="name" class="form-control" placeholder="Name" required>
+                                      <input type="text" data-ng-model="activity.name" id="name" class="form-control" placeholder="Name" required>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-2">
-                                <div class="form-group">
-                                    <label class="control-label" for="activity">Importance</label>
-                                    <div class="controls">
-                                        <input type="number" data-ng-model="activity.importance" id="importance" class="form-control" placeholder="50" min="0" max="100" step="10">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-1">
-                            </div>
-                            <div class="col-lg-9">
+                            <div class="col-lg-12">
                                 <div class="form-group">
                                     <label class="control-label" for="description">What is this activity?</label>
                                     <div class="controls">
-                                        <input type="text" data-ng-model="activity.description" id="description" class="form-control" placeholder="Describe it!" required>
+                                      <input type="text" data-ng-model="activity.description" id="description" class="form-control" placeholder="Describe it!" required>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <hr>
+                        <div class="row">
+                          <div class="col-lg-12" style="text-align: center;">
+                            <i class="material-icons">perm_identity</i>
+                          </div>
+                          <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="control-label" for="activity">Importance</label>
+                                <div class="controls">
+                                  <input type="number" data-ng-model="activity.importance" id="importance" class="form-control" placeholder="50" min="0" max="100" step="10">
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <hr>
+
                         <div class="form-group">
-                            <input type="submit" value="Update" class="btn btn-default">
+                          <div class="col-lg-12">
+                            <input type="submit"
+                                   style="color: #222222; width: 100%;"
+                                   value="Update Activity" class="btn btn-success">
+                          </div>
                         </div>
                         <div data-ng-show="error" class="text-danger">
                             <strong data-ng-bind="error"></strong>
                         </div>
                     </fieldset>
+                  </md-whiteframe>
                 </div>
-
-                <div data-ng-init="find()" class="col-lg-3">
-                    <hr>
-                    <h5>Current Activities</h5>
-                    <div class="list-group">
-                        <a data-ng-repeat="activity in activities" data-ng-href="#!/activities/{{activity._id}}" class="list-group-item" ng-show="{{(activity.user._id === authentication.user._id)}}">
-
-                            <div class="row">
-                                <div class="col-lg-6">
-
-                                    <h6 class="list-group-item-heading" data-ng-bind="activity.name"></h6>
-
-                                </div>
-
-
-                                <div class="col-lg-3">
-
-                                </div>
-
-                                    <h6 class="pull-right" style="150px; text-align: center; margin: 10px;">
-                                        {{activity.importance}}
-                                    </h6>
-                             </div>
-
-                        </a>
-                    </div>
+                <div class="col-lg-3" style="text-align: center;">
+                  <!-- Putting my design hat on. -->
+                  <!-- <i style="font-size: 200px;"class="material-icons">accessibility</i> -->
                 </div>
             </div>
+
+            <div class="row">
+              <!-- TODO: Make this a directive -->
+              <div data-ng-init="find()" class="col-lg-12">
+                  <hr>
+                  <h5>Personal Activities</h5>
+                  <div class="list-group" style="height: auto; max-height: 230px; overflow: auto;">
+                      <a data-ng-repeat="activity in activities" data-ng-href="#!/activities/{{activity._id}}" class="list-group-item" ng-show="{{(activity.user._id === authentication.user._id)}}">
+
+                          <div class="row">
+                              <div class="col-lg-6">
+
+                                  <h6 class="list-group-item-heading" data-ng-bind="activity.name"></h6>
+
+                              </div>
+
+
+                              <div class="col-lg-3">
+
+                              </div>
+
+                                  <h6 class="pull-right" style="150px; text-align: center; margin: 10px;">
+                                      {{activity.importance}}
+                                  </h6>
+                           </div>
+
+                      </a>
+                  </div>
+              </div>
+            </div>
+
         </form>
     </div>
 </section>
