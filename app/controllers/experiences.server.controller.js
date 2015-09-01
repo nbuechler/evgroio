@@ -147,9 +147,10 @@ exports.experienceByID = function(req, res, next, id) {
 						 logsList.push(logs[i]);
 					 } else if (logs[i].user._id.toString() === req.user._id.toString()) {
 					 	 logsList.push(logs[i]);
-					 } else {
-						 //That log was private - :{D
 					 }
+					//  else {
+					// 	 //That log was private - :{D
+					//  }
 				 }
 
 				 experience.logsList = logsList;

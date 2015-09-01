@@ -150,9 +150,10 @@ exports.activityByID = function(req, res, next, id) {
 						experiencesList.push(experiences[i]);
 					} else if (experiences[i].user._id.toString() === req.user._id.toString()) {
 						experiencesList.push(experiences[i]);
-					} else {
-						//That experience was private - :{D
 					}
+					// else {
+					// 	//That experience was private - :{D
+					// }
 				}
 
 				activity.experiencesList = experiencesList;
