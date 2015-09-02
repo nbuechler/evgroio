@@ -7,8 +7,17 @@ angular.module('experiences').controller('ExperiencesController',
 	function($scope, $stateParams, $location, Authentication, Experiences, PublicExperiences, Activities) {
 		$scope.authentication = Authentication;
 
-		//Set the experience name to the sum of its parts
-		$scope.name = $scope.selectedTime + $scope.selectedPronoun + $scope.selectedActivity;
+		$scope.updateName = function() {
+			//Set the experience name to the sum of its parts
+			if($scope.selectedTime && $scope.selectedActivity && $scope.selectedPronoun && $scope.selectedVerb) {
+				$scope.name =
+					$scope.selectedTime.name + ' ' +
+					$scope.selectedActivity.name + ' ' +
+					$scope.selectedPronoun.name + ' ' +
+					$scope.selectedVerb;
+			}
+
+		};
 
 		// Create new Experience
 		$scope.create = function() {
@@ -27,6 +36,9 @@ angular.module('experiences').controller('ExperiencesController',
 			// Create new Experience object
 			var experience = new Experiences ({
 				name: $scope.name,
+								experienceTime: $scope.selectedTime ? $scope.selectedTime.name : null,
+								pronoun: $scope.selectedPronoun ? $scope.selectedPronoun.name : null,
+								pastTenseVerb: $scope.selectedVerb ? $scope.selectedVerb : null,
 								description: this.description,
 								importance: this.importance,
 								privacy: this.privacy ? this.privacy : 0,
@@ -78,7 +90,11 @@ angular.module('experiences').controller('ExperiencesController',
 
 
 			var experience = $scope.experience;
-					experience.firstActivity = $scope.selectedActivity ? $scope.selectedActivity._id : null;
+					experience.name = $scope.name ? $scope.name : experience.name,
+					experience.firstActivity = $scope.selectedActivity ? $scope.selectedActivity._id : null,
+					experience.experienceTime = $scope.selectedTime ? $scope.selectedTime.name : null,
+					experience.pronoun = $scope.selectedPronoun ? $scope.selectedPronoun.name : null,
+					experience.pastTenseVerb = $scope.selectedVerb ? $scope.selectedVerb : null,
 					experience.seconds = calculatedSeconds;
 
 			experience.$update(function() {
@@ -105,9 +121,48 @@ angular.module('experiences').controller('ExperiencesController',
 			});
 
 			$scope.experience.$promise.then(function(exp) {
+
+				//TODO: If the list of time/pronouns becomes more robust, then store it in the database
+
+				var timePrepositions = [
+					{'name': 'Before', '_id': 1},
+					{'name': 'While', '_id': 2},
+					{'name': 'After', '_id': 3}
+				];
+
+				var pronouns = [
+					{'name': 'I', '_id': 1},
+					{'name': 'You', '_id': 2},
+					{'name': 'He', '_id': 3},
+					{'name': 'She', '_id': 4},
+					{'name': 'It', '_id': 5},
+					{'name': 'You all', '_id': 6},
+					{'name': 'We', '_id': 7},
+					{'name': 'They', '_id': 8}
+				];
+
+				//Time
+				//Refactor this if there are more dynamically built experiences
+				for (var i = 0; i < timePrepositions.length; i++) {
+					if(timePrepositions[i].name == exp.experienceTime) {
+						$scope.selectedTime = timePrepositions[i];
+					}
+				};
+
+				//Activity
 				$scope.selectedActivity = exp.firstActivity;
-				$scope.selectedTime = 'foo';
-				$scope.selectedPronoun = 'foo';
+
+				//Pronoun
+				//Refactor this if there are more dynamically built experiences
+				for (var i = 0; i < pronouns.length; i++) {
+					if(pronouns[i].name == exp.pronoun) {
+						$scope.selectedPronoun = pronouns[i];
+					}
+				};
+
+				//Verb
+				$scope.selectedVerb = exp.pastTenseVerb;
+
 				/*
 				 * calculatedSeconds is the amount of seconds for the experience.
 				 */
@@ -118,15 +173,16 @@ angular.module('experiences').controller('ExperiencesController',
 						$scope.hours = h;
 						$scope.minutes = m;
 						$scope.secs = s;
+
 			});
 		};
 
 		$scope.findTimePrepositions = function() {
 		  //Find a list TimePrepositions
 			$scope.timePrepositions = [
-				{"name": "Before", "_id": 1},
-				{"name": "While", "_id": 2},
-				{"name": "After", "_id": 3}
+				{'name': 'Before', '_id': 1},
+				{'name': 'While', '_id': 2},
+				{'name': 'After', '_id': 3}
 			];
 		};
 
@@ -138,14 +194,14 @@ angular.module('experiences').controller('ExperiencesController',
 		$scope.findPronouns = function() {
 		  //Find a list Pronouns
 			$scope.pronouns = [
-				{"name": "I", "_id": 1},
-				{"name": "You", "_id": 2},
-				{"name": "He", "_id": 3},
-				{"name": "She", "_id": 4},
-				{"name": "It", "_id": 5},
-				{"name": "You all", "_id": 6},
-				{"name": "We", "_id": 7},
-				{"name": "They", "_id": 8}
+				{'name': 'I', '_id': 1},
+				{'name': 'You', '_id': 2},
+				{'name': 'He', '_id': 3},
+				{'name': 'She', '_id': 4},
+				{'name': 'It', '_id': 5},
+				{'name': 'You all', '_id': 6},
+				{'name': 'We', '_id': 7},
+				{'name': 'They', '_id': 8}
 			];
 		};
 
