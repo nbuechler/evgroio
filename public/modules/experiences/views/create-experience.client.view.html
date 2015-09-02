@@ -39,141 +39,135 @@
       </div>
     </div>
     <form class="form-horizontal" data-ng-submit="create()" novalidate>
-      <div class="row">
-            <div class="col-lg-12">
-              <label class="control-label" for="name">Experience</label>
-            </div>
-          <span>
-            <i class="col-lg-3">
-              <div data-ng-init="findPersonalActivities()">
-                  <select class="form-control"
-                          style="-webkit-border-radius: 7px;
-                                 -moz-border-radius: 7px;
-                                 border-bottom: 3px #222222 dotted;
-                                 -webkit-appearance: none;
-                                 -moz-appearance: none;
-                                 appearance: none;
-                                 text-align: center;"
-                          ng-options="item as item.name for item in activities track by item._id"
-                          ng-model="selectedActivity" required>
-                    <option style="color: white; -webkit-appearance: none;" value="" disabled="">Time</option>
-                  </select>
+      <fieldset>
+        <div class="row">
+              <div class="col-lg-12">
+                <label class="control-label" for="name">Experience</label>
               </div>
-            </i>
-            <i class="col-lg-3">
-              <div data-ng-init="findPersonalActivities()">
-                  <select class="form-control"
-                          style="-webkit-border-radius: 7px;
-                                 -moz-border-radius: 7px;
-                                 border-bottom: 3px #222222 dotted;
-                                 -webkit-appearance: none;
-                                 -moz-appearance: none;
-                                 appearance: none;
-                                 text-align: center;"
-                          ng-options="item as item.name for item in activities track by item._id"
-                          ng-model="selectedActivity" required>
-                    <option style="color: white; -webkit-appearance: none;" value="" disabled="">Activity</option>
-                  </select>
-              </div>
-            </i>
-            <i class="col-lg-3">
-              <div data-ng-init="findPersonalActivities()">
-                  <select class="form-control"
-                          style="-webkit-border-radius: 7px;
-                                 -moz-border-radius: 7px;
-                                 border-bottom: 3px #222222 dotted;
-                                 -webkit-appearance: none;
-                                 -moz-appearance: none;
-                                 appearance: none;
-                                 text-align: center;"
-                          ng-options="item as item.name for item in activities track by item._id"
-                          ng-model="selectedActivity" required>
-                    <option style="color: white; -webkit-appearance: none;" value="" disabled="">Pronoun</option>
-                  </select>
-              </div>
-            </i>
-            <i class="col-lg-3">
-              <div data-ng-init="findPersonalActivities()">
-                  <select class="form-control"
-                          style="-webkit-border-radius: 7px;
-                                 -moz-border-radius: 7px;
-                                 border-bottom: 3px #222222 dotted;
-                                 -webkit-appearance: none;
-                                 -moz-appearance: none;
-                                 appearance: none;
-                                 text-align: center;"
-                          ng-options="item as item.name for item in activities track by item._id"
-                          ng-model="selectedActivity" required>
-                    <option style="color: white; -webkit-appearance: none;" value="" disabled="">Past Tense Verb</option>
-                  </select>
-              </div>
-            </i>
-          </span>
+            <span>
+              <i class="col-lg-3">
+                <div data-ng-init="findTimePrepositions()">
+                    <select class="form-control"
+                            style="-webkit-border-radius: 7px;
+                                   -moz-border-radius: 7px;
+                                   border-bottom: 3px #222222 dotted;
+                                   -webkit-appearance: none;
+                                   -moz-appearance: none;
+                                   appearance: none;
+                                   text-align: center;"
+                            ng-options="item as item.name for item in timePrepositions track by item._id"
+                            ng-model="selectedTime" required>
+                      <option style="color: white;" value="" disabled="">Time</option>
+                    </select>
+                </div>
+              </i>
+              <i class="col-lg-3">
+                <div data-ng-init="findPersonalActivities()">
+                    <select class="form-control"
+                            style="-webkit-border-radius: 7px;
+                                   -moz-border-radius: 7px;
+                                   border-bottom: 3px #222222 dotted;
+                                   -webkit-appearance: none;
+                                   -moz-appearance: none;
+                                   appearance: none;
+                                   text-align: center;"
+                            ng-options="item as item.name for item in activities track by item._id"
+                            ng-model="selectedActivity" required>
+                      <option style="color: white;" value="" disabled="">Activity</option>
+                    </select>
+                </div>
+              </i>
+              <i class="col-lg-3">
+                <div data-ng-init="findPronouns()">
+                    <select class="form-control"
+                            style="-webkit-border-radius: 7px;
+                                   -moz-border-radius: 7px;
+                                   border-bottom: 3px #222222 dotted;
+                                   -webkit-appearance: none;
+                                   -moz-appearance: none;
+                                   appearance: none;
+                                   text-align: center;"
+                            ng-options="item as item.name for item in pronouns track by item._id"
+                            ng-model="selectedPronoun" required>
+                      <option style="color: white;" value="" disabled="">Pronoun</option>
+                    </select>
+                </div>
+              </i>
+              <i class="col-lg-3" style="color: black; -moz-placeholder: black;">
+                <div>
+                    <input style="-webkit-border-radius: 7px;
+                           -moz-border-radius: 7px;
+                           border-bottom: 3px #222222 dotted;
+                           -webkit-appearance: none;
+                           -moz-appearance: none;
+                           appearance: none;
+                           text-align: center;
+                           background: #F3FF00;
+                           "
+                           type="text"
+                           data-ng-model="description"
+                           id="description" class="form-control" placeholder="Past Tense Verb" required>
+                </div>
+              </i>
+            </span>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-12">
 
+                    <div class="form-group">
+                        <div class="controls">
+                            <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="description">What did you do?</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="description" id="description" class="form-control" placeholder="Describe it" required>
+                        </div>
+                    </div>
 
-            <!--
-            TODO: Do something with experience data
-            -->
-              <fieldset>
+                    <!--
+                    TODO: When the description gets filled out, it changes color based on the word choice related to log entries.
+                          Log entries are going to be something like a weekly thing.
+                          Or quick 'one-off' things that don't get tied to just one activiy.
+                    -->
 
-
-                  <div class="form-group">
-                      <div class="controls">
-                          <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" required>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="control-label" for="description">What did you do?</label>
-                      <div class="controls">
-                          <input type="text" data-ng-model="description" id="description" class="form-control" placeholder="Describe it" required>
-                      </div>
-                  </div>
-
-                  <!--
-                  TODO: When the description gets filled out, it changes color based on the word choice related to log entries.
-                        Log entries are going to be something like a weekly thing.
-                        Or quick 'one-off' things that don't get tied to just one activiy.
-                  -->
-
-                  <hr>
-                  <div class="form-group">
-                      <span>
-                        How long was this experience?
-                      </span>
-                      <div class="row">
+                    <hr>
+                    <div class="form-group">
+                        <span>
+                          How long was this experience?
+                        </span>
+                        <div class="row">
+                          <div class="col-lg-4">
+                            <label class="control-label" for="hours">Hours</label>
+                            <div class="controls">
+                                <input type="number" data-ng-model="hours" id="hours" class="form-control" placeholder="0" min="0" max="100000000" step="10" value="0">
+                            </div>
+                          </div>
                         <div class="col-lg-4">
-                          <label class="control-label" for="hours">Hours</label>
+                          <label class="control-label" for="minutes">Minutes</label>
                           <div class="controls">
-                              <input type="number" data-ng-model="hours" id="hours" class="form-control" placeholder="0" min="0" max="100000000" step="10" value="0">
+                              <input type="number" data-ng-model="minutes" id="minutes" class="form-control" placeholder="0" min="0" max="60" step="5" value="0">
                           </div>
                         </div>
-                      <div class="col-lg-4">
-                        <label class="control-label" for="minutes">Minutes</label>
-                        <div class="controls">
-                            <input type="number" data-ng-model="minutes" id="minutes" class="form-control" placeholder="0" min="0" max="60" step="5" value="0">
+                        <div class="col-lg-4">
+                          <label class="control-label" for="secs">Seconds</label>
+                          <div class="controls">
+                              <input type="number" data-ng-model="secs" id="secs" class="form-control" placeholder="0" min="0" max="60" step="5" value="0">
+                          </div>
                         </div>
-                      </div>
-                      <div class="col-lg-4">
-                        <label class="control-label" for="secs">Seconds</label>
-                        <div class="controls">
-                            <input type="number" data-ng-model="secs" id="secs" class="form-control" placeholder="0" min="0" max="60" step="5" value="0">
                         </div>
-                      </div>
-                      </div>
-                  </div>
+                    </div>
 
-                  <div class="form-group">
-                      <input type="submit" value="New Experience" class="btn btn-default">
-                  </div>
-  				<div data-ng-show="error" class="text-danger">
-  					<strong data-ng-bind="error"></strong>
-  				</div>
-              </fieldset>
+                    <div class="form-group">
+                        <input type="submit" value="New Experience" class="btn btn-info">
+                    </div>
+    				<div data-ng-show="error" class="text-danger">
+    					<strong data-ng-bind="error"></strong>
+    				</div>
+          </div>
         </div>
-      </div>
+      </fieldset>
     </form>
 </section>
