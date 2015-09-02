@@ -7,6 +7,9 @@ angular.module('experiences').controller('ExperiencesController',
 	function($scope, $stateParams, $location, Authentication, Experiences, PublicExperiences, Activities) {
 		$scope.authentication = Authentication;
 
+		//Set the experience name to the sum of its parts
+		$scope.name = $scope.selectedTime + $scope.selectedPronoun + $scope.selectedActivity;
+
 		// Create new Experience
 		$scope.create = function() {
 
@@ -23,7 +26,7 @@ angular.module('experiences').controller('ExperiencesController',
 
 			// Create new Experience object
 			var experience = new Experiences ({
-				name: this.name,
+				name: $scope.name,
 								description: this.description,
 								importance: this.importance,
 								privacy: this.privacy ? this.privacy : 0,
@@ -103,7 +106,8 @@ angular.module('experiences').controller('ExperiencesController',
 
 			$scope.experience.$promise.then(function(exp) {
 				$scope.selectedActivity = exp.firstActivity;
-
+				$scope.selectedTime = 'foo';
+				$scope.selectedPronoun = 'foo';
 				/*
 				 * calculatedSeconds is the amount of seconds for the experience.
 				 */
@@ -117,9 +121,32 @@ angular.module('experiences').controller('ExperiencesController',
 			});
 		};
 
+		$scope.findTimePrepositions = function() {
+		  //Find a list TimePrepositions
+			$scope.timePrepositions = [
+				{"name": "Before", "_id": 1},
+				{"name": "While", "_id": 2},
+				{"name": "After", "_id": 3}
+			];
+		};
+
 		$scope.findPersonalActivities = function() {
 			// Find a list of Activities
 			$scope.activities = Activities.query();
+		};
+
+		$scope.findPronouns = function() {
+		  //Find a list Pronouns
+			$scope.pronouns = [
+				{"name": "I", "_id": 1},
+				{"name": "You", "_id": 2},
+				{"name": "He", "_id": 3},
+				{"name": "She", "_id": 4},
+				{"name": "It", "_id": 5},
+				{"name": "You all", "_id": 6},
+				{"name": "We", "_id": 7},
+				{"name": "They", "_id": 8}
+			];
 		};
 
 		d3.selectAll('select')
