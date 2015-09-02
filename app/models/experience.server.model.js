@@ -16,6 +16,24 @@ var ExperienceSchema = new Schema({
 		required: 'Please fill Experience name',
 		trim: true
 	},
+	experienceTime: {
+		type: String,
+		default: '',
+		required: 'Please pick a time',
+		trim: true
+	},
+	pronoun: {
+		type: String,
+		default: '',
+		required: 'Who was this? Pick a pronoun',
+		trim: true
+	},
+	pastTenseVerb: {
+		type: String,
+		default: '',
+		required: 'Who did what? Say something about the past!',
+		trim: true
+	},
 	description: {
 		type: String,
 		default: '',
