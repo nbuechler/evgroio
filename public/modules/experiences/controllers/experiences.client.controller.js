@@ -7,19 +7,14 @@ angular.module('experiences').controller('ExperiencesController',
 	function($scope, $stateParams, $location, Authentication, Experiences, PublicExperiences, Activities) {
 		$scope.authentication = Authentication;
 
-		$scope.name ='name';
-
 		$scope.updateName = function() {
 			//Set the experience name to the sum of its parts
-			console.log($scope.selectedTime, $scope.selectedActivity, $scope.selectedPronoun, $scope.selectedVerb);
-
 			if($scope.selectedTime && $scope.selectedActivity && $scope.selectedPronoun && $scope.selectedVerb) {
 				$scope.name =
 					$scope.selectedTime.name + ' ' +
 					$scope.selectedActivity.name + ' ' +
 					$scope.selectedPronoun.name + ' ' +
 					$scope.selectedVerb;
-
 			}
 
 		};
@@ -95,7 +90,11 @@ angular.module('experiences').controller('ExperiencesController',
 
 
 			var experience = $scope.experience;
-					experience.firstActivity = $scope.selectedActivity ? $scope.selectedActivity._id : null;
+					experience.name = $scope.name ? $scope.name : experience.name,
+					experience.firstActivity = $scope.selectedActivity ? $scope.selectedActivity._id : null,
+					experience.experienceTime = $scope.selectedTime ? $scope.selectedTime.name : null,
+					experience.pronoun = $scope.selectedPronoun ? $scope.selectedPronoun.name : null,
+					experience.pastTenseVerb = $scope.selectedVerb ? $scope.selectedVerb : null,
 					experience.seconds = calculatedSeconds;
 
 			experience.$update(function() {
