@@ -18,6 +18,19 @@
 
             <div class="panel panel-success">
               <div class="panel-body">
+                <h5>
+                Experiences are parts of something else, usually with reference in
+                time to an activity. Specifically, a person (or maybe a many) did
+                something, otherwise you would not be able to write about it!
+                </h5>
+                <br>
+
+                <span style="color: gray; text-align: right;">
+                  Here are a few examples of an experience:
+                  <ul>Before thinking, she decided to take a deep breath.
+                  <ul>While living, they became very opimistic of the future
+                  <ul>After singing, I felt very accomplished because I learned.
+                </span>
 
               </div>
             </div>
@@ -27,7 +40,75 @@
     </div>
     <form class="form-horizontal" data-ng-submit="create()" novalidate>
       <div class="row">
-        <div class="col-md-12">
+            <div class="col-lg-12">
+              <label class="control-label" for="name">Experience</label>
+            </div>
+          <span>
+            <i class="col-lg-3">
+              <div data-ng-init="findPersonalActivities()">
+                  <select class="form-control"
+                          style="-webkit-border-radius: 7px;
+                                 -moz-border-radius: 7px;
+                                 border-bottom: 3px #222222 dotted;
+                                 -webkit-appearance: none;
+                                 -moz-appearance: none;
+                                 appearance: none;
+                                 text-align: center;"
+                          ng-options="item as item.name for item in activities track by item._id"
+                          ng-model="selectedActivity" required>
+                    <option style="color: white; -webkit-appearance: none;" value="" disabled="">Time</option>
+                  </select>
+              </div>
+            </i>
+            <i class="col-lg-3">
+              <div data-ng-init="findPersonalActivities()">
+                  <select class="form-control"
+                          style="-webkit-border-radius: 7px;
+                                 -moz-border-radius: 7px;
+                                 border-bottom: 3px #222222 dotted;
+                                 -webkit-appearance: none;
+                                 -moz-appearance: none;
+                                 appearance: none;
+                                 text-align: center;"
+                          ng-options="item as item.name for item in activities track by item._id"
+                          ng-model="selectedActivity" required>
+                    <option style="color: white; -webkit-appearance: none;" value="" disabled="">Activity</option>
+                  </select>
+              </div>
+            </i>
+            <i class="col-lg-3">
+              <div data-ng-init="findPersonalActivities()">
+                  <select class="form-control"
+                          style="-webkit-border-radius: 7px;
+                                 -moz-border-radius: 7px;
+                                 border-bottom: 3px #222222 dotted;
+                                 -webkit-appearance: none;
+                                 -moz-appearance: none;
+                                 appearance: none;
+                                 text-align: center;"
+                          ng-options="item as item.name for item in activities track by item._id"
+                          ng-model="selectedActivity" required>
+                    <option style="color: white; -webkit-appearance: none;" value="" disabled="">Pronoun</option>
+                  </select>
+              </div>
+            </i>
+            <i class="col-lg-3">
+              <div data-ng-init="findPersonalActivities()">
+                  <select class="form-control"
+                          style="-webkit-border-radius: 7px;
+                                 -moz-border-radius: 7px;
+                                 border-bottom: 3px #222222 dotted;
+                                 -webkit-appearance: none;
+                                 -moz-appearance: none;
+                                 appearance: none;
+                                 text-align: center;"
+                          ng-options="item as item.name for item in activities track by item._id"
+                          ng-model="selectedActivity" required>
+                    <option style="color: white; -webkit-appearance: none;" value="" disabled="">Past Tense Verb</option>
+                  </select>
+              </div>
+            </i>
+          </span>
         </div>
       </div>
       <div class="row">
@@ -38,16 +119,9 @@
             TODO: Do something with experience data
             -->
               <fieldset>
-                  <label>
-                    <div data-ng-init="findPersonalActivities()">
-                        <select class="form-control" ng-options="item as item.name for item in activities track by item._id" ng-model="selectedActivity" required>
-                          <option style="color: white;" value="" disabled="">Choose an activity...</option>
-                        </select>
-                    </div>
-                  </label>
+
 
                   <div class="form-group">
-                      <label class="control-label" for="name">Experience</label>
                       <div class="controls">
                           <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" required>
                       </div>
