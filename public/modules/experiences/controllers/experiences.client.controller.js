@@ -122,10 +122,48 @@ angular.module('experiences').controller('ExperiencesController',
 			});
 
 			$scope.experience.$promise.then(function(exp) {
-				$scope.selectedTime = exp.experienceTime;
+
+				//TODO: If the list of time/pronouns becomes more robust, then store it in the database
+
+				var timePrepositions = [
+					{'name': 'Before', '_id': 1},
+					{'name': 'While', '_id': 2},
+					{'name': 'After', '_id': 3}
+				];
+
+				var pronouns = [
+					{'name': 'I', '_id': 1},
+					{'name': 'You', '_id': 2},
+					{'name': 'He', '_id': 3},
+					{'name': 'She', '_id': 4},
+					{'name': 'It', '_id': 5},
+					{'name': 'You all', '_id': 6},
+					{'name': 'We', '_id': 7},
+					{'name': 'They', '_id': 8}
+				];
+
+				//Time
+				//Refactor this if there are more dynamically built experiences
+				for (var i = 0; i < timePrepositions.length; i++) {
+					if(timePrepositions[i].name == exp.experienceTime) {
+						$scope.selectedTime = timePrepositions[i];
+					}
+				};
+
+				//Activity
 				$scope.selectedActivity = exp.firstActivity;
-				$scope.selectedPronoun = exp.pronoun;
+
+				//Pronoun
+				//Refactor this if there are more dynamically built experiences
+				for (var i = 0; i < pronouns.length; i++) {
+					if(pronouns[i].name == exp.pronoun) {
+						$scope.selectedPronoun = pronouns[i];
+					}
+				};
+
+				//Verb
 				$scope.selectedVerb = exp.pastTenseVerb;
+
 				/*
 				 * calculatedSeconds is the amount of seconds for the experience.
 				 */
@@ -136,6 +174,7 @@ angular.module('experiences').controller('ExperiencesController',
 						$scope.hours = h;
 						$scope.minutes = m;
 						$scope.secs = s;
+
 			});
 		};
 
