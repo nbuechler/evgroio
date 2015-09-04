@@ -167,10 +167,33 @@ exports.experienceByID = function(req, res, next, id) {
 		 			 * If the firstActivity.privacy is less than 1, then the it is private.
 		 			 */
 
-		 			var doesActivityUserMatch = experience.firstActivity.user.toString() === req.user._id.toString();
-		 				if(experience.firstActivity.privacy < 1 && !doesActivityUserMatch) {
-		 						req.experience.firstActivity = null;
-		 				}
+					var doesActivityUserMatch = false;
+					if(req.user){
+			 			var doesActivityUserMatch = experience.firstActivity.user.toString() === req.user._id.toString();
+			 				if(experience.firstActivity.privacy < 1 && !doesActivityUserMatch) {
+			 						req.experience.firstActivity = null;
+			 				}
+					}
+
+					/**
+					 * Get only the public experiences.
+					 */
+
+					var experiences = req.experience.firstActivity.experiencesList;
+					var experiencesList= [];
+					for (var i = 0; i < experiences.length; i++) {
+						if(experiences[i].privacy > 0){
+							experiencesList.push(experiences[i]);
+						} else if (experiences[i].user._id.toString() === req.user._id.toString()) {
+							experiencesList.push(experiences[i]);
+						}
+						// else {
+						// 	//That experience was private - :{D
+						// }
+					}
+
+					req.experience.firstActivity.experiencesList = experiencesList;
+
 		 		}
 
 		 		next();
