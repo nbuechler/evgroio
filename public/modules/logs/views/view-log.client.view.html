@@ -87,14 +87,16 @@
 
         -->
 
+        <br>
+        <br>
+
         <div class="row">
 					<div class="col-lg-12" data-ng-show="((authentication.user) && (authentication.user._id == log.firstExperience.user)) || log.firstExperience.privacy == 1">
 
 						<md-toolbar style="background: white; color: #222222">
 							<div class="md-toolbar-tools">
-								<h2 class="md-flex">The log, {{log.name.toLowerCase()}}, is part of the experience, {{log.firstExperience.name.toLowerCase()}}.</h2>
+								<h2 class="md-flex">Experience</h2>
 							</div>
-              <h6>{{log}}</h6>
 						</md-toolbar>
 						<md-content layout-padding style="height: auto; max-height: 300px; padding: 24px; background: #333333">
 								<h6 style="color: gray; text-align: right;">Remember, this is the experience this log is associated with.</h6>
