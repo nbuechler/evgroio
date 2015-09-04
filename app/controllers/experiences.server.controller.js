@@ -174,6 +174,26 @@ exports.experienceByID = function(req, res, next, id) {
 			 						req.experience.firstActivity = null;
 			 				}
 					}
+
+					/**
+					 * Get only the public experiences.
+					 */
+
+					var experiences = req.experience.firstActivity.experiencesList;
+					var experiencesList= [];
+					for (var i = 0; i < experiences.length; i++) {
+						if(experiences[i].privacy > 0){
+							experiencesList.push(experiences[i]);
+						} else if (experiences[i].user._id.toString() === req.user._id.toString()) {
+							experiencesList.push(experiences[i]);
+						}
+						// else {
+						// 	//That experience was private - :{D
+						// }
+					}
+
+					req.experience.firstActivity.experiencesList = experiencesList;
+
 		 		}
 
 		 		next();
