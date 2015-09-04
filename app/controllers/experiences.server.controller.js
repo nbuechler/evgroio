@@ -167,10 +167,13 @@ exports.experienceByID = function(req, res, next, id) {
 		 			 * If the firstActivity.privacy is less than 1, then the it is private.
 		 			 */
 
-		 			var doesActivityUserMatch = experience.firstActivity.user.toString() === req.user._id.toString();
-		 				if(experience.firstActivity.privacy < 1 && !doesActivityUserMatch) {
-		 						req.experience.firstActivity = null;
-		 				}
+					var doesActivityUserMatch = false;
+					if(req.user){
+			 			var doesActivityUserMatch = experience.firstActivity.user.toString() === req.user._id.toString();
+			 				if(experience.firstActivity.privacy < 1 && !doesActivityUserMatch) {
+			 						req.experience.firstActivity = null;
+			 				}
+					}
 		 		}
 
 		 		next();

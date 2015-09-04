@@ -154,11 +154,13 @@ exports.logByID = function(req, res, next, id) {
 			 * might be set to null so that people can't see it. Here's how:
 			 * If the firstExperience.privacy is less than 1, then the it is private.
 			 */
-
-			var doesExperienceUserMatch = log.firstExperience.user.toString() === req.user._id.toString();
-				if(log.firstExperience.privacy < 1 && !doesExperienceUserMatch) {
-						req.log.firstExperience = null;
-				}
+			var doesActivityUserMatch = false;
+		 	if(req.user){
+				var doesExperienceUserMatch = log.firstExperience.user.toString() === req.user._id.toString();
+					if(log.firstExperience.privacy < 1 && !doesExperienceUserMatch) {
+							req.log.firstExperience = null;
+					}
+			}
 		}
 		next();
 	});
