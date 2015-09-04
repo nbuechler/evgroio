@@ -154,15 +154,35 @@ exports.logByID = function(req, res, next, id) {
 			 * might be set to null so that people can't see it. Here's how:
 			 * If the firstExperience.privacy is less than 1, then the it is private.
 			 */
-			var doesActivityUserMatch = false;
-		 	if(req.user){
-				var doesExperienceUserMatch = log.firstExperience.user.toString() === req.user._id.toString();
-					if(log.firstExperience.privacy < 1 && !doesExperienceUserMatch) {
-							req.log.firstExperience = null;
-					}
+
+			 var doesExperienceUserMatch = false;
+	 			if(req.user){
+	 				var doesExperienceUserMatch = log.firstExperience.user.toString() === req.user._id.toString();
+	 					if(log.firstExperience.privacy < 1 && !doesExperienceUserMatch) {
+	 							req.log.firstExperience = null;
+	 					} else {
+	 							/**
+	 							 * Get only the public logs.
+	 							 */
+	 							var logs = log.firstExperience.logsList;
+	 							var logsList= [];
+	 							for (var i = 0; i < logs.length; i++) {
+	 								if(logs[i].privacy > 0){
+	 									logsList.push(logs[i]);
+	 								} else if (logs[i].user._id.toString() === req.user._id.toString()) {
+	 									logsList.push(logs[i]);
+	 								}
+	 								// else {
+	 								// 	//That log was private - :D
+	 								// }
+	 							}
+
+	 							log.firstExperience.logsList = logsList;
+	 					}
+	 			}
 			}
-		}
-		next();
+
+			next();
 	});
 };
 

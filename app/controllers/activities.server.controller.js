@@ -152,7 +152,7 @@ exports.activityByID = function(req, res, next, id) {
 						experiencesList.push(experiences[i]);
 					}
 					// else {
-					// 	//That experience was private - :{D
+					// 	//That experience was private - :D
 					// }
 				}
 

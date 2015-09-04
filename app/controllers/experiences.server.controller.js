@@ -138,61 +138,62 @@ exports.experienceByID = function(req, res, next, id) {
 				 });
 			 } else {
 
-				 /**
-					* Get only the public logs. Or all logs if the current user matches the log user.
-					*/
-				 var logsList= [];
-				 for (var i = 0; i < logs.length; i++) {
-					 if(logs[i].privacy > 0){
-						 logsList.push(logs[i]);
-					 } else if (logs[i].user._id.toString() === req.user._id.toString()) {
-					 	 logsList.push(logs[i]);
+				 if(req.user){
+					 /**
+						* Get only the public logs. Or all logs if the current user matches the log user.
+						*/
+					 var logsList= [];
+					 for (var i = 0; i < logs.length; i++) {
+						 if(logs[i].privacy > 0){
+							 logsList.push(logs[i]);
+						 } else if (logs[i].user._id.toString() === req.user._id.toString()) {
+						 	 logsList.push(logs[i]);
+						 }
+						//  else {
+						// 	 //That log was private - :D
+						//  }
 					 }
-					//  else {
-					// 	 //That log was private - :{D
-					//  }
-				 }
 
-				 experience.logsList = logsList;
+					 experience.logsList = logsList;
 
-				 /**
-				  * Handle the experience firstActivity
-					*/
+					 /**
+					  * Handle the experience firstActivity
+						*/
 
-				 if(experience.firstActivity){
-		 			/**
-		 			 * Does the user id of the activity of the experience match the current user?
-		 			 * If it does, then nothing happens, but if it doesn't then the firstActivity
-		 			 * might be set to null so that people can't see it. Here's how:
-		 			 * If the firstActivity.privacy is less than 1, then the it is private.
-		 			 */
+					 if(experience.firstActivity){
+				 			/**
+				 			 * Does the user id of the activity of the experience match the current user?
+				 			 * If it does, then nothing happens, but if it doesn't then the firstActivity
+				 			 * might be set to null so that people can't see it. Here's how:
+				 			 * If the firstActivity.privacy is less than 1, then the it is private.
+				 			 */
 
-					var doesActivityUserMatch = false;
-					if(req.user){
-			 			var doesActivityUserMatch = experience.firstActivity.user.toString() === req.user._id.toString();
-			 				if(experience.firstActivity.privacy < 1 && !doesActivityUserMatch) {
-			 						req.experience.firstActivity = null;
-			 				}
-					}
+							var doesActivityUserMatch = false;
+							if(req.user){
+					 			var doesActivityUserMatch = experience.firstActivity.user.toString() === req.user._id.toString();
+					 				if(experience.firstActivity.privacy < 1 && !doesActivityUserMatch) {
+					 						req.experience.firstActivity = null;
+					 				} else {
+											/**
+											 * Get only the public experiences.
+											 */
+											var experiences = experience.firstActivity.experiencesList;
+											var experiencesList= [];
+											for (var i = 0; i < experiences.length; i++) {
+												if(experiences[i].privacy > 0){
+													experiencesList.push(experiences[i]);
+												} else if (experiences[i].user._id.toString() === req.user._id.toString()) {
+													experiencesList.push(experiences[i]);
+												}
+												// else {
+												// 	//That experience was private - :D
+												// }
+											}
 
-					/**
-					 * Get only the public experiences.
-					 */
-
-					var experiences = req.experience.firstActivity.experiencesList;
-					var experiencesList= [];
-					for (var i = 0; i < experiences.length; i++) {
-						if(experiences[i].privacy > 0){
-							experiencesList.push(experiences[i]);
-						} else if (experiences[i].user._id.toString() === req.user._id.toString()) {
-							experiencesList.push(experiences[i]);
-						}
-						// else {
-						// 	//That experience was private - :{D
-						// }
-					}
-
-					req.experience.firstActivity.experiencesList = experiencesList;
+											experience.firstActivity.experiencesList = experiencesList;
+									}
+							}
+					  }
 
 		 		}
 
