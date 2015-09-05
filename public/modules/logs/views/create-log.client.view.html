@@ -1,7 +1,41 @@
 <section data-ng-controller="LogsController">
     <div class="page-header" style="border-bottom: none;">
-        <h3 class="pull-left" style="text-align: center;"></h3>
-        <label class="pull-right" data-ng-bind="log.created | date:'MMMM dd, yyyy'"></label>
+      <div class="row">
+          <div class="col-lg-6 well">
+            <div style="text-align: left;">
+              <h1>New Log</h1>
+              <h5>Will the world see this experience?</h5>
+            </div>
+            <md-radio-group ng-model="log.privacy">
+              <md-radio-button value="0" class="md-primary">Nope</md-radio-button>
+              <md-radio-button value="1">Yup</md-radio-button>
+            </md-radio-group>
+          </div>
+          <!-- <div class="col-lg-3">
+          </div> -->
+          <div class="col-lg-6">
+            <!-- TODO" Add video tutorial? -->
+
+            <div class="panel panel-success">
+              <div class="panel-body">
+                <h5>
+                Logs are short, additional, descriptions of an experience. Sometimes it's not
+                always clear which experience it is related to, though, and that's okay! <br>An example log might be something like this:
+                </h5>
+
+                <span style="color: gray; text-align: right;">
+                  <ul>I decided to listen to her.
+                  <ul>I felt very accomplished for the things I said.
+                  <ul>I learned that we are both very opimistic of the future.
+                  <ul>I cared about her.
+                  <ul>I think we both feel better now.
+                </span>
+
+              </div>
+            </div>
+
+          </div>
+      </div>
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="create()">
@@ -12,12 +46,6 @@
                         <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Pick a theme!" required>
                     </div>
                 </div>
-                    <h5>Will the world see this log?</h5>
-                    <md-radio-group ng-model="log.privacy">
-                      <md-radio-button value="0" class="md-primary">Nope</md-radio-button>
-                      <md-radio-button value="1">Yup</md-radio-button>
-                    </md-radio-group>
-
                 <br>
 
                 <label>
@@ -32,10 +60,20 @@
                 <br>
 
                 <div id="reflectionZone">
+                        <i style="color: white;" class="fa fa-female"></i>
+                        <i style="color: white;" class="fa fa-male"></i>
+                        <i style="color: white;" class="fa fa-heart"></i>
+                        <i style="color: white;" class="fa fa-heart-o"></i>
+                        <i style="color: white;" class="fa fa-book"></i>
+                        <i style="color: white;" class="fa fa-picture-o"></i>
+                        <i style="color: white;" class="fa fa-university"></i>
+                        <i style="color: white;" class="fa fa-building-o"></i>
+                        <i style="color: white;" class="fa fa-sun-o"></i>
+                        <i style="color: white;" class="fa fa-globe"></i>
                     <div>
                         <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6 box marginPaddingBox physicContent">
-                                    <textarea type="text" data-ng-model="physicContent" id="physicContentINPUT" class="editArea form-control" placeholder="Which part(s) of your body did you use?"></textarea>
+                                    <textarea type="text" data-ng-model="physicContent" id="physicContentINPUT" class="editArea form-control" placeholder="Which decisions did you make?"></textarea>
                                 </div>
                                 <create-log-viz></create-log-viz>
                             <div class="physicFadedContent echoedText box col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right">
@@ -46,7 +84,7 @@
                         </div>
                         <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6 box marginPaddingBox emotionContent">
-                                    <textarea type="text" data-ng-model="emotionContent" id="emotionContentINPUT" class="editArea form-control" placeholder="How do you feel?"></textarea>
+                                    <textarea type="text" data-ng-model="emotionContent" id="emotionContentINPUT" class="editArea form-control" placeholder="How did you feel?"></textarea>
                                 </div>
                             <div class="emotionFadedContent echoedText box col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right">
                                 <div>
