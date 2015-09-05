@@ -170,7 +170,7 @@ exports.experienceByID = function(req, res, next, id) {
 
 							var doesActivityUserMatch = false;
 							if(req.user){
-					 			var doesActivityUserMatch = experience.firstActivity.user.toString() === req.user._id.toString();
+					 			doesActivityUserMatch = experience.firstActivity.user.toString() === req.user._id.toString();
 					 				if(experience.firstActivity.privacy < 1 && !doesActivityUserMatch) {
 					 						req.experience.firstActivity = null;
 					 				} else {
@@ -179,11 +179,11 @@ exports.experienceByID = function(req, res, next, id) {
 											 */
 											var experiences = experience.firstActivity.experiencesList;
 											var experiencesList= [];
-											for (var i = 0; i < experiences.length; i++) {
-												if(experiences[i].privacy > 0){
-													experiencesList.push(experiences[i]);
-												} else if (experiences[i].user._id.toString() === req.user._id.toString()) {
-													experiencesList.push(experiences[i]);
+											for (var j = 0; j < experiences.length; j++) {
+												if(experiences[j].privacy > 0){
+													experiencesList.push(experiences[j]);
+												} else if (experiences[j].user._id.toString() === req.user._id.toString()) {
+													experiencesList.push(experiences[j]);
 												}
 												// else {
 												// 	//That experience was private - :D
