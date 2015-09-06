@@ -95,7 +95,7 @@ angular.module('logs').controller('LogsController',
 			$scope.log = Logs.get({
 				logId: $stateParams.logId
 			});
-			
+
 			$scope.log.$promise.then(function(theLog) {
 				$scope.selectedExperience = theLog.firstExperience;
 			});
@@ -108,6 +108,10 @@ angular.module('logs').controller('LogsController',
 
 		d3.selectAll('select')
 			.style('background', '#00BC8C')
+			.style('padding', '10px');
+
+		d3.selectAll('.experienceSelect')
+			.style('background', '#BBBBBB')
 			.style('padding', '10px');
 
 		//TODO: Remove this code below because I think it is dead. It served its purpose well.
