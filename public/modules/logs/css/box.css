@@ -1,3 +1,11 @@
+.black-text-outline {
+  text-shadow:
+   -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+}
+
 .ng-invalid.ng-dirty {
 	border-color: none;
 }
@@ -20,14 +28,14 @@
     margin-top: -175px;
     max-width: none;
     position: relative;
-    z-index: 0;    
+    z-index: 0;
 }
 
 .editArea {
-    border-color: none; 
-    resize: none; 
-    height: 200px; 
-    width: 200px; 
+    border-color: none;
+    resize: none;
+    height: 200px;
+    width: 200px;
     text-align: center;
 }
 
@@ -36,9 +44,7 @@
 }
 
 .physicContent {
-    border: solid 2px #56222E;
     background: #56222E;
-    color: white;
 }
 
 .physicFadedContent {
@@ -89,66 +95,66 @@
 .physicBox {
     border: solid 2px #56222E;
     background: #56222E;
-    
-    text-align: center;
-    
-    color: white;
-    
-    border-radius: 5px;
-    
 
-    
+    text-align: center;
+
+    color: white;
+
+    border-radius: 5px;
+
+
+
 }
 .emotionBox {
     border: solid 2px #262561;
     background: #262561;
-    
-    text-align: center;
-    
-    color: white;
-    
-    border-radius: 5px;
-    
 
-    
+    text-align: center;
+
+    color: white;
+
+    border-radius: 5px;
+
+
+
 }
 .academicBox {
     border: solid 2px #632F5F;
     background: #632F5F;
-    
-    text-align: center;
-    
-    color: white;
-    
-    border-radius: 5px;
-    
 
-    
+    text-align: center;
+
+    color: white;
+
+    border-radius: 5px;
+
+
+
 }
 .communeBox {
     border: solid 2px #296A52;
     background: #296A52;
-    
-    text-align: center;
-    
-    color: white;
-    
-    border-radius: 5px;
-    
 
-    
+    text-align: center;
+
+    color: white;
+
+    border-radius: 5px;
+
+
+
 }
 .etherBox {
     border: solid 2px #775923;
     background: #775923;
-    
+
     text-align: center;
-    
+
     color: white;
-    
+
     border-radius: 5px;
-    
-    
+
+
 }
 
 .marginPaddingBox {

@@ -157,7 +157,7 @@ exports.logByID = function(req, res, next, id) {
 
 			 var doesExperienceUserMatch = false;
 	 			if(req.user){
-	 				var doesExperienceUserMatch = log.firstExperience.user.toString() === req.user._id.toString();
+	 				doesExperienceUserMatch = log.firstExperience.user.toString() === req.user._id.toString();
 	 					if(log.firstExperience.privacy < 1 && !doesExperienceUserMatch) {
 	 							req.log.firstExperience = null;
 	 					} else {

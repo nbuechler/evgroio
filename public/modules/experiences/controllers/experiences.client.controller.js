@@ -95,6 +95,7 @@ angular.module('experiences').controller('ExperiencesController',
 					experience.experienceTime = $scope.selectedTime ? $scope.selectedTime.name : null,
 					experience.pronoun = $scope.selectedPronoun ? $scope.selectedPronoun.name : null,
 					experience.pastTenseVerb = $scope.selectedVerb ? $scope.selectedVerb : null,
+					/*jshint -W030 */
 					experience.seconds = calculatedSeconds;
 
 			experience.$update(function() {
@@ -143,22 +144,22 @@ angular.module('experiences').controller('ExperiencesController',
 
 				//Time
 				//Refactor this if there are more dynamically built experiences
-				for (var i = 0; i < timePrepositions.length; i++) {
-					if(timePrepositions[i].name == exp.experienceTime) {
-						$scope.selectedTime = timePrepositions[i];
+				for (var k = 0; k < timePrepositions.length; k++) {
+					if(timePrepositions[k].name === exp.experienceTime) {
+						$scope.selectedTime = timePrepositions[k];
 					}
-				};
+				}
 
 				//Activity
 				$scope.selectedActivity = exp.firstActivity;
 
 				//Pronoun
 				//Refactor this if there are more dynamically built experiences
-				for (var i = 0; i < pronouns.length; i++) {
-					if(pronouns[i].name == exp.pronoun) {
-						$scope.selectedPronoun = pronouns[i];
+				for (var j = 0; j < pronouns.length; j++) {
+					if(pronouns[j].name === exp.pronoun) {
+						$scope.selectedPronoun = pronouns[j];
 					}
-				};
+				}
 
 				//Verb
 				$scope.selectedVerb = exp.pastTenseVerb;

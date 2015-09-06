@@ -43,14 +43,14 @@
 
           <md-list-item class="md-3-line" ng-if="log.physicContentLength > 0">
             <div ng-if="log.physicContentLength > 0" class="physicBox md-list-item-text">
-              <h3 style="color: gray;">Which part(s) of your body did you use?</h3>
+              <h3 style="color: gray;">Which decisions did you make?</h3>
               <p data-ng-bind="log.physicContent"><!-- Dynamic binding --></p>
             </div>
           </md-list-item>
           <md-divider ng-if="log.physicContentLength > 0"></md-divider>
           <md-list-item class="md-3-line" ng-if="log.emotionContentLength > 0">
             <div ng-if="log.emotionContentLength > 0" class="emotionBox md-list-item-text">
-              <h3 style="color: gray;">How do you feel?</h3>
+              <h3 style="color: gray;">How did you feel?</h3>
               <p data-ng-bind="log.emotionContent"><!-- Dynamic binding --></p>
             </div>
           </md-list-item>
@@ -93,7 +93,7 @@
         <div class="row">
 					<div class="col-lg-12" data-ng-show="((authentication.user) && (authentication.user._id == log.firstExperience.user)) || log.firstExperience.privacy == 1">
 
-						<md-toolbar style="background: white; color: #222222">
+						<md-toolbar style="background: #BBBBBB; color: #222222; z-index: 0;">
 							<div class="md-toolbar-tools">
 								<h2 class="md-flex">Experience</h2>
 							</div>

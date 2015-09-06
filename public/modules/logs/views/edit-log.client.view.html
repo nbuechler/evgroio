@@ -1,94 +1,185 @@
 <section data-ng-controller="LogsController" data-ng-init="findOne()">
     <div class="page-header" style="border-bottom: none;">
-        <h3 class="pull-left" style="text-align: center;"></h3>
-        <label class="pull-right" data-ng-bind="log.created | date:'MMMM dd, yyyy'"></label>
+      <div class="row">
+          <div class="col-lg-6 well">
+            <div style="text-align: left;">
+              <h1>New Log</h1>
+              <h5>Will the world see this experience?</h5>
+              <label class="pull-right" data-ng-bind="log.created | date:'MMMM dd, yyyy'"></label>
+            </div>
+            <md-radio-group ng-model="log.privacy">
+              <md-radio-button value="0" class="md-primary">Nope</md-radio-button>
+              <md-radio-button value="1">Yup</md-radio-button>
+            </md-radio-group>
+          </div>
+          <!-- <div class="col-lg-3">
+          </div> -->
+          <div class="col-lg-6">
+            <!-- TODO" Add video tutorial? -->
+
+            <div class="panel panel-success">
+              <div class="panel-body">
+                <h5>
+                Logs are, additional, snapshot-like descriptions of an experience. Sometimes it's not
+                always clear which experience it is related to, though, and that's okay! <br>An example log might be something like this:
+                </h5>
+
+                <span style="color: gray; text-align: right;">
+                  <ul>I decided to listen to her.
+                  <ul>I felt very accomplished for the things I said.
+                  <ul>I learned that we are both very opimistic of the future.
+                  <ul>I cared about her.
+                  <ul>I think we both feel better now.
+                </span>
+
+              </div>
+            </div>
+
+          </div>
+      </div>
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="update()">
             <fieldset>
-                <div class="form-group" style="position: relative; z-index: 10; text-align: center; width: 225px;">
-                    <label class="control-label" for="name">Reflection Title</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="log.name" id="name" class="form-control" placeholder="Pick a theme!" required>
+              <div class="row">
+                <div class="col-lg-3">
+                  <input class="form-control"
+                        ng-change="updateName()"
+                         style="-webkit-border-radius: 7px;
+                         -moz-border-radius: 7px;
+                         border-bottom: 3px #222222 dotted;
+                         -webkit-appearance: none;
+                         appearance: none;
+                         text-align: center;
+                         background: #303030;
+                         color: white;
+                         "
+                         type="text"
+                         data-ng-model="log.name"
+                         id="name" class="form-control" placeholder="Log Title" required>
+                  </input>
+                </div>
+
+                <div class="col-lg-9">
+                    <div data-ng-init="findPersonalExperiences()">
+                        <select class="form-control experienceSelect"
+                                style="-webkit-border-radius: 7px;
+                                       -moz-border-radius: 7px;
+                                       border-bottom: 3px #222222 dotted;
+                                       -webkit-appearance: none;
+                                       -moz-appearance: none;
+                                       appearance: none;
+                                       text-align: center;"
+                                 ng-options="item as item.name for item in experiences track by item._id"
+                                 ng-model="selectedExperience">
+                          <option style="color: white;" value="" disabled="">Is this part of an experience?</option>
+                        </select>
                     </div>
                 </div>
-                    <h5>Will the world see this log?</h5>
-                    <md-radio-group ng-model="log.privacy">
-                      <md-radio-button value="0" class="md-primary">Nope</md-radio-button>
-                      <md-radio-button value="1">Yup</md-radio-button>
-                    </md-radio-group>
+              </div>
 
-                <br>
+              <hr>
 
-                <label>
-                  <div data-ng-init="findPersonalExperiences()">
-                      <select class="form-control" ng-options="item as item.name for item in experiences track by item._id" ng-model="selectedExperience">
-                        <option style="color: white;" value="" disabled="">Is this part of an experience?</option>
-                      </select>
+              <div id="reflectionZone">
+                  <div>
+                      <div class="row physicContent" style="padding: 30px;">
+                        <div class="labelHeading" style="color: white; text-align:right;">
+                          <i style="color: white;" class="fa fa-heart"></i>
+                          <i style="color: white;" class="fa fa-heart-o"></i>
+                        </div>
+                        <md-input-container flex>
+                          <label class="labelHeading black-text-outline" style="color: #FFFFFF;">Which decisions did you make?</label>
+                          <textarea ng-model="log.physicContent" columns="1" md-maxlength="10000" style="color: #FFFFFF;"></textarea>
+                        </md-input-container>
+                      </div>
+                      <div class="row emotionContent" style="padding: 30px;">
+                        <div class="labelHeading" style="color: white; text-align:right;">
+                          <i style="color: white;" class="fa fa-heart"></i>
+                          <i style="color: white;" class="fa fa-heart-o"></i>
+                        </div>
+                        <md-input-container flex>
+                          <label class="labelHeading black-text-outline" style="color: #FFFFFF;">How did you feel?</label>
+                          <textarea ng-model="log.emotionContent" columns="1" md-maxlength="10000" style="color: #FFFFFF;"></textarea>
+                        </md-input-container>
+                      </div>
+                      <div class="row academicContent" style="padding: 30px;">
+                        <div class="labelHeading" style="color: white; text-align:right;">
+                          <i style="color: white;" class="fa fa-book"></i>
+                          <i style="color: white;" class="fa fa-picture-o"></i>
+                        </div>
+                        <md-input-container flex>
+                          <label class="labelHeading black-text-outline" style="color: #FFFFFF;">What did you learn?</label>
+                          <textarea ng-model="log.academicContent" columns="1" md-maxlength="10000" style="color: #FFFFFF;"></textarea>
+                        </md-input-container>
+                      </div>
+                      <div class="row communeContent" style="padding: 30px;">
+                        <div class="labelHeading" style="color: white; text-align:right;">
+                          <i style="color: white;" class="fa fa-university"></i>
+                          <i style="color: white;" class="fa fa-building-o"></i>
+                        </div>
+                        <md-input-container flex>
+                          <label class="labelHeading black-text-outline" style="color: #FFFFFF;">Who did you care about?</label>
+                          <textarea ng-model="log.communeContent" columns="1" md-maxlength="10000" style="color: #FFFFFF;"></textarea>
+                        </md-input-container>
+                      </div>
+                      <div class="row etherContent" style="padding: 30px;">
+                        <div class="labelHeading" style="color: white; text-align:right;">
+                          <i style="color: white;" class="fa fa-sun-o"></i>
+                          <i style="color: white;" class="fa fa-globe"></i>
+                        </div>
+                        <md-input-container flex>
+                          <label class="labelHeading black-text-outline" style="color: #FFFFFF;">Why did this matter?</label>
+                          <textarea ng-model="log.etherContent" columns="1" md-maxlength="10000" style="color: #FFFFFF;"></textarea>
+                        </md-input-container>
+                      </div>
                   </div>
-                </label>
 
-                <br>
-                <br>
+                  <hr>
 
-                <div id="reflectionZone">
-
-                    <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6 box marginPaddingBox physicContent">
-                                <textarea type="text" data-ng-model="log.physicContent" id="physicContentINPUT" class="editArea form-control" placeholder="Which part(s) of your body did you use?"></textarea>
-                            </div>
-                        <div class="physicFadedContent echoedText box col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right">
-                            <div>
-                                {{log.physicContent}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6 box marginPaddingBox emotionContent">
-                                <textarea type="text" data-ng-model="log.emotionContent" id="emotionContentINPUT" class="editArea form-control" placeholder="How do you feel?"></textarea>
-                            </div>
-                        <div class="emotionFadedContent echoedText box col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right">
-                            <div>
-                                {{log.emotionContent}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6 box marginPaddingBox academicContent">
-                                <textarea type="text" data-ng-model="log.academicContent" id="academicContentINPUT" class="editArea form-control" placeholder="What did you learn?"></textarea>
-                            </div>
-                        <div class="academicFadedContent echoedText box col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right">
-                            <div>
-                                {{log.academicContent}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6 box marginPaddingBox communeContent">
-                                <textarea type="text" data-ng-model="log.communeContent" id="communeContentINPUT" class="editArea form-control" placeholder="Who did you care about?"></textarea>
-                            </div>
-                        <div class="communeFadedContent echoedText box col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right">
-                            <div>
-                                {{log.communeContent}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6 box marginPaddingBox etherContent">
-                                <textarea type="text" data-ng-model="log.etherContent" id="etherContentINPUT" class="editArea form-control" placeholder="Why did this matter?"></textarea>
-                            </div>
-                        <div class="etherFadedContent echoedText box col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right">
-                            <div>
-                                {{log.etherContent}}
-                            </div>
-                        </div>
-                    </div>
-
+              <div class="row">
+                <div class="col-lg-3">
+                  <input class="form-control"
+                        ng-change="updateName()"
+                         style="-webkit-border-radius: 7px;
+                         -moz-border-radius: 7px;
+                         border-bottom: 3px #222222 dotted;
+                         -webkit-appearance: none;
+                         appearance: none;
+                         text-align: center;
+                         background: #303030;
+                         color: white;
+                         "
+                         type="text"
+                         data-ng-model="log.name"
+                         id="name" class="form-control" placeholder="Log Title" required>
+                  </input>
                 </div>
 
-                <div class="form-group" style="position: relative; z-index: 10; margin-top: 15px; text-align: center; width: 225px;">
-                    <input class="btn btn-default btn-lg" type="submit" class="btn btn-default" value="Update Reflection">
+                <div class="col-lg-9">
+                    <div data-ng-init="findPersonalExperiences()">
+                        <select class="form-control experienceSelect"
+                                style="-webkit-border-radius: 7px;
+                                       -moz-border-radius: 7px;
+                                       border-bottom: 3px #222222 dotted;
+                                       -webkit-appearance: none;
+                                       -moz-appearance: none;
+                                       appearance: none;
+                                       text-align: center;"
+                                 ng-options="item as item.name for item in experiences track by item._id"
+                                 ng-model="selectedExperience">
+                          <option style="color: white;" value="" disabled="">Is this part of an experience?</option>
+                        </select>
+                    </div>
                 </div>
+              </div>
+
+              <hr>
+
+              <div class="form-group">
+                  <input class="btn btn-default btn-lg" style="width: 100%;" type="submit" class="btn btn-default" value="Save Log">
+              </div>
+
+
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>
 				</div>
