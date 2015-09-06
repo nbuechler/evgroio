@@ -25,6 +25,14 @@
                     <span ng-if="log.etherContent.length > 0" class="etherBox globalPadding">{{log.etherContent.length}}</span>
                 </div>
                 <div style="text-align: center;">
+                  <div ng-show="log.physicContent.length < 1 &&
+                                log.emotionContent.length < 1 &&
+                                log.academicContent.length < 1 &&
+                                log.communeContent.length < 1 &&
+                                log.etherContent.length < 1"
+                                >
+                    <i>No Log Details</i>
+                  </div>
                   <list-viz></list-viz>
                 </div>
             </a>
