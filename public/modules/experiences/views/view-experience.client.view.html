@@ -1,57 +1,54 @@
 <section data-ng-controller="ExperiencesController" data-ng-init="findOne()">
 	<div style="margin-bottom: 100px;">
-		<div class="pull-right">
-			<a href="/#!/experiences">
-				<div class="btn btn-default">
-					View my experiences
-				</div>
-			</a>
-		</div>
-
 		<div class="page-header">
 			<h1 data-ng-bind="experience.name"></h1>
 		</div>
+	  <div class="row">
+	      <div class="col-lg-9">
+	      </div>
+	      <div class="col-lg-3" style="text-align: center;">
+	          <div data-ng-show="((authentication.user) && (authentication.user._id == experience.user._id))">
+								<a href="/#!/experiences">
+									<div class="btn btn-default" style="width: 100%;">
+										View my experiences
+									</div>
+								</a>
+	              <br>
+	              <br>
+	              <a class="btn btn-info" style="width: 100%;" href="/#!/experiences/{{experience._id}}/edit">
+	                  <i class="fa fa-pencil-square"></i> Change
+	              </a>
+	              <br>
+	              <br>
+	              <a class="btn btn-info" style="width: 100%;" data-ng-click="remove();">
+	                  <i class="fa fa-trash"></i> Remove
+	              </a>
+	          </div>
+	      </div>
+	  </div>
 
-		<div class="row">
-	      <div class="col-lg-12">
-						<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == experience.user._id))">
-							<a class="btn btn-info" href="/#!/experiences/{{experience._id}}/edit">
-									<i class="fa fa-pencil-square"></i> Change
-							</a>
-							<a class="btn btn-info" data-ng-click="remove();">
-									<i class="fa fa-trash"></i> Remove
-							</a>
-						</div>
+		<div class="row" style="margin-top: 30px">
+				<div class="col-12">
 				</div>
 		</div>
+
 		<small>
 	        <div class="row">
 	            <div class="col-lg-9" data-ng-show="((authentication.user) && (authentication.user._id == experience.user._id)) || experience.privacy == 1">
-	                <div class="col-lg-3">
-	                    <h4 class="pull-left" style="padding: 50px;
-																									 margin: 50px;
-																									 border: 1px gray solid;
-																									 color: gray;
-																									 text-align: center;">
-	                        {{hours ? hours + 'h' : ''}}
-	                        {{minutes ? minutes + 'm' : ''}}
-	                        {{secs ? secs + 's' : ''}}
-	                        {{minutes ? '' : '0m'}}
-	                        {{secs ? '' : '0s'}}
+									<div class="col-lg-3">
+	                  <div class="row">
+	                    <h4 style="margin: auto; width: 150px; padding: 30px; text-align: center; border: solid 2px white;">
+												<i style="font-size: 80px"class="material-icons">timer</i>
+													{{hours ? hours + 'h' : ''}}
+													{{minutes ? minutes + 'm' : ''}}
+													{{secs ? secs + 's' : ''}}
+													{{minutes ? '' : '0m'}}
+													{{secs ? '' : '0s'}}
 	                    </h4>
-	                </div>
-	                <div class="col-lg-6">
-	                    <div>
-	                        <p>
-	                            <strong>{{experience.name}}</strong>
-	                            <hr>
-	                            {{experience.description}}
-	                            <hr>
-	                        </p>
-	                    </div>
-	                </div>
-	                <div class="col-lg-3" style="text-align: right;">
-	                    <em class="text-muted">
+	                  </div>
+	                  <br>
+	                  <div class="row" style="text-align: center;">
+											<em class="text-muted">
 	                        Posted on
 	                        <span data-ng-bind="experience.created | date:'mediumDate'"></span>
 	                        <br>
@@ -66,6 +63,23 @@
 	                          </div>
 	                        </span>
 	                    </em>
+	                  </div>
+	                  <br>
+
+	                </div>
+
+	                <div class="col-lg-6">
+	                    <div>
+	                        <p>
+	                            <strong>{{experience.name}}</strong>
+	                            <hr>
+	                            {{experience.description}}
+	                            <hr>
+	                        </p>
+	                    </div>
+	                </div>
+	                <div class="col-lg-3">
+
 	                </div>
 	            </div>
 	        </div>
@@ -73,7 +87,7 @@
 					<br>
 
 					<div class="row">
-						<div class="col-lg-12" data-ng-show="((authentication.user) && (authentication.user._id == experience.firstActivity.user)) || experience.firstActivity.privacy == 1">
+						<div class="col-lg-9" data-ng-show="((authentication.user) && (authentication.user._id == experience.firstActivity.user)) || experience.firstActivity.privacy == 1">
 
 							<md-toolbar style="background: #00BC8C; color: #222222; z-index: 0;">
 								<div class="md-toolbar-tools">
@@ -106,17 +120,25 @@
 					</div>
 
 					<div class="row">
-						<div class="col-lg-12">
+						<div class="col-lg-9">
 							<md-toolbar style="background: #FF4081; color: white; z-index: 0;">
 								<div class="md-toolbar-tools">
 									<h2 class="md-flex">Logs</h2>
 								</div>
 							</md-toolbar>
-							<md-content layout-padding style="height: auto; max-height: 600px; padding: 24px; background: #333333">
+							<md-content layout-padding style="height: auto; max-height: 600px; background: #333333">
 								<div data-ng-repeat="log in experience.logsList">
 											<a data-ng-href="#!/logs/{{log._id}}" style="text-decoration: none;">
 									<md-list-item class="md-3-line" data-ng-show="(((authentication.user) && (authentication.user._id == log.user._id))) || log.privacy == 1">
 										<div class="md-list-item-text">
+											<h6 style="text-align: right;" data-ng-show="(((authentication.user) && (authentication.user._id == log.user._id)))">
+												<div class="badge" data-ng-show="{{(log.privacy === 0)}}">
+														Private
+												</div>
+												<div class="badge" data-ng-show="{{(log.privacy === 1)}}">
+														Public
+												</div>
+											</h6>
 												<h3>
 														{{ log.name }}
 												</h3>
@@ -128,16 +150,16 @@
 				                    <span ng-if="log.etherContent.length > 0" class="etherBox globalPadding">{{log.etherContent.length}}</span>
 				                </div>
 				                <div style="text-align: center;">
+													<div ng-show="log.physicContent.length < 1 &&
+				                                log.emotionContent.length < 1 &&
+				                                log.academicContent.length < 1 &&
+				                                log.communeContent.length < 1 &&
+				                                log.etherContent.length < 1"
+				                                >
+				                    <i>No Log Details</i>
+				                  </div>
 				                  <list-viz></list-viz>
 				                </div>
-											<h6 style="text-align: right;" data-ng-show="(((authentication.user) && (authentication.user._id == log.user._id)))">
-												<div class="badge" data-ng-show="{{(log.privacy === 0)}}">
-														Private
-												</div>
-												<div class="badge" data-ng-show="{{(log.privacy === 1)}}">
-														Public
-												</div>
-											</h6>
 										</div>
 									</md-list-item>
 											</a>
