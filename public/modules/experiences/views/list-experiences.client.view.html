@@ -2,28 +2,32 @@
     <div class="page-header">
         <h1>Personal Experiences</h1>
     </div>
-    <div class="list-group">
+    <div class="list-group" style="margin-bottom: 100px;">
         <a data-ng-repeat="experience in experiences" data-ng-href="#!/experiences/{{experience._id}}" class="list-group-item">
-    			<small class="list-group-item-text">
-    				Posted on
-    				<span data-ng-bind="experience.created | date:'medium'"></span>
-    				by
-    				<span data-ng-bind="experience.user.displayName"></span>
-    			</small>
-          <h4 class="list-group-item-heading" data-ng-bind="experience.name"></h4>
-
           <h6 style="text-align: right; color: white;" ng-show="{{(experience.privacy === 0)}}">
               Private
           </h6>
           <h6 style="text-align: right; color: white;" ng-show="{{(experience.privacy === 1)}}">
               Public
           </h6>
+    			<small class="list-group-item-text">
+    				Posted on
+    				<span data-ng-bind="experience.created | date:'medium'"></span>
+    			</small>
+          <h4 class="list-group-item-heading" data-ng-bind="experience.name"></h4>
+
         </a>
     </div>
     <div class="alert alert-warning text-center" data-ng-hide="!experiences.$resolved || experiences.length">
     	No Experiences yet, why don't you <a href="/#!/experiences/create">create one</a>?
     </div>
-    
+
     <new-entry-quick></new-entry-quick>
+
+    <div class="text-center footer">
+        <div class="text-muted" style="padding: 10px; background: #303030; border: 2px solid #464545; border-left: none; border-right: none;box-shadow: 0px 0px 10px black;">
+      Here's a list of some of your experiences!
+        </div>
+    </div>
 
 </section>

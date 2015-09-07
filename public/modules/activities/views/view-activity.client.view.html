@@ -1,22 +1,25 @@
 <section data-ng-controller="ActivitiesController" data-ng-init="findOne()">
-  <div class="pull-right">
-    <a href="/#!/activities">
-      <div class="btn btn-default">
-          View my activities
-      </div>
-    </a>
-  </div>
-
 	<div class="page-header">
     <h1 data-ng-bind="activity.name"></h1>
   </div>
   <div class="row">
-      <div class="col-lg-12">
-          <div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == activity.user._id))">
-              <a class="btn btn-info" href="/#!/activities/{{activity._id}}/edit">
+      <div class="col-lg-9">
+      </div>
+      <div class="col-lg-3" style="text-align: center;">
+          <div data-ng-show="((authentication.user) && (authentication.user._id == activity.user._id))">
+              <a href="/#!/activities">
+                <div class="btn btn-default" style="width: 100%;">
+                    View my activities
+                </div>
+              </a>
+              <br>
+              <br>
+              <a class="btn btn-info" style="width: 100%;" href="/#!/activities/{{activity._id}}/edit">
                   <i class="fa fa-pencil-square"></i> Change
               </a>
-              <a class="btn btn-info" data-ng-click="remove();">
+              <br>
+              <br>
+              <a class="btn btn-info" style="width: 100%;" data-ng-click="remove();">
                   <i class="fa fa-trash"></i> Remove
               </a>
           </div>
@@ -32,18 +35,43 @@
         <div class="row" style="margin-bottom: 75px">
             <div class="col-lg-9" data-ng-show="(((authentication.user) && (authentication.user._id == activity.user._id))) || activity.privacy == 1">
                 <div class="col-lg-3">
-                    <h4 class="pull-left" style="padding: 30px; margin: 30px; border: solid 2px white;">
+                  <div class="row">
+                    <h4 style="margin: auto; width: 150px; padding: 30px; text-align: center; border: solid 2px white;">
+                      <i style="font-size: 100px"class="material-icons">trending_up</i>
                         {{activity.importance}}
                     </h4>
+                  </div>
+                  <br>
+                  <div class="row" style="text-align: center;">
+                    <em class="text-muted">
+                      ''{{activity.name}}'<br>posted on
+                      <span data-ng-bind="activity.created | date:'mediumDate'"></span>
+                      <br>
+                      by
+                      <span data-ng-bind="activity.user.displayName"></span>
+                      <span>
+                        <div ng-if="activity.privacy === 0">
+                        This activity is private.
+                        </div>
+                        <div ng-if="activity.privacy === 1">
+                        This activity is public.
+                        </div>
+                      </span>
+                    </em>
+                  </div>
+                  <br>
+
                 </div>
                 <div class="col-lg-6">
                     <div>
                         <p>
-                            <strong>{{activity.name}}.</strong>
+                            <label>Title</label>
+                            <br>
+                            <i>{{activity.name}}</i>
                             <hr>
+                            <label>Description</label>
+                            <br>
                             {{activity.description}}
-                            <hr>
-                            As more information gets collected, this page will get way more interesting! Some exciting visualizations of data as well as more intreactivity will be unlocked, so be patient :D.
                         </p>
                             <hr>
                             <md-toolbar style="background: #BBBBBB; color: #222222; z-index: 0;">
@@ -94,22 +122,8 @@
                             </md-content>
                     </div>
                 </div>
-                <div class="col-lg-3" style="text-align: right;">
-                    <em class="text-muted">
-                        ''{{activity.name}}'<br>posted on
-                        <span data-ng-bind="activity.created | date:'mediumDate'"></span>
-                        <br>
-                        by
-                        <span data-ng-bind="activity.user.displayName"></span>
-                        <span>
-                          <div ng-if="activity.privacy === 0">
-                          This activity is private.
-                          </div>
-                          <div ng-if="activity.privacy === 1">
-                          This activity is public.
-                          </div>
-                        </span>
-                    </em>
+                <div class="col-lg-3">
+
                 </div>
             </div>
             <div data-ng-init="find()" class="col-lg-3">
