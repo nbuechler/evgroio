@@ -1,7 +1,227 @@
 <section data-ng-controller="OverviewController" data-ng-init="find()">
-	<div class="page-header">
-        <h1><i class="fa fa-columns"></i> Overview</h1>
+		<div class="page-header">
+        <h1>Overview</h1>
     </div>
+
+		<div id="tabDashboard">
+
+			<div class="col-lg-6">
+				<md-content class="md-padding" style="background: #AAA; margin-bottom: 20px;">
+					<md-toolbar style="background: #BBBBBB; color: #222222; z-index: 0;">
+						<div class="md-toolbar-tools">
+							<h2 class="md-flex">Summary</h2>
+						</div>
+					</md-toolbar>
+			    <md-tabs md-dynamic-height style="min-height: 500px; max-height: 500px;" class="md-default" md-selected="activityTabData.selectedIndex" md-align-tabs="{{globalTabAlignment}}">
+			      <md-tab id="logTabOutline">
+			        <md-tab-label>Outline</md-tab-label>
+			        <md-tab-body>
+								<div class="tabContentOverflow">
+									View for Item #1 <br>
+			          	data.selectedIndex = 1;
+								</div>
+			        </md-tab-body>
+			      </md-tab>
+			      <md-tab id="tab2">
+			        <md-tab-label>Item Two</md-tab-label>
+			        <md-tab-body>
+								<div class="tabContentOverflow">
+				          View for Item #2 <br>
+			          	data.selectedIndex = 1;
+			        	</div>
+							</md-tab-body>
+			      </md-tab>
+			      <md-tab id="tab3">
+			        <md-tab-label>Item Three</md-tab-label>
+			        <md-tab-body>
+								<div class="tabContentOverflow">
+				          View for Item #3 <br>
+			          	data.selectedIndex = 2;
+			        	</div>
+							</md-tab-body>
+			      </md-tab>
+			    </md-tabs>
+			  </md-content>
+			</div>
+			<!-- End of tab group -->
+
+			<div class="col-lg-6">
+				<md-content class="md-padding" style="background: #AAA; margin-bottom: 20px;">
+					<md-toolbar style="background: #BBBBBB; color: #222222; z-index: 0;">
+						<div class="md-toolbar-tools">
+							<h2 class="md-flex">Activities</h2>
+						</div>
+					</md-toolbar>
+			    <md-tabs md-dynamic-height style="min-height: 500px; max-height: 500px;" class="md-default" md-selected="experienceTabData.selectedIndex" md-align-tabs="{{globalTabAlignment}}">
+			      <md-tab id="logTabOutline">
+			        <md-tab-label>Outline</md-tab-label>
+			        <md-tab-body>
+								<div class="tabContentOverflow">
+									View for Item #1 <br>
+			          	data.selectedIndex = 1;
+								</div>
+			        </md-tab-body>
+			      </md-tab>
+			      <md-tab id="tab2">
+			        <md-tab-label>Item Two</md-tab-label>
+			        <md-tab-body>
+								<div class="tabContentOverflow">
+				          View for Item #2 <br>
+			          	data.selectedIndex = 1;
+			        	</div>
+							</md-tab-body>
+			      </md-tab>
+			      <md-tab id="tab3">
+			        <md-tab-label>Item Three</md-tab-label>
+			        <md-tab-body>
+								<div class="tabContentOverflow">
+				          View for Item #3 <br>
+			          	data.selectedIndex = 2;
+			        	</div>
+							</md-tab-body>
+			      </md-tab>
+			    </md-tabs>
+			  </md-content>
+			</div>
+			<!-- End of tab group -->
+
+			<div class="col-lg-6">
+				<md-content class="md-padding" style="background: #AAA; margin-bottom: 20px;">
+					<md-toolbar style="background: #BBBBBB; color: #222222; z-index: 0;">
+						<div class="md-toolbar-tools">
+							<h2 class="md-flex">Experiences</h2>
+						</div>
+					</md-toolbar>
+			    <md-tabs md-dynamic-height style="min-height: 500px; max-height: 500px;" class="md-default" md-selected="logTabData.selectedIndex" md-align-tabs="{{globalTabAlignment}}">
+			      <md-tab id="logTabOutline">
+			        <md-tab-label>Outline</md-tab-label>
+			        <md-tab-body>
+								<div class="tabContentOverflow">
+									View for Item #1 <br>
+			          	data.selectedIndex = 1;
+								</div>
+			        </md-tab-body>
+			      </md-tab>
+			      <md-tab id="tab2">
+			        <md-tab-label>Item Two</md-tab-label>
+			        <md-tab-body>
+								<div class="tabContentOverflow">
+				          View for Item #2 <br>
+			          	data.selectedIndex = 1;
+			        	</div>
+							</md-tab-body>
+			      </md-tab>
+			      <md-tab id="tab3">
+			        <md-tab-label>Item Three</md-tab-label>
+			        <md-tab-body>
+								<div class="tabContentOverflow">
+				          View for Item #3 <br>
+			          	data.selectedIndex = 2;
+			        	</div>
+							</md-tab-body>
+			      </md-tab>
+			    </md-tabs>
+			  </md-content>
+			</div>
+			<!-- End of tab group -->
+
+			<div class="col-lg-6">
+				<md-content class="md-padding" style="background: #AAA; margin-bottom: 20px;">
+					<md-toolbar style="background: #BBBBBB; color: #222222; z-index: 0;">
+						<div class="md-toolbar-tools">
+							<h2 class="md-flex">Logs</h2>
+						</div>
+					</md-toolbar>
+			    <md-tabs md-dynamic-height style="min-height: 500px; max-height: 500px;" class="md-default" md-selected="summaryTabData.selectedIndex" md-align-tabs="{{globalTabAlignment}}">
+			      <md-tab id="logTabOutline">
+			        <md-tab-label>Outline</md-tab-label>
+			        <md-tab-body>
+								<div class="tabContentOverflow">
+									<table class="table table-hover table-bordered" style="text-align: center;">
+										<thead>
+											<tr style="background: #464545">
+												<th style="text-align: center;">Log Title</th>
+			<!--                  <th style="text-align: center;">Date</th>-->
+												<th style="text-align: center;"></th>
+												<th style="text-align: center; background: #56222E">
+														<i style="color: white;" class="fa fa-female"></i>
+														<i style="color: white;" class="fa fa-male"></i>
+												</th>
+												<th style="text-align: center; background: #262561">
+														<i style="color: white;" class="fa fa-heart"></i>
+														<i style="color: white;" class="fa fa-heart-o"></i>
+												</th>
+												<th style="text-align: center; background: #632F5F">
+														<i style="color: white;" class="fa fa-book"></i>
+														<i style="color: white;" class="fa fa-picture-o"></i>
+												</th>
+												<th style="text-align: center; background: #296A52">
+														<i style="color: white;" class="fa fa-university"></i>
+														<i style="color: white;" class="fa fa-building-o"></i>
+												</th>
+												<th style="text-align: center; background: #775923">
+														<i style="color: white;" class="fa fa-sun-o"></i>
+														<i style="color: white;" class="fa fa-globe"></i>
+												</th>
+												<th style="text-align: center">
+														<i style="color: white;" class="fa fa-eye"></i>
+														<i style="color: white;" class="fa fa-eye-slash"></i>
+												</th>
+												<th style="text-align: center;">Log Link</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr data-ng-repeat="log in logs" ng-show="{{(log.user._id === authentication.user._id)}}">
+												<td class="">
+														<!-- Button trigger modal -->
+														<!-- Also comes in open('sm'), open(), & open('lg')-->
+													<button class="btn btn-link btn-xs" ng-click="open('sm', log)">{{log.name}}</button>
+												</td>
+			<!--                  <td class="" data-ng-bind="log.created | date:'mediumDate'"></td>-->
+												<td class="" style="width: 1px; background: #464545"></td>
+												<td>{{log.physicContentLength}}</td>
+												<td>{{log.emotionContentLength}}</td>
+												<td>{{log.academicContentLength}}</td>
+												<td>{{log.communeContentLength}}</td>
+												<td>{{log.etherContentLength}}</td>
+												<td>
+													{{log.privacy === 1 ? 'Public' : 'Private'}}
+												</td>
+												<td><a data-ng-href="#!/logs/{{log._id}}"><i class="fa fa-file-text"></i>
+			</a></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+			        </md-tab-body>
+			      </md-tab>
+			      <md-tab id="tab2">
+			        <md-tab-label>Item Two</md-tab-label>
+			        <md-tab-body>
+								<div class="tabContentOverflow">
+				          View for Item #2 <br>
+			          	data.selectedIndex = 1;
+			        	</div>
+							</md-tab-body>
+			      </md-tab>
+			      <md-tab id="tab3">
+			        <md-tab-label>Item Three</md-tab-label>
+			        <md-tab-body>
+								<div class="tabContentOverflow">
+				          View for Item #3 <br>
+			          	data.selectedIndex = 2;
+			        	</div>
+							</md-tab-body>
+			      </md-tab>
+			    </md-tabs>
+			  </md-content>
+			</div>
+			<!-- End of tab group -->
+
+
+
+
+		</div>
 
     <div id="displayArea">
         <div id="navDisplay" class="col-lg-2" style="text-align: center;">
@@ -21,7 +241,7 @@
             <div class="row" ng-show="logRollup">
 
                 <h3>Logs</h3>
-                <div class="col-12-lg" id="tableOverview" style="overflow-x: auto;">
+                <div class="col-12-lg" id="tableOutline" style="overflow-x: auto;">
 
                     <table class="table table-hover table-bordered" style="text-align: center;">
                       <thead>
