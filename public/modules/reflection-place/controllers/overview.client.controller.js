@@ -4,6 +4,29 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
 	function($scope, $modal, $log, $stateParams, $location, Authentication, Logs, Activities) {
 		$scope.authentication = Authentication;
 
+		/*
+		 * Tabs used to create destinct sections of the page.
+		 */
+
+		$scope.globalTabAlignment = 'top';
+
+		//Data objects for tab groups
+		$scope.summaryTabData = {
+			selectedIndex: 0
+		};
+		$scope.activityTabData = {
+			selectedIndex: 0
+		};
+		$scope.experienceTabData = {
+			selectedIndex: 0
+		};
+		$scope.logTabData = {
+			selectedIndex: 0
+		};
+
+		//End tabs
+
+
         /*
          * Not used, just a good reference.
          */
@@ -64,37 +87,6 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
 				logId: $stateParams.logId
 			});
 		};
-
-
-        //Toggling for dashboard level 1 items
-        $scope.logRollup = false;
-        $scope.activitiesRollup = false;
-        $scope.vizLineChartRollup = true;
-
-        $scope.changeActiveRollup = function(num) {
-             switch(num) {
-                case 0:
-                    $scope.logRollup = true;
-                    $scope.activitiesRollup = false;
-                    $scope.vizLineChartRollup = false;
-                    break;
-                case 1:
-                    $scope.logRollup = false;
-                    $scope.activitiesRollup = true;
-                    $scope.vizLineChartRollup = false;
-                    break;
-								case 2:
-                    $scope.logRollup = false;
-                    $scope.activitiesRollup = false;
-                    $scope.vizLineChartRollup = true;
-                    break;
-                default:
-                        $scope.logRollup = true;
-                        $scope.activitiesRollup = false;
-												$scope.vizLineChartRollup = true;
-                        console.error(1/0, ' --  Due to nonexisting toggle.');
-            }
-        };
 
 
         //Modal window code
