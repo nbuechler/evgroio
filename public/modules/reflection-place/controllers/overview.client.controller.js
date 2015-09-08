@@ -13,16 +13,16 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
 		//Data objects for tab groups
 		$scope.summaryTabData = {
 			selectedIndex: 0
-		}
+		};
 		$scope.activityTabData = {
 			selectedIndex: 0
-		}
+		};
 		$scope.experienceTabData = {
 			selectedIndex: 0
-		}
+		};
 		$scope.logTabData = {
 			selectedIndex: 0
-		}
+		};
 
 		//End tabs
 

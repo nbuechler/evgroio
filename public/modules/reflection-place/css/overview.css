@@ -3,4 +3,6 @@
   max-height: 450px;
   overflow-y: scroll;
   overflow-x: auto;
+  background: #111;
+  border-left: #111 solid 3px;
 }
