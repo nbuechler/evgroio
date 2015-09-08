@@ -4,6 +4,29 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
 	function($scope, $modal, $log, $stateParams, $location, Authentication, Logs, Activities) {
 		$scope.authentication = Authentication;
 
+		/*
+		 * Tabs used to create destinct sections of the page.
+		 */
+
+		$scope.globalTabAlignment = 'top';
+
+		//Data objects for tab groups
+		$scope.summaryTabData = {
+			selectedIndex: 0
+		}
+		$scope.activityTabData = {
+			selectedIndex: 0
+		}
+		$scope.experienceTabData = {
+			selectedIndex: 0
+		}
+		$scope.logTabData = {
+			selectedIndex: 0
+		}
+
+		//End tabs
+
+
         /*
          * Not used, just a good reference.
          */
