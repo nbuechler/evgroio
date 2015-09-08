@@ -116,7 +116,15 @@
 						</div>
 					</md-toolbar>
 			    <md-tabs md-dynamic-height style="min-height: 500px; max-height: 500px;" class="md-default" md-selected="summaryTabData.selectedIndex" md-align-tabs="{{globalTabAlignment}}">
-			      <md-tab id="logTabOutline">
+						<md-tab id="ideaFluctiationTab">
+			        <md-tab-label>Tracking Logs</md-tab-label>
+			        <md-tab-body>
+								<div class="tabContentOverflow">
+									<count-line-chart-viz></count-line-chart-viz>
+			        	</div>
+							</md-tab-body>
+			      </md-tab>
+						<md-tab id="logTabOutline">
 			        <md-tab-label>Outline</md-tab-label>
 			        <md-tab-body>
 								<div class="tabContentOverflow">
@@ -177,14 +185,6 @@
 									</table>
 								</div>
 			        </md-tab-body>
-			      </md-tab>
-			      <md-tab id="ideaFluctiationTab">
-			        <md-tab-label>Tracking Logs</md-tab-label>
-			        <md-tab-body>
-								<div class="tabContentOverflow">
-									<count-line-chart-viz></count-line-chart-viz>
-			        	</div>
-							</md-tab-body>
 			      </md-tab>
 			    </md-tabs>
 			  </md-content>
