@@ -16,6 +16,5 @@
 
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus, .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
 	color: #222222;
-	background-color: #00BC8C;
-
+	background-color: #8A9ABE;
 }
