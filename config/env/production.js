@@ -6,7 +6,7 @@ module.exports = {
 		lib: {
 				css: [
 					'public/lib/angular-material/angular-material.css',
-					'public/customLib/bootstrapThemed/darkly/bootstrap.css',
+					'public/customLib/bootstrapThemed/narkly/bootstrap.css',
 					'public/lib/fontawesome/css/font-awesome.css'
 				],
 				js: [
