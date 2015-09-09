@@ -6,16 +6,16 @@ angular.module('logs').directive('listViz', [
 			templateUrl: 'modules/logs/templates/listVizTemplate.html',
 			restrict: 'E',
 			link: function postLink(scope, element, attrs) {
-                
+
 //                console.log(element);
 //                console.log(scope.log.$$hashKey);
-                
+
                 var alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-                
+
                 function getRandomArbitrary(min, max) {
                     return Math.random() * (max - min) + min;
                 }
-                
+
                 //TODO: Make this more robust -- since duplicates will break the visualization... like maybe check an array to see if a random hash is already used.
                 var random1 =(Math.floor(getRandomArbitrary(0,25))),
                     random2 =(Math.floor(getRandomArbitrary(0,25))),
@@ -23,14 +23,14 @@ angular.module('logs').directive('listViz', [
                     random4 =(Math.floor(getRandomArbitrary(0,25))),
                     random5 =(Math.floor(getRandomArbitrary(0,25))),
                     random6 =(Math.floor(getRandomArbitrary(0,25)));
-                
+
                 var randomHash = alpha[random1] + alpha[random2] + alpha[random3] + alpha[random4] + alpha[random5] + alpha[random6];
 //                console.log(randomHash);
-                
+
                 //TODO: Come up with a better way to do this
                 element.append('<div>').attr('id', randomHash);
-                
-                
+
+
                 var dataset = {
                   content: [scope.log.physicContent.length, scope.log.emotionContent.length, scope.log.academicContent.length, scope.log.communeContent.length, scope.log.etherContent.length],
                 };
@@ -39,8 +39,8 @@ angular.module('logs').directive('listViz', [
                     height = 400,
                     radius = Math.min(width, height) / 2;
 
-                
-                var color = ['#56222E', '#262561', '#632F5F', '#296A52', '#775923'];
+
+                var color = ['#EB493A', '#5078A9', '#8B2E74', '#4E981F', '#D69C30'];
 
                 var pie = d3.layout.pie()
                     .sort(null);

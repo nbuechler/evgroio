@@ -44,61 +44,53 @@
 }
 
 .physicContent {
-    background: #56222E;
+    background: #EB493A;
 }
 
 .physicFadedContent {
-    color: #56222E;
+    color: #EB493A;
 }
 
 .emotionContent {
-    border: solid 2px #262561;
-    background: #262561;
-    color: white;
+    background: #5078A9;
 }
 
 .emotionFadedContent {
-    color: #262561;
+    color: #5078A9;
 }
 
 .academicContent {
-    border: solid 2px #632F5F;
-    background: #632F5F;
-    color: white;
+    background: #8B2E74;
 }
 
 .academicFadedContent {
-    color: #632F5F;
+    color: #8B2E74;
 }
 
 .communeContent {
-    border: solid 2px #296A52;
-    background: #296A52;
-    color: white;
+    background: #4E981F;
 }
 
 .communeFadedContent {
-    color: #296A52;
+    color: #4E981F;
 }
 
 .etherContent {
-    border: solid 2px #775923;
-    background: #775923;
-    color: white;
+    background: #D69C30;
 }
 
 .etherFadedContent {
-    color: #775923;
+    color: #D69C30;
 }
 
 
 .physicBox {
-    border: solid 2px #56222E;
-    background: #56222E;
+    border: solid 2px #EB493A;
+    background: #EB493A;
 
     text-align: center;
 
-    color: white;
+    color: #222;
 
     border-radius: 5px;
 
@@ -106,12 +98,12 @@
 
 }
 .emotionBox {
-    border: solid 2px #262561;
-    background: #262561;
+    border: solid 2px #5078A9;
+    background: #5078A9;
 
     text-align: center;
 
-    color: white;
+    color: #222;
 
     border-radius: 5px;
 
@@ -119,12 +111,12 @@
 
 }
 .academicBox {
-    border: solid 2px #632F5F;
-    background: #632F5F;
+    border: solid 2px #8B2E74;
+    background: #8B2E74;
 
     text-align: center;
 
-    color: white;
+    color: #222;
 
     border-radius: 5px;
 
@@ -132,12 +124,12 @@
 
 }
 .communeBox {
-    border: solid 2px #296A52;
-    background: #296A52;
+    border: solid 2px #4E981F;
+    background: #4E981F;
 
     text-align: center;
 
-    color: white;
+    color: #222;
 
     border-radius: 5px;
 
@@ -145,12 +137,12 @@
 
 }
 .etherBox {
-    border: solid 2px #775923;
-    background: #775923;
+    border: solid 2px #D69C30;
+    background: #D69C30;
 
     text-align: center;
 
-    color: white;
+    color: #222;
 
     border-radius: 5px;
 
