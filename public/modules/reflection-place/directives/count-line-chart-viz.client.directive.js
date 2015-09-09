@@ -59,7 +59,7 @@ angular.module('logs').directive('countLineChartViz', ['Logs', 'Authentication',
 							    .range([height, 0]);
 
 							var color = d3.scale.ordinal()
-														.range(['#56222E', '#262561', '#632F5F', '#296A52', '#775923']);
+														.range(['#EB493A', '#5078A9', '#8B2E74', '#4E981F', '#D69C30']);
 							// var color = d3.scale.category10();
 
 							var xAxis = d3.svg.axis()
