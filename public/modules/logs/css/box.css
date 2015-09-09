@@ -45,6 +45,7 @@
 
 .physicContent {
     background: #EB493A;
+    font-weight: 900;
 }
 
 .physicFadedContent {
@@ -53,6 +54,7 @@
 
 .emotionContent {
     background: #5078A9;
+    font-weight: 900;
 }
 
 .emotionFadedContent {
@@ -61,6 +63,7 @@
 
 .academicContent {
     background: #8B2E74;
+    font-weight: 900;
 }
 
 .academicFadedContent {
@@ -69,6 +72,7 @@
 
 .communeContent {
     background: #4E981F;
+    font-weight: 900;
 }
 
 .communeFadedContent {
@@ -77,6 +81,7 @@
 
 .etherContent {
     background: #D69C30;
+    font-weight: 900;
 }
 
 .etherFadedContent {
