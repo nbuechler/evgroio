@@ -46,8 +46,8 @@ angular.module('logs').directive('countLineChartViz', ['Logs', 'Authentication',
 							 * give log entry.
 							 */
 
-							var margin = {top: 20, right: 10, bottom: 30, left: 10},
-							    width = 450 - margin.left - margin.right,
+							var margin = {top: 20, right: 20, bottom: 30, left: 20},
+							    width = 400 - margin.left - margin.right,
 							    height = 300 - margin.top - margin.bottom;
 
 							// var parseDate = d3.time.format('%Y%m%d').parse;

@@ -14,8 +14,6 @@
                 <small class="list-group-item-text">
                     Posted on
                     <span data-ng-bind="log.created | date:'medium'"></span>
-                    by
-                    <span data-ng-bind="log.user.displayName"></span>
                 </small>
                 <div class="pull-right badge" ng-show="{{(log.privacy === 0)}}">
                     Private
