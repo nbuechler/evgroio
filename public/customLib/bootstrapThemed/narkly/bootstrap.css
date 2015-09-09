@@ -4356,7 +4356,7 @@ a.thumbnail.active {
   display: block;
   padding: 10px 15px;
   margin-bottom: -1px;
-  background-color: #0F0604; /* Exception to color pallet*/
+  background-color: #171518; /* Exception to color pallet*/
   border: 1px solid #868660;
 }
 .list-group-item:first-child {

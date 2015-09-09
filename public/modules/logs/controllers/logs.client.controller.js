@@ -107,11 +107,11 @@ angular.module('logs').controller('LogsController',
 		};
 
 		d3.selectAll('select')
-			.style('background', '#00BC8C')
+			.style('background', '#EBEB92')
 			.style('padding', '10px');
 
 		d3.selectAll('.experienceSelect')
-			.style('background', '#BBBBBB')
+			.style('background', '#8A9ABE')
 			.style('padding', '10px');
 
 		//TODO: Remove this code below because I think it is dead. It served its purpose well.
