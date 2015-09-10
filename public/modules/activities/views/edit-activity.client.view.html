@@ -1,7 +1,7 @@
 <section data-ng-controller="ActivitiesController" data-ng-init="findOne()">
     <div class="page-header">
       <div class="row">
-          <div class="col-lg-6 well">
+          <div class="col-lg-6 well" style="background-color: #121212;">
             <div style="text-align: left;">
               <h1>Edit Activity</h1>
               <h5>Will the world see this activity?</h5>
@@ -16,7 +16,7 @@
           <div class="col-lg-6">
             <!-- TODO" Add video tutorial? -->
 
-            <div class="panel panel-success">
+            <div class="panel panel-default" style="background-color: #EBEB92; color: #111111">
               <div class="panel-body">
                 <h5>
                 A good activity name really ought to be a gerund. Since most
@@ -25,7 +25,7 @@
                 </h5>
                 <br>
 
-                <span style="color: gray; text-align: right;">
+                <span style="color: #222333; text-align: right;">
                   Here are a few examples of an activity:
                   <ul>Thinking
                   <ul>Living
@@ -98,9 +98,7 @@
 
                         <div class="form-group">
                           <div class="col-lg-12">
-                            <input type="submit"
-                                   style="color: #FFFFFF; width: 100%;"
-                                   value="Update Activity" class="btn btn-success">
+                            <input type="submit" style="background-color: #EBEB92; color: #111111; width: 100%;" value="Update Activity" class="btn btn-default">
                           </div>
                         </div>
                         <div data-ng-show="error" class="text-danger">
