@@ -9,18 +9,18 @@
 	      <div class="col-lg-3" style="text-align: center;">
 	          <div data-ng-show="((authentication.user) && (authentication.user._id == experience.user._id))">
 								<a href="/#!/experiences">
-									<div class="btn btn-default" style="width: 100%;">
+									<div class="btn btn-inverse" style="width: 100%; background: #111111">
 										View my experiences
 									</div>
 								</a>
 	              <br>
 	              <br>
-	              <a class="btn btn-info" style="width: 100%;" href="/#!/experiences/{{experience._id}}/edit">
+	              <a class="btn btn-success" style="width: 100%;" href="/#!/experiences/{{experience._id}}/edit">
 	                  <i class="fa fa-pencil-square"></i> Change
 	              </a>
 	              <br>
 	              <br>
-	              <a class="btn btn-info" style="width: 100%;" data-ng-click="remove();">
+	              <a class="btn btn-success" style="width: 100%;" data-ng-click="remove();">
 	                  <i class="fa fa-trash"></i> Remove
 	              </a>
 	          </div>
