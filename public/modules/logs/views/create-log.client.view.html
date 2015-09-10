@@ -1,10 +1,10 @@
 <section data-ng-controller="LogsController">
     <div class="page-header" style="border-bottom: none;">
       <div class="row">
-          <div class="col-lg-6 well">
+          <div class="col-lg-6 well" style="background-color: #121212;">
             <div style="text-align: left;">
               <h1>New Log</h1>
-              <h5>Will the world see this experience?</h5>
+              <h5>Will the world see this log?</h5>
             </div>
             <md-radio-group ng-model="log.privacy">
               <md-radio-button value="0" class="md-primary">Nope</md-radio-button>
@@ -16,19 +16,19 @@
           <div class="col-lg-6">
             <!-- TODO" Add video tutorial? -->
 
-            <div class="panel panel-success">
+            <div class="panel panel-info" style="background-color: #DF7575;">
               <div class="panel-body">
-                <h5>
+                <h5 style="color: #111111;">
                 Logs are, additional, snapshot-like descriptions of an experience. Sometimes it's not
                 always clear which experience it is related to, though, and that's okay! <br>An example log might be something like this:
                 </h5>
 
-                <span style="color: gray; text-align: right;">
+                <span style="color: #222333; text-align: right;">
                   <ul>I decided to listen to her.
                   <ul>I felt very accomplished for the things I said.
                   <ul>I learned that we are both very opimistic of the future.
                   <ul>I cared about her.
-                  <ul>I think we both feel better now.
+                  <ul>I think it mattered because we feel better now.
                 </span>
 
               </div>
@@ -84,12 +84,12 @@
                     <div>
                         <div class="row physicContent" style="padding: 30px;">
                           <div class="labelHeading" style="color: white; text-align:right;">
-                            <i style="color: white;" class="fa fa-heart"></i>
-                            <i style="color: white;" class="fa fa-heart-o"></i>
+                            <i style="color: white;" class="fa fa-female"></i>
+                            <i style="color: white;" class="fa fa-male"></i>
                           </div>
                           <md-input-container flex>
-                            <label class="labelHeading" style="color: #222;">Which decisions did you make?</label>
-                            <textarea ng-model="physicContent" columns="1" md-maxlength="10000" style="color: #222;"></textarea>
+                            <label class="labelHeading" style="color: #AAAAAA;">Which decisions did you make?</label>
+                            <textarea ng-model="physicContent" columns="1" md-maxlength="10000" style="color: #AAAAAA;"></textarea>
                           </md-input-container>
                         </div>
                         <div class="row emotionContent" style="padding: 30px;">
@@ -98,8 +98,8 @@
                             <i style="color: white;" class="fa fa-heart-o"></i>
                           </div>
                           <md-input-container flex>
-                            <label class="labelHeading" style="color: #222;">How did you feel?</label>
-                            <textarea ng-model="emotionContent" columns="1" md-maxlength="10000" style="color: #222;"></textarea>
+                            <label class="labelHeading" style="color: #AAAAAA;">How did you feel?</label>
+                            <textarea ng-model="emotionContent" columns="1" md-maxlength="10000" style="color: #AAAAAA;"></textarea>
                           </md-input-container>
                         </div>
                         <div class="row academicContent" style="padding: 30px;">
@@ -108,8 +108,8 @@
                             <i style="color: white;" class="fa fa-picture-o"></i>
                           </div>
                           <md-input-container flex>
-                            <label class="labelHeading" style="color: #222;">What did you learn?</label>
-                            <textarea ng-model="academicContent" columns="1" md-maxlength="10000" style="color: #222;"></textarea>
+                            <label class="labelHeading" style="color: #AAAAAA;">What did you learn?</label>
+                            <textarea ng-model="academicContent" columns="1" md-maxlength="10000" style="color: #AAAAAA;"></textarea>
                           </md-input-container>
                         </div>
                         <div class="row communeContent" style="padding: 30px;">
@@ -118,8 +118,8 @@
                             <i style="color: white;" class="fa fa-building-o"></i>
                           </div>
                           <md-input-container flex>
-                            <label class="labelHeading" style="color: #222;">Who did you care about?</label>
-                            <textarea ng-model="communeContent" columns="1" md-maxlength="10000" style="color: #222;"></textarea>
+                            <label class="labelHeading" style="color: #AAAAAA;">Who did you care about?</label>
+                            <textarea ng-model="communeContent" columns="1" md-maxlength="10000" style="color: #AAAAAA;"></textarea>
                           </md-input-container>
                         </div>
                         <div class="row etherContent" style="padding: 30px;">
@@ -128,8 +128,8 @@
                             <i style="color: white;" class="fa fa-globe"></i>
                           </div>
                           <md-input-container flex>
-                            <label class="labelHeading" style="color: #222;">Why did this matter?</label>
-                            <textarea ng-model="etherContent" columns="1" md-maxlength="10000" style="color: #222;"></textarea>
+                            <label class="labelHeading" style="color: #AAAAAA;">Why did this matter?</label>
+                            <textarea ng-model="etherContent" columns="1" md-maxlength="10000" style="color: #AAAAAA;"></textarea>
                           </md-input-container>
                         </div>
                     </div>
@@ -177,7 +177,7 @@
                 <hr>
 
                 <div class="form-group">
-                    <input class="btn btn-default btn-lg" style="width: 100%;" type="submit" class="btn btn-default" value="Save Log">
+                    <input class="btn btn-info btn-lg" style="width: 100%;" type="submit" value="Save Log">
                 </div>
 
 
