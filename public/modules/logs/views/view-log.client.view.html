@@ -56,50 +56,65 @@
           <div class="col-lg-9">
             <md-list-item class="md-3-line" ng-if="log.physicContentLength > 0">
               <div ng-if="log.physicContentLength > 0" class="physicBox md-list-item-text">
+                <div class="labelHeading" style="color: white; text-align: left; padding: 20px;">
+                  <i style="color: white;" class="fa fa-female"></i>
+                  <i style="color: white;" class="fa fa-male"></i>
                 <h3 style="color: #222; text-align: right; margin-right: 15px; font-size: 11px;">Which decisions did you make?</h3>
+                </div>
 
-
-                <br>
+                <!-- <br> -->
                 <p style="font-weight: 900; text-align: left; margin-left: 15px; margin-right: 50px;" data-ng-bind="log.physicContent"><!-- Dynamic binding --></p>
               </div>
             </md-list-item>
             <md-divider ng-if="log.physicContentLength > 0"></md-divider>
             <md-list-item class="md-3-line" ng-if="log.emotionContentLength > 0">
               <div ng-if="log.emotionContentLength > 0" class="emotionBox md-list-item-text">
+                <div class="labelHeading" style="color: white; text-align: left; padding: 20px;">
+                  <i style="color: white;" class="fa fa-heart"></i>
+                  <i style="color: white;" class="fa fa-heart-o"></i>
                 <h3 style="color: #222; text-align: right; margin-right: 15px; font-size: 11px;">How did you feel?</h3>
+                </div>
 
-
-                <br>
+                <!-- <br> -->
                 <p style="font-weight: 900; text-align: left; margin-left: 15px; margin-right: 50px;" data-ng-bind="log.emotionContent"><!-- Dynamic binding --></p>
               </div>
             </md-list-item>
             <md-divider ng-if="log.emotionContentLength > 0"></md-divider>
             <md-list-item class="md-3-line" ng-if="log.academicContentLength > 0">
               <div ng-if="log.academicContentLength > 0" class="academicBox md-list-item-text">
+                <div class="labelHeading" style="color: white; text-align: left; padding: 20px;">
+                  <i style="color: white;" class="fa fa-book"></i>
+                  <i style="color: white;" class="fa fa-picture-o"></i>
                 <h3 style="color: #222; text-align: right; margin-right: 15px; font-size: 11px;">What did you learn?</h3>
+                </div>
 
-
-                <br>
+                <!-- <br> -->
                 <p style="font-weight: 900; text-align: left; margin-left: 15px; margin-right: 50px;" data-ng-bind="log.academicContent"><!-- Dynamic binding --></p>
               </div>
             </md-list-item>
             <md-divider ng-if="log.academicContentLength > 0"></md-divider>
             <md-list-item class="md-3-line" ng-if="log.communeContentLength > 0">
               <div ng-if="log.communeContentLength > 0" class="communeBox md-list-item-text">
+                <div class="labelHeading" style="color: white; text-align: left; padding: 20px;">
+                  <i style="color: white;" class="fa fa-university"></i>
+                  <i style="color: white;" class="fa fa-building-o"></i>
                 <h3 style="color: #222; text-align: right; margin-right: 15px; font-size: 11px;">Who did you care about?</h3>
+                </div>
 
-
-                <br>
+                <!-- <br> -->
                 <p style="font-weight: 900; text-align: left; margin-left: 15px; margin-right: 50px;" data-ng-bind="log.communeContent"><!-- Dynamic binding --></p>
               </div>
             </md-list-item>
             <md-divider ng-if="log.communeContentLength > 0"></md-divider>
             <md-list-item class="md-3-line" ng-if="log.etherContentLength > 0">
               <div ng-if="log.etherContentLength > 0" class="etherBox md-list-item-text">
+                <div class="labelHeading" style="color: white; text-align: left; padding: 20px;">
+                  <i style="color: white;" class="fa fa-sun-o"></i>
+                  <i style="color: white;" class="fa fa-globe"></i>
                 <h3 style="color: #222; text-align: right; margin-right: 15px; font-size: 11px;">Why did this matter?</h3>
+                </div>
 
-
-                <br>
+                <!-- <br> -->
                 <p style="font-weight: 900; text-align: left; margin-left: 15px; margin-right: 50px;" data-ng-bind="log.etherContent"><!-- Dynamic binding --></p>
               </div>
             </md-list-item>
