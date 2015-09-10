@@ -100,8 +100,9 @@
 
 
 .physicBox {
-    border: solid 2px #EB493A;
-    background: #EB493A;
+    border: #EB493A 3px solid;
+    border-right: #EB493A 25px solid;
+    background: #2B2323;
 
     text-align: center;
 
@@ -113,8 +114,9 @@
 
 }
 .emotionBox {
-    border: solid 2px #5078A9;
-    background: #5078A9;
+    border: #5078A9 3px solid;
+    border-right: #5078A9 25px solid;
+    background: #242628;
 
     text-align: center;
 
@@ -126,8 +128,9 @@
 
 }
 .academicBox {
-    border: solid 2px #8B2E74;
-    background: #8B2E74;
+    border: #8B2E74 3px solid;
+    border-right: #8B2E74 25px solid;
+    background: #272225;
 
     text-align: center;
 
@@ -139,8 +142,9 @@
 
 }
 .communeBox {
-    border: solid 2px #4E981F;
-    background: #4E981F;
+    border: #4E981F 3px solid;
+    border-right: #4E981F 25px solid;
+    background: #242721;
 
     text-align: center;
 
@@ -152,8 +156,9 @@
 
 }
 .etherBox {
-    border: solid 2px #D69C30;
-    background: #D69C30;
+    border: #D69C30 3px solid;
+    border-right: #D69C30 25px solid;
+    background: #2A2722;
 
     text-align: center;
 

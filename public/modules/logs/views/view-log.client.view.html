@@ -9,18 +9,18 @@
         <div class="col-lg-3" style="text-align: center;">
             <div data-ng-show="((authentication.user) && (authentication.user._id == log.user._id))">
                 <a href="/#!/logs">
-                    <div class="btn btn-default" style="width: 100%;" >
+                    <div class="btn btn-inverse" style="width: 100%; background: #111111;" >
                         View my logs
                     </div>
                 </a>
                 <br>
                 <br>
-                <a class="btn btn-info" style="width: 100%;" href="/#!/logs/{{log._id}}/edit">
+                <a class="btn btn-success" style="width: 100%;" href="/#!/logs/{{log._id}}/edit">
             			   <i class="fa fa-pencil-square"></i> Change
             		</a>
                 <br>
                 <br>
-                <a class="btn btn-info" style="width: 100%;" data-ng-click="remove();">
+                <a class="btn btn-success" style="width: 100%;" data-ng-click="remove();">
             			   <i class="fa fa-trash"></i> Remove
             		</a>
             </div>
@@ -59,11 +59,11 @@
                 <div class="labelHeading" style="color: white; text-align: left; padding: 20px;">
                   <i style="color: white;" class="fa fa-female"></i>
                   <i style="color: white;" class="fa fa-male"></i>
-                <h3 style="color: #222; text-align: right; margin-right: 15px; font-size: 11px;">Which decisions did you make?</h3>
+                <h3 style="color: #AAAAAA; text-align: right; margin-right: 15px; font-size: 11px;">Which decisions did you make?</h3>
                 </div>
 
                 <!-- <br> -->
-                <p style="font-weight: 900; text-align: left; margin-left: 15px; margin-right: 50px;" data-ng-bind="log.physicContent"><!-- Dynamic binding --></p>
+                <p style="color: #AAAAAA; font-weight: 900; text-align: left; margin-left: 15px; margin-right: 50px;" data-ng-bind="log.physicContent"><!-- Dynamic binding --></p>
               </div>
             </md-list-item>
             <md-divider ng-if="log.physicContentLength > 0"></md-divider>
@@ -72,11 +72,11 @@
                 <div class="labelHeading" style="color: white; text-align: left; padding: 20px;">
                   <i style="color: white;" class="fa fa-heart"></i>
                   <i style="color: white;" class="fa fa-heart-o"></i>
-                <h3 style="color: #222; text-align: right; margin-right: 15px; font-size: 11px;">How did you feel?</h3>
+                <h3 style="color: #AAAAAA; text-align: right; margin-right: 15px; font-size: 11px;">How did you feel?</h3>
                 </div>
 
                 <!-- <br> -->
-                <p style="font-weight: 900; text-align: left; margin-left: 15px; margin-right: 50px;" data-ng-bind="log.emotionContent"><!-- Dynamic binding --></p>
+                <p style="color: #AAAAAA; font-weight: 900; text-align: left; margin-left: 15px; margin-right: 50px;" data-ng-bind="log.emotionContent"><!-- Dynamic binding --></p>
               </div>
             </md-list-item>
             <md-divider ng-if="log.emotionContentLength > 0"></md-divider>
@@ -85,11 +85,11 @@
                 <div class="labelHeading" style="color: white; text-align: left; padding: 20px;">
                   <i style="color: white;" class="fa fa-book"></i>
                   <i style="color: white;" class="fa fa-picture-o"></i>
-                <h3 style="color: #222; text-align: right; margin-right: 15px; font-size: 11px;">What did you learn?</h3>
+                <h3 style="color: #AAAAAA; text-align: right; margin-right: 15px; font-size: 11px;">What did you learn?</h3>
                 </div>
 
                 <!-- <br> -->
-                <p style="font-weight: 900; text-align: left; margin-left: 15px; margin-right: 50px;" data-ng-bind="log.academicContent"><!-- Dynamic binding --></p>
+                <p style="color: #AAAAAA; font-weight: 900; text-align: left; margin-left: 15px; margin-right: 50px;" data-ng-bind="log.academicContent"><!-- Dynamic binding --></p>
               </div>
             </md-list-item>
             <md-divider ng-if="log.academicContentLength > 0"></md-divider>
@@ -98,11 +98,11 @@
                 <div class="labelHeading" style="color: white; text-align: left; padding: 20px;">
                   <i style="color: white;" class="fa fa-university"></i>
                   <i style="color: white;" class="fa fa-building-o"></i>
-                <h3 style="color: #222; text-align: right; margin-right: 15px; font-size: 11px;">Who did you care about?</h3>
+                <h3 style="color: #AAAAAA; text-align: right; margin-right: 15px; font-size: 11px;">Who did you care about?</h3>
                 </div>
 
                 <!-- <br> -->
-                <p style="font-weight: 900; text-align: left; margin-left: 15px; margin-right: 50px;" data-ng-bind="log.communeContent"><!-- Dynamic binding --></p>
+                <p style="color: #AAAAAA; font-weight: 900; text-align: left; margin-left: 15px; margin-right: 50px;" data-ng-bind="log.communeContent"><!-- Dynamic binding --></p>
               </div>
             </md-list-item>
             <md-divider ng-if="log.communeContentLength > 0"></md-divider>
@@ -111,11 +111,11 @@
                 <div class="labelHeading" style="color: white; text-align: left; padding: 20px;">
                   <i style="color: white;" class="fa fa-sun-o"></i>
                   <i style="color: white;" class="fa fa-globe"></i>
-                <h3 style="color: #222; text-align: right; margin-right: 15px; font-size: 11px;">Why did this matter?</h3>
+                <h3 style="color: #AAAAAA; text-align: right; margin-right: 15px; font-size: 11px;">Why did this matter?</h3>
                 </div>
 
                 <!-- <br> -->
-                <p style="font-weight: 900; text-align: left; margin-left: 15px; margin-right: 50px;" data-ng-bind="log.etherContent"><!-- Dynamic binding --></p>
+                <p style="color: #AAAAAA; font-weight: 900; text-align: left; margin-left: 15px; margin-right: 50px;" data-ng-bind="log.etherContent"><!-- Dynamic binding --></p>
               </div>
             </md-list-item>
             <md-divider ng-if="log.etherContentLength > 0"></md-divider>
