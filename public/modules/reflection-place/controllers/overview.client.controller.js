@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('reflection-place').controller('OverviewController', ['$scope', '$modal', '$log', '$stateParams', '$location', 'Authentication', 'Logs', 'Activities',
-	function($scope, $modal, $log, $stateParams, $location, Authentication, Logs, Activities) {
+angular.module('reflection-place').controller('OverviewController', ['$scope', '$modal', '$log', '$stateParams', '$location', 'Authentication', 'Logs', 'Activities', 'Experiences',
+	function($scope, $modal, $log, $stateParams, $location, Authentication, Logs, Activities, Experiences) {
 		$scope.authentication = Authentication;
 
 		/*
@@ -26,23 +26,6 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
 
 		//End tabs
 
-
-        /*
-         * Not used, just a good reference.
-         */
-//        var log = new Logs ({
-//            name: this.name,
-//            physicContent: this.physicContent,
-//            emotionContent: this.emotionContent,
-//            academicContent: this.academicContent,
-//            communeContent: this.communeContent,
-//            etherContent: this.etherContent,
-//            physicContentLength: this.physicContent ? this.physicContent.length : 0,
-//            emotionContentLength: this.emotionContent ? this.emotionContent.length : 0,
-//            academicContentLength: this.academicContent ? this.academicContent.length : 0,
-//            communeContentLength: this.communeContent ? this.communeContent.length : 0,
-//            etherContentLength: this.etherContent ? this.etherContent.length : 0
-//        });
 
 		$scope.find = function() {
             // Find a list of Logs with information
