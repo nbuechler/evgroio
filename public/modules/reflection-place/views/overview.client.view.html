@@ -1,6 +1,11 @@
 <section data-ng-controller="OverviewController" data-ng-init="find()">
 		<div class="page-header">
-        <h1>Overview</h1>
+				<div class="well" style="background: #121212;">
+        	<h1>Overview</h1>
+					<h6>Welcome to your overview screen! This page will continue to provide
+						more details about your entries.
+					</h6>
+				</div>
     </div>
 
 		<div id="tabDashboard">
@@ -48,8 +53,6 @@
 																	<small class="list-group-item-text">
 																			Posted on
 																			<span data-ng-bind="activity.created | date:'medium'"></span>
-																			by
-																			<span data-ng-bind="activity.user.displayName"></span>
 																	</small>
 																	<h4 class="list-group-item-heading" data-ng-bind="activity.name"></h4>
 
@@ -95,11 +98,28 @@
 					</md-toolbar>
 			    <md-tabs md-dynamic-height style="min-height: 350px; max-height: 350px;" class="md-default" md-selected="logTabData.selectedIndex" md-align-tabs="{{globalTabAlignment}}">
 			      <md-tab id="experienceTabData">
-							<md-tab-label>Outline</md-tab-label>
+			        <md-tab-label>Outline</md-tab-label>
 			        <md-tab-body>
-								<div class="tabContentOverflow" style="color: white;">
-									<!-- Nothing yet -->
-									More coming soon!
+								<div class="tabContentOverflow">
+									<div class="list-group" style="margin-bottom: 100px;">
+							        <a data-ng-repeat="experience in experiences" data-ng-href="#!/experiences/{{experience._id}}" class="list-group-item">
+							          <h6 style="text-align: right; color: white;" ng-show="{{(experience.privacy === 0)}}">
+							              Private
+							          </h6>
+							          <h6 style="text-align: right; color: white;" ng-show="{{(experience.privacy === 1)}}">
+							              Public
+							          </h6>
+							    			<small class="list-group-item-text">
+							    				Posted on
+							    				<span data-ng-bind="experience.created | date:'medium'"></span>
+							    			</small>
+							          <h4 class="list-group-item-heading" data-ng-bind="experience.name"></h4>
+
+							        </a>
+							    </div>
+							    <div class="alert alert-success text-center" data-ng-hide="!experiences.$resolved || experiences.length">
+							    	No Experiences yet, why don't you <a href="/#!/experiences/create">create one</a>?
+							    </div>
 								</div>
 			        </md-tab-body>
 			      </md-tab>
