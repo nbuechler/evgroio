@@ -56,11 +56,11 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
                 etherTotal: etherTotal
             };
 
-            // Find a list of Activities
-            $scope.activities = Activities.query();
-
-
-
+      // Find a list of Activities
+      $scope.activities = Activities.query();
+			
+      // Find a list of Experiences
+      $scope.experiences = Experiences.query();
 
 		};
 
