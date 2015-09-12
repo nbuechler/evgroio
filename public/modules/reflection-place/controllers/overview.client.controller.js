@@ -58,9 +58,69 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
 
       // Find a list of Activities
       $scope.activities = Activities.query();
-			
+
       // Find a list of Experiences
       $scope.experiences = Experiences.query();
+
+
+			//Get some basic key figure data.
+			$scope.activities.$promise.then(function(response) {
+				$scope.activityTotals = {
+					'sumAll' : response.length,
+					'sumPrivate' : 0,
+					'sumPublic' : 0,
+				}
+
+				for (var i = 0; i < response.length; i++) {
+					if(response[i].privacy > 0){
+						$scope.activityTotals.sumPrivate++;
+					} else {
+						$scope.activityTotals.sumPublic++;
+					}
+
+				}
+			});
+			$scope.experiences.$promise.then(function(response) {
+				$scope.experienceTotals = {
+					'sumAll' : response.length,
+					'sumPrivate' : 0,
+					'sumPublic' : 0,
+					'sumBefore' : 0,
+					'sumWhile' : 0,
+					'sumAfter' : 0
+				}
+
+				for (var i = 0; i < response.length; i++) {
+					if(response[i].privacy == 0){
+						$scope.experienceTotals.sumPrivate++;
+					} else {
+						$scope.experienceTotals.sumPublic++;
+					}
+
+					if(response[i].experienceTime == 'Before'){
+						$scope.experienceTotals.sumBefore++;
+					} else if(response[i].experienceTime == 'While') {
+						$scope.experienceTotals.sumWhile++;
+					} else if(response[i].experienceTime == 'After') {
+						$scope.experienceTotals.sumAfter++;
+					}
+				}
+			});
+			$scope.logs.$promise.then(function(response) {
+				$scope.logTotals = {
+					'sumAll' : response.length,
+					'sumPrivate' : 0,
+					'sumPublic' : 0
+				}
+
+				for (var i = 0; i < response.length; i++) {
+					if(response[i].privacy > 0){
+						$scope.logTotals.sumPrivate++;
+					} else {
+						$scope.logTotals.sumPublic++;
+					}
+				}
+			});
 
 		};
 
