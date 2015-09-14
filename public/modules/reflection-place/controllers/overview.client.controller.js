@@ -73,9 +73,9 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
 
 				for (var i = 0; i < response.length; i++) {
 					if(response[i].privacy > 0){
-						$scope.activityTotals.sumPrivate++;
-					} else {
 						$scope.activityTotals.sumPublic++;
+					} else {
+						$scope.activityTotals.sumPrivate++;
 					}
 
 				}
@@ -91,10 +91,10 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
 				}
 
 				for (var i = 0; i < response.length; i++) {
-					if(response[i].privacy == 0){
-						$scope.experienceTotals.sumPrivate++;
-					} else {
+					if(response[i].privacy > 0){
 						$scope.experienceTotals.sumPublic++;
+					} else {
+						$scope.experienceTotals.sumPrivate++;
 					}
 
 					if(response[i].experienceTime == 'Before'){
@@ -115,9 +115,9 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
 
 				for (var i = 0; i < response.length; i++) {
 					if(response[i].privacy > 0){
-						$scope.logTotals.sumPrivate++;
-					} else {
 						$scope.logTotals.sumPublic++;
+					} else {
+						$scope.logTotals.sumPrivate++;
 					}
 				}
 			});
