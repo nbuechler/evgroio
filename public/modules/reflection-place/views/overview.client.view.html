@@ -70,7 +70,22 @@
 						</div>
 					</md-toolbar>
 			    <md-tabs md-dynamic-height style="min-height: 350px; max-height: 350px;" class="md-default" md-selected="experienceTabData.selectedIndex" md-align-tabs="{{globalTabAlignment}}">
-			      <md-tab id="activityTabList">
+						<md-tab id="activitiesTabKeyFigures">
+			        <md-tab-label>Activitiy Statistics</md-tab-label>
+			        <md-tab-body>
+								<div class="tabContentOverflow" style="color: white;">
+					          <h5 class="well" style="background: #EBEB92; color: #222222; z-index: 0;">Activity Stats</h5>
+						        <div class="well" style="background: #222222; color: #8A9ABE; z-index: 0;">
+											<h6>
+												Of your {{activityTotals.sumAll}} total activities,
+												{{activityTotals.sumPrivate}} are private. You decided
+												to share {{activityTotals.sumPublic}}.
+											</h6>
+										</div>
+								</div>
+			        </md-tab-body>
+			      </md-tab>
+						<md-tab id="activityTabList">
 			        <md-tab-label>List</md-tab-label>
 			        <md-tab-body>
 								<div class="tabContentOverflow">
@@ -127,7 +142,28 @@
 						</div>
 					</md-toolbar>
 			    <md-tabs md-dynamic-height style="min-height: 350px; max-height: 350px;" class="md-default" md-selected="logTabData.selectedIndex" md-align-tabs="{{globalTabAlignment}}">
-			      <md-tab id="experienceTabData">
+						<md-tab id="experiencesTabKeyFigures">
+			        <md-tab-label>Experience Statistics</md-tab-label>
+			        <md-tab-body>
+								<div class="tabContentOverflow" style="color: white;">
+										<h5 class="well" style="background: #8A9ABE; color: #222222; z-index: 0;">Experience Stats</h5>
+						        <div class="well" style="background: #222222; color: #8A9ABE; z-index: 0;">
+											<h6>
+												Of your {{experienceTotals.sumAll}} total experiences,
+												{{experienceTotals.sumPrivate}} are private. You decided
+												to share {{experienceTotals.sumPublic}}.
+											</h6>
+											<h6>
+												Of your {{experienceTotals.sumAll}} total experiences,<br>
+												a total of {{experienceTotals.sumBefore}} happen before an activity.<br>
+												a total of {{experienceTotals.sumWhile}} are during an activity.<br>
+												a total of {{experienceTotals.sumAfter}} occured after an activity.
+											</h6>
+										</div>
+								</div>
+			        </md-tab-body>
+			      </md-tab>
+						<md-tab id="experienceTabData">
 			        <md-tab-label>List</md-tab-label>
 			        <md-tab-body>
 								<div class="tabContentOverflow">
@@ -173,6 +209,21 @@
 									<count-line-chart-viz></count-line-chart-viz>
 			        	</div>
 							</md-tab-body>
+			      </md-tab>
+						<md-tab id="logsTabKeyFigures">
+			        <md-tab-label>Log Statistics</md-tab-label>
+			        <md-tab-body>
+								<div class="tabContentOverflow" style="color: white;">
+										<h5 class="well" style="background: #EB9292; color: #222222; z-index: 0;">Log Stats</h5>
+						        <div class="well" style="background: #222222; color: #8A9ABE; z-index: 0;">
+											<h6>
+												Of your {{logTotals.sumAll}} total logs,
+												{{logTotals.sumPrivate}} are private. You decided
+												to share {{logTotals.sumPublic}}.
+											</h6>
+										</div>
+								</div>
+			        </md-tab-body>
 			      </md-tab>
 						<md-tab id="logTabList">
 			        <md-tab-label>List</md-tab-label>
