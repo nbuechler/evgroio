@@ -38,7 +38,7 @@ angular.module('logs').directive('donutChartViz', [
 	                  content: [attrs.sumPrivate, attrs.sumPublic],
 	                };
 
-	                var width = 300,
+	                var width = 250,
 	                    height = 300,
 	                    radius = Math.min(width, height) / 2;
 
