@@ -74,7 +74,10 @@
 			        <md-tab-label>Activitiy Statistics</md-tab-label>
 			        <md-tab-body>
 								<div class="tabContentOverflow" style="color: white;">
-					          <h5 class="well" style="background: #EBEB92; color: #222222; z-index: 0;">Activity Stats</h5>
+										<div style="text-align: center;">
+											<donut-chart-viz sum-private="{{activityTotals.sumPrivate}}" sum-public="{{activityTotals.sumPublic}}"></donut-chart-viz>
+					          </div>
+										<h5 class="well" style="background: #EBEB92; color: #222222; z-index: 0;">Activity Stats</h5>
 						        <div class="well" style="background: #222222; color: #8A9ABE; z-index: 0;">
 											<h6>
 												Of your {{activityTotals.sumAll}} total activities,

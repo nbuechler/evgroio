@@ -79,6 +79,9 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
 					}
 
 				}
+
+				$scope.$apply;
+
 			});
 			$scope.experiences.$promise.then(function(response) {
 				$scope.experienceTotals = {
