@@ -6,3 +6,11 @@
   background: #111;
   border-left: #111 solid 3px;
 }
+
+.shape0 {
+  fill: gray;
+}
+
+.shape1 {
+  fill: #222;
+}

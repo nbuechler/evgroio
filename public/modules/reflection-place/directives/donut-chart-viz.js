@@ -61,6 +61,7 @@ angular.module('logs').directive('donutChartViz', [
 	                var path = svg.selectAll('path')
 	                    .data(pie(dataset.content))
 	                  .enter().append('path')
+										  .attr("class", function(d, i) { return "shape" + i })
 	                    .attr('fill', function(d, i) { return color[i]; })
 	                    .attr('stroke' , 'white')
 	                    .attr('stroke-width' , '3px')
@@ -72,7 +73,7 @@ angular.module('logs').directive('donutChartViz', [
 	                    .on('mouseout', function(d) {
 	                        console.log('out');
 	                    });
-											
+
 								}
 					    });
 
