@@ -42,9 +42,6 @@ angular.module('logs').directive('donutChartViz', [
 	                    height = 300,
 	                    radius = Math.min(width, height) / 2;
 
-
-	                var color = ['#EB493A', '#5078A9', '#8B2E74', '#4E981F', '#D69C30'];
-
 	                var pie = d3.layout.pie()
 	                    .sort(null);
 
@@ -58,11 +55,15 @@ angular.module('logs').directive('donutChartViz', [
 	                    .append('g')
 	                    .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
 
+									svg.append('text')
+									   .attr('text-anchor', 'middle')
+									   .text(attrs.sumPublic + ':' + attrs.sumPrivate)
+										 .attr('class', 'ratioText');
+
 	                var path = svg.selectAll('path')
 	                    .data(pie(dataset.content))
 	                  .enter().append('path')
-										  .attr("class", function(d, i) { return "shape" + i })
-	                    .attr('fill', function(d, i) { return color[i]; })
+										  .attr('class', function(d, i) { return 'shape' + i })
 	                    .attr('stroke' , 'white')
 	                    .attr('stroke-width' , '3px')
 	                    .attr('d', arc)
