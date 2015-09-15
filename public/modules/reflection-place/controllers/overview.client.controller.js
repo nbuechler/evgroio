@@ -69,7 +69,7 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
 					'sumAll' : response.length,
 					'sumPrivate' : 0,
 					'sumPublic' : 0,
-				}
+				};
 
 				for (var i = 0; i < response.length; i++) {
 					if(response[i].privacy > 0){
@@ -80,7 +80,6 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
 
 				}
 
-				$scope.$apply;
 
 			});
 			$scope.experiences.$promise.then(function(response) {
@@ -91,7 +90,7 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
 					'sumBefore' : 0,
 					'sumWhile' : 0,
 					'sumAfter' : 0
-				}
+				};
 
 				for (var i = 0; i < response.length; i++) {
 					if(response[i].privacy > 0){
@@ -100,11 +99,11 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
 						$scope.experienceTotals.sumPrivate++;
 					}
 
-					if(response[i].experienceTime == 'Before'){
+					if(response[i].experienceTime === 'Before'){
 						$scope.experienceTotals.sumBefore++;
-					} else if(response[i].experienceTime == 'While') {
+					} else if(response[i].experienceTime === 'While') {
 						$scope.experienceTotals.sumWhile++;
-					} else if(response[i].experienceTime == 'After') {
+					} else if(response[i].experienceTime === 'After') {
 						$scope.experienceTotals.sumAfter++;
 					}
 				}
@@ -114,7 +113,7 @@ angular.module('reflection-place').controller('OverviewController', ['$scope', '
 					'sumAll' : response.length,
 					'sumPrivate' : 0,
 					'sumPublic' : 0
-				}
+				};
 
 				for (var i = 0; i < response.length; i++) {
 					if(response[i].privacy > 0){
