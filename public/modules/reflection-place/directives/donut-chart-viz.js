@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('logs').directive('donutChartViz', [
+angular.module('reflection-place').directive('donutChartViz', [
 	function() {
 		return {
 			restrict: 'E',
