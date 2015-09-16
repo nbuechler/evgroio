@@ -5,8 +5,7 @@ angular.module('logs').directive('donutChartViz', [
 		return {
 			restrict: 'E',
 			scope: {
-			   sumPrivate: '@',
-			   sumPublic: '@',
+			   totals: '@',
 			},
 			link: function postLink(scope, element, attrs) {
 
@@ -31,11 +30,11 @@ angular.module('logs').directive('donutChartViz', [
                 //TODO: Come up with a better way to do this
                 element.append('<div>').attr('id', randomHash);
 
-							attrs.$observe('sumPrivate', function(value) {
+							attrs.$observe('totals', function(value) {
 								if(value.length > 0){
 
 	                var dataset = {
-	                  content: [attrs.sumPrivate, attrs.sumPublic],
+	                  content: [JSON.parse(value).sumPrivate, JSON.parse(value).sumPublic],
 	                };
 
 	                var width = 250,
@@ -57,7 +56,7 @@ angular.module('logs').directive('donutChartViz', [
 
 									svg.append('text')
 									   .attr('text-anchor', 'middle')
-									   .text(attrs.sumPublic + ':' + attrs.sumPrivate)
+									   .text(JSON.parse(value).sumPrivate + ':' + JSON.parse(value).sumPublic)
 										 .attr('class', 'ratioText');
 
 	                var path = svg.selectAll('path')
