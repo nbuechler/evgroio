@@ -63,7 +63,7 @@ angular.module('logs').directive('donutChartViz', [
 	                var path = svg.selectAll('path')
 	                    .data(pie(dataset.content))
 	                  .enter().append('path')
-										  .attr('class', function(d, i) { return 'shape' + i })
+										  .attr('class', function(d, i) { return 'shape' + i; })
 	                    .attr('stroke' , 'white')
 	                    .attr('stroke-width' , '3px')
 	                    .attr('d', arc)
