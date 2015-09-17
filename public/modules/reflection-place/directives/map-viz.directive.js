@@ -14,7 +14,19 @@ angular.module('reflection-place').directive('mapViz', [ 'Activities',
         //Inspired by http://bl.ocks.org/mbostock/3750558
         activities.$promise.then(function(response) {
 
-          console.log(response);
+          console.log(response[2]);
+
+          var logroObject = {
+            'root': 'logroObject',
+            'name': 'your logro',
+            'children':
+          }
+
+          for (var i = 0; i < response.length; i++) {
+            response
+          }
+
+          // console.log(response);
             var graph = {
               'nodes': response,
               'links': [
