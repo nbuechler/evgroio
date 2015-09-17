@@ -1,7 +1,7 @@
 {
 	"name": "evgroio",
 	"description": "Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js - introspective learning tool for educational use - including data visualizations - addressing problems with human attention and self-acutualization",
-	"version": "0.1.23",
+	"version": "0.1.24",
 	"author": "Nathaniel Buechler",
 	"engines": {
 		"node": "0.10.x",
