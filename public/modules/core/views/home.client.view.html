@@ -1,35 +1,72 @@
 <section data-ng-controller="HomeController">
-	<div class="jumbotron text-center">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
+	<div class="jumbotron text-center" style="margin-top: 50px; background: #111111">
+		<div class="row" style="text-align: right;">
+			<div style="margin-left: 10px;">
+				<ul id="scene"
+				data-calibrate-x="false"
+			  data-calibrate-y="true"
+			  data-invert-x="false"
+			  data-invert-y="true"
+			  data-limit-x="2000"
+			  data-limit-y="10"
+			  data-scalar-x="30"
+			  data-scalar-y="8"
+			  data-friction-x="0.2"
+			  data-friction-y="0.8"
+			  data-origin-x="0.0"
+			  data-origin-y="1.0">
+				  <li class="layer" data-depth="0.00">
+						<div></div>
+					</li>
+				  <li class="layer physicContent" data-depth="0.20">
+						<div></div>
+					</li>
+				  <li class="layer emotionContent" data-depth="0.40">
+						<div></div>
+					</li>
+				  <li class="layer academicContent" data-depth="0.60">
+						<div></div>
+					</li>
+				  <li class="layer communeContent" data-depth="0.80">
+						<div></div>
+					</li>
+				  <li class="layer etherContent" data-depth="1.00">
+						<div></div>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-6 col-md-offset-6 col-sm-6 col-sm-offset-6 col-xs-12" style="margin-top: 50px;">
                 <h1>evgroio</h1>
 			</div>
 		</div>
 		<br>
 		<div class="row">
-			<p class="lead" style="margin:30px;">
-				A fun way to track the things you do, learn, and grow. Maybe not forever, but for as long as you want!
+			<p class="lead" style="margin:30px; text-align: right;">
+				An introspective learning tool for educational use!
 			</p>
+			<h5 style="margin:30px; text-align: left; max-width: 400px;">
+				Do you ever consider writing your ideas down in a journal?<br>
+				Would you like to get feedback based on those ideas?<br>
+				Look no further!
+				<hr>
+				Here, you can write down your thoughts, to see how they all relate to each other.
+				<hr>
+				You get special access to this prototype, a sneak peak of the final version!
+			</h5>
 		</div>
 		<div class="row">
 			<p>
-				<a class="btn btn-success btn-lg" href="#!/overview" data-ng-show="authentication.user">Welcome back, {{authentication.user.displayName}}!</a>
-				<a class="btn btn-success btn-lg" href="#!/signin" data-ng-hide="authentication.user">Start your growth!</a>
+				<a class="pull-right btn btn-success btn-md" style="margin-right: 10px;" href="#!/overview" data-ng-show="authentication.user">Welcome back, {{authentication.user.displayName}}!</a>
+				<a class="pull-right btn btn-success btn-md" style="margin-right: 10px;" href="#!/signin" data-ng-hide="authentication.user">Start your growth!</a>
 			</p>
 		</div>
 	</div>
     <br>
-    <div class="row" style="text-align: center;">
-        <div class="col-md-12 col-lg-3 well" style="padding: 20px;">
-            <a ng-href="#!/privacy">Privacy Policy</a>
-        </div>
-        <div class="col-md-12 col-lg-6 well" style="padding: 20px;">
-            This is a work in progress...
-            <a ng-href="http://www.nathanielbuechler.com">I'll put more here eventually.</a>
-        </div>
-        <div class="col-md-12 col-lg-3 well" style="padding: 20px;">
-            <a href="mailto:natebuechler@gmail.com?Subject=Here's some feedback" target="_top">Send me a message!</a>
-
-        </div>
+    <div class="footer well" style="text-align: center;">
+            <a class="pull-left" ng-href="#!/privacy">Privacy Policy</a>
+            <a class="pull-right" href="mailto:natebuechler@gmail.com?Subject=Here's some feedback" target="_top">Send me a message!</a>
     </div>
+
+
+
 </section>
