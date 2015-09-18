@@ -1,10 +1,7 @@
 <section data-ng-controller="HomeController">
 	<div class="jumbotron text-center" style="margin-top: 50px; background: #111111">
 		<div class="row" style="text-align: right;">
-			<div class="col-md-6 col-md-offset-6 col-sm-6 col-sm-offset-6 col-xs-12">
-                <h1>evgroio</h1>
-			</div>
-			<div>
+			<div style="margin-left: 10px;">
 				<ul id="scene"
 				data-calibrate-x="false"
 			  data-calibrate-y="true"
@@ -12,8 +9,8 @@
 			  data-invert-y="true"
 			  data-limit-x="2000"
 			  data-limit-y="10"
-			  data-scalar-x="50"
-			  data-scalar-y="50"
+			  data-scalar-x="30"
+			  data-scalar-y="8"
 			  data-friction-x="0.2"
 			  data-friction-y="0.8"
 			  data-origin-x="0.0"
@@ -38,17 +35,29 @@
 					</li>
 				</ul>
 			</div>
+			<div class="col-md-6 col-md-offset-6 col-sm-6 col-sm-offset-6 col-xs-12" style="margin-top: 50px;">
+                <h1>evgroio</h1>
+			</div>
 		</div>
 		<br>
 		<div class="row">
 			<p class="lead" style="margin:30px; text-align: right;">
 				An introspective learning tool for educational use!
 			</p>
+			<h5 style="margin:30px; text-align: left; max-width: 400px;">
+				Do you ever consider writing your ideas down in a journal?<br>
+				Would you like to get feedback based on those ideas?<br>
+				Look no further!
+				<hr>
+				Here, you can write down your thoughts, to see how they all relate to each other.
+				<hr>
+				You get special access to this prototype, a sneak peak of the final version!
+			</h5>
 		</div>
 		<div class="row">
 			<p>
-				<a class="pull-right btn btn-success btn-md" href="#!/overview" data-ng-show="authentication.user">Welcome back, {{authentication.user.displayName}}!</a>
-				<a class="pull-right btn btn-success btn-md" href="#!/signin" data-ng-hide="authentication.user">Start your growth!</a>
+				<a class="pull-right btn btn-success btn-md" style="margin-right: 10px;" href="#!/overview" data-ng-show="authentication.user">Welcome back, {{authentication.user.displayName}}!</a>
+				<a class="pull-right btn btn-success btn-md" style="margin-right: 10px;" href="#!/signin" data-ng-hide="authentication.user">Start your growth!</a>
 			</p>
 		</div>
 	</div>
