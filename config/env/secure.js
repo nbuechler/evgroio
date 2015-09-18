@@ -11,6 +11,7 @@ module.exports = {
 					'public/lib/fontawesome/css/font-awesome.css'
 				],
 				js: [
+					'public/lib/parallax/deploy/parallax.js',
 					'public/lib/d3/d3.js',
 					'public/lib/angular/angular.js',
 					'public/lib/angular-aria/angular-aria.js',
