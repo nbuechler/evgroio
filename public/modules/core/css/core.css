@@ -27,7 +27,7 @@ span {
 
 
 
-.physicContent {
+.physicContentHome {
     border: #EB493A 3px solid;
     border-right: #EB493A 25px solid;
     background: #2B2323;
@@ -37,7 +37,7 @@ span {
 		height: 30px;
 }
 
-.emotionContent {
+.emotionContentHome {
     border: #5078A9 3px solid;
     border-right: #5078A9 25px solid;
     background: #242628;
@@ -47,7 +47,7 @@ span {
 		height: 30px;
 }
 
-.academicContent {
+.academicContentHome {
     border: #8B2E74 3px solid;
     border-right: #8B2E74 25px solid;
     background: #272225;
@@ -57,7 +57,7 @@ span {
 		height: 30px;
 }
 
-.communeContent {
+.communeContentHome {
     border: #4E981F 3px solid;
     border-right: #4E981F 25px solid;
     background: #242721;
@@ -67,7 +67,7 @@ span {
 		height: 30px;
 }
 
-.etherContent {
+.etherContentHome {
     border: #D69C30 3px solid;
     border-right: #D69C30 25px solid;
     background: #2A2722;
