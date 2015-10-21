@@ -207,7 +207,7 @@ angular.module('experiences').controller('ExperiencesController',
 		};
 
 		d3.selectAll('select')
-			.style('background', '#EBEB92')
+			.style('background', '#FEFEFE')
 			.style('padding', '10px');
 
 
