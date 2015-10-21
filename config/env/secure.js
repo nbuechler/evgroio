@@ -7,7 +7,7 @@ module.exports = {
 		lib: {
 				css: [
 					'public/lib/angular-material/angular-material.css',
-					'public/customLib/bootstrapThemed/narkly/bootstrap.css',
+					'public/customLib/bootstrapThemed/narkly-v2/bootstrap.css',
 					'public/lib/fontawesome/css/font-awesome.css'
 				],
 				js: [
