@@ -32,6 +32,22 @@ exports.create = function(req, res) {
 	log.communeArrayLength = log.communeArray.length;
 	log.etherArrayLength = log.etherArray.length;
 
+	if(log.physicArray.length == 1 && log.physicArray[0].length == 0){
+		log.physicArrayLength = 0;
+	}
+	if(log.emotionArray.length == 1 && log.emotionArray[0].length == 0){
+		log.emotionArrayLength = 0;
+	}
+	if(log.academicArray.length == 1 && log.academicArray[0].length == 0){
+		log.academicArrayLength = 0;
+	}
+	if(log.communeArray.length == 1 && log.communeArray[0].length == 0){
+		log.communeArrayLength = 0;
+	}
+	if(log.etherArray.length == 1 && log.etherArray[0].length == 0){
+		log.etherArrayLength = 0;
+	}
+
 	log.save(function(err) {
 		if (err) {
 			return res.status(400).send({
@@ -69,6 +85,22 @@ exports.update = function(req, res) {
 	log.academicArrayLength = log.academicArray.length;
 	log.communeArrayLength = log.communeArray.length;
 	log.etherArrayLength = log.etherArray.length;
+
+	if(log.physicArray.length == 1 && log.physicArray[0].length == 0){
+		log.physicArrayLength = 0;
+	}
+	if(log.emotionArray.length == 1 && log.emotionArray[0].length == 0){
+		log.emotionArrayLength = 0;
+	}
+	if(log.academicArray.length == 1 && log.academicArray[0].length == 0){
+		log.academicArrayLength = 0;
+	}
+	if(log.communeArray.length == 1 && log.communeArray[0].length == 0){
+		log.communeArrayLength = 0;
+	}
+	if(log.etherArray.length == 1 && log.etherArray[0].length == 0){
+		log.etherArrayLength = 0;
+	}
 
 	log.save(function(err) {
 		if (err) {
