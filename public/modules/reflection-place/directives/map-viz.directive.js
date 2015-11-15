@@ -1,4 +1,4 @@
-// 'use strict';
+// jshint ignore: start
 
 angular.module('reflection-place').directive('mapViz', [ 'Activities', 'Experiences',
 	function(Activities, Experiences) {
